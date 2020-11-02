@@ -1,1 +1,0 @@
-Delete this file after first image is placed into this directory. This is a holder so the img folder can be pushed to github.

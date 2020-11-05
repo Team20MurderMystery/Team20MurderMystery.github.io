@@ -1,3 +1,6 @@
+//var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]
+var inventory = ["teacup", "cakesmudge"]
+
 function brush(object) {
     window.alert("You have collected fingerprints from the " + object)
 
@@ -23,27 +26,62 @@ function labroom() {
 }
 
 function fps() {
-  document.getElementById('display').setAttribute("src", "imgs/lab_imgs/fps.jpeg")
+  document.getElementById('display').setAttribute("src", "imgs/lab_imgs/fps.jpg")
+  document.getElementById('runSim').setAttribute("value", "Run Fingerprint Scanner")
+  document.getElementById('closeSim').setAttribute("value", "Close Fingerprint Scanner")
   var myDiv = document.getElementById("simulator");
   myDiv.style.display = "block";
-  //var button = document.createElement('BUTTON');
-  var text = document.createTextNode("Scan Prints");
-  var image = ""
-  //button.appendChild(text);
-  //myDiv.appendChild(button);
 
   var object = "teacup"
 }
 
 function tlc() {
   document.getElementById('display').setAttribute("src", "imgs/lab_imgs/tlc.jpg")
+  document.getElementById('runSim').setAttribute("value", "Run TLC")
+  document.getElementById('closeSim').setAttribute("value", "Close TLC")
   var myDiv = document.getElementById("simulator");
   myDiv.style.display = "block";
-  //var button = document.createElement('BUTTON');
-  var text = document.createTextNode("Isolate Mixture");
-  var image = ""
-  //button.appendChild(text);
-  //myDiv.appendChild(button);
 
   var object = "teacup"
 }
+
+function analyze() {
+  var sim = document.getElementById('runSim').getAttribute("value")
+  var list = document.getElementById('list')
+  list.value = "none";
+  var option = ""
+  var object = "teacup"
+
+  /*
+  if (list.value === "none") {
+    sim.disabled = true;
+    analyze();
+  } else {
+    sim.disabled = false;
+    analyze();
+  }
+  */
+
+  if (sim === "Run TLC")
+    object = "cakesmudge";
+
+  if (sim === "Run Fingerprint Scanner" || sim === "Run TLC")
+    document.getElementById('display').setAttribute("src", "imgs/lab_imgs/" + object + ".jpg")
+
+  /*
+  for (i = 0; i < inventory.length(); i++)  {
+      option = document.createElement("option");
+      option.text = inventory[i];
+      list.add(option);
+  }
+  */
+}
+
+/*
+function findObject(object) {
+  for (i in inventory.length()) {
+    if object === inventory[i]
+      return object;
+  }
+}
+*/

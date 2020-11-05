@@ -16,7 +16,7 @@
             </div>
         </div>
         <div id = "lab" style="display:none; position:absolute; top: 0px; left :0px; z-index:1">
-          <img src="imgs/lab_imgs/labroom.jpeg" id="room" />
+          <img src="imgs/lab_imgs/labroom.jpg" id="room" />
           <div id="sims">
             <input type="button" onclick="labroom()" value="Go back to the mansion">
             <input type="button" onclick="fps()" value="Fingerprint Scanner">
@@ -25,12 +25,19 @@
             <input type="button" onclick="blast()" value="BLAST Sequencer">
           </div>
           <div id="simulator" style="display:none; z-index:1">
+            <label for="list">Select the evidence to analyze:</label>
+            <select name="list" id="list">
+                <option value="none">none</option>
+                <option value="teacup">Teacup</option>
+                <option value="cakesmudge">Cake Smudge</option>
+            </select>
             <img src="imgs/lab_imgs/teacup.jpg" id="display"/>
             <div id="sims">
-              <input type="button" onclick="analyze()" value="run sim">
-              <input type="button" onclick="labroom()" value="close sim">
+              <input type="button" id="runSim" onclick="analyze()" value="run sim">
+              <input type="button" id="closeSim" onclick="labroom()" value="close sim">
             </div>
           </div>
+
         </div>
 
     <!--<div id="img1" style="position:absolute; top:490px; left:110px; z-index:2">

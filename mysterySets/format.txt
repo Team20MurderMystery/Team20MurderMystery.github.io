@@ -9,5 +9,5 @@ FOR EACH OBJECT
     Object Image Size
     X-Position
     Y-Position
-    [Interactables within the Object]
+    [Clues within Object]
         (example: text description, fingerprint button, etc)

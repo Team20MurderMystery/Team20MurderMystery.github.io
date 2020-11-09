@@ -11,7 +11,7 @@ function description(object) {
 }
 
 function labroom() {
-  var x = document.getElementById("img3");
+  var x = document.getElementById("mansion");
   var y = document.getElementById("lab");
   var z = document.getElementById("simulator");
   if (y.style.display === "none") {
@@ -50,7 +50,7 @@ function analyze() {
   var list = document.getElementById('list')
   list.value = "none";
   var option = ""
-  var object = "teacup"
+  var object = "Teacup"
 
   /*
   if (list.value === "none") {
@@ -63,10 +63,10 @@ function analyze() {
   */
 
   if (sim === "Run TLC")
-    object = "cakesmudge";
+    object = "Plate";
 
   if (sim === "Run Fingerprint Scanner" || sim === "Run TLC")
-    document.getElementById('display').setAttribute("src", "imgs/lab_imgs/" + object + ".jpg")
+    document.getElementById('display').setAttribute("src", "imgs/1_ProfessorLogan_imgs/" + object + ".png")
 
   /*
   for (i = 0; i < inventory.length(); i++)  {

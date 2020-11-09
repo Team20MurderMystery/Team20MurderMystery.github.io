@@ -9,10 +9,34 @@
     </head>
 
     <body>
-        <div id="img3" style="display:block; position:absolute; top: 0px; left :0px; z-index:1">
+        <div id="mansion" style="display:block; position:absolute; top: 0px; left :0px; z-index:1">
             <img src="imgs/1_ProfessorLogan_imgs/murder-mystery-game_orig.jpg" id="img2" />
             <div id="traversal">
               <input type="button" onclick="labroom()" value="Go to the Lab">
+            </div>
+
+            <div id = "img_book_div">
+                <img src="imgs/1_ProfessorLogan_imgs/Book.png" class="img_book" />
+                <span class ="brush"> <button class = "button" onclick="brush('book')">Brush</button></span>
+                <span class ="description"> <button class = "button" onclick="description('book')">Description</button></span>
+            </div>
+
+            <div id = "img_pipe_div">
+                <img src="imgs/1_ProfessorLogan_imgs/Pipe.png" class="img_pipe" />
+                <span class ="brush"> <button class = "button" onclick="brush('pipe')">Brush</button></span>
+                <span class ="description"> <button class = "button" onclick="description('pipe')">Description</button></span>
+            </div>
+
+            <div id = "img_plate_div">
+                <img src="imgs/1_ProfessorLogan_imgs/Plate.png" class="img_plate" />
+                <span class ="brush"> <button class = "button" onclick="brush('plate')">Brush</button></span>
+                <span class ="description"> <button class = "button" onclick="description('plate')">Description</button></span>
+            </div>
+
+            <div id = "img_teacup_div">
+                <img src="imgs/1_ProfessorLogan_imgs/Teacup.png" class="img_teacup" />
+                <span class ="brush"> <button class = "button" onclick="brush('teacup')">Brush</button></span>
+                <span class ="description"> <button class = "button" onclick="description('teacup')">Description</button></span>
             </div>
         </div>
         <div id = "lab" style="display:none; position:absolute; top: 0px; left :0px; z-index:1">
@@ -28,45 +52,20 @@
             <label for="list">Select the evidence to analyze:</label>
             <select name="list" id="list">
                 <option value="none">none</option>
-                <option value="teacup">Teacup</option>
-                <option value="cakesmudge">Cake Smudge</option>
+                <option value="Teacup">Teacup</option>
+                <option value="Plate">Plate</option>
             </select>
-            <img src="imgs/lab_imgs/teacup.jpg" id="display"/>
             <div id="sims">
               <input type="button" id="runSim" onclick="analyze()" value="run sim">
               <input type="button" id="closeSim" onclick="labroom()" value="close sim">
             </div>
+            <img src="imgs/lab_imgs/teacup.jpg" id="display"/>
           </div>
-
         </div>
 
     <!--<div id="img1" style="position:absolute; top:490px; left:110px; z-index:2">
         <img src="book.png" id="img1" class="highlight" />
     </div> -->
-
-        <div id = "img_book_div">
-            <img src="imgs/1_ProfessorLogan_imgs/Book.png" class="img_book" />
-            <span class ="brush"> <button class = "button" onclick="brush('book')">Brush</button></span>
-            <span class ="description"> <button class = "button" onclick="description('book')">Description</button></span>
-        </div>
-        
-        <div id = "img_pipe_div">
-            <img src="imgs/1_ProfessorLogan_imgs/Pipe.png" class="img_pipe" />
-            <span class ="brush"> <button class = "button" onclick="brush('pipe')">Brush</button></span>
-            <span class ="description"> <button class = "button" onclick="description('pipe')">Description</button></span>
-        </div>
-        
-        <div id = "img_plate_div">
-            <img src="imgs/1_ProfessorLogan_imgs/Plate.png" class="img_plate" />
-            <span class ="brush"> <button class = "button" onclick="brush('plate')">Brush</button></span>
-            <span class ="description"> <button class = "button" onclick="description('plate')">Description</button></span>
-        </div>
-        
-        <div id = "img_teacup_div">
-            <img src="imgs/1_ProfessorLogan_imgs/Teacup.png" class="img_teacup" />
-            <span class ="brush"> <button class = "button" onclick="brush('teacup')">Brush</button></span>
-            <span class ="description"> <button class = "button" onclick="description('teacup')">Description</button></span>
-        </div>
 
     </body>
 

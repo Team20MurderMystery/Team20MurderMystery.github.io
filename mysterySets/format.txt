@@ -1,13 +1,11 @@
 FOR EACH ROOM:
-    Room Name
     Room Image
     [Objects found in room]
 
 FOR EACH OBJECT
     Object Name
     Object Image
-    Object Image Size
-    X-Position
-    Y-Position
-    [Clues within Object]
-        (example: text description, fingerprint button, etc)
+    Position From Top
+    Position From Left
+    [[Clues within Object]]
+        EX: clues === [[clue1name,clue1data], [clue2name,clue2data], ...]

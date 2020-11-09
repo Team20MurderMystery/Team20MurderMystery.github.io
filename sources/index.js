@@ -85,6 +85,8 @@ function analyze() {
   if (sim === "Run Fingerprint Scanner" || sim === "Run TLC")
     document.getElementById('display').setAttribute("src", "imgs/1_ProfessorLogan_imgs/" + object + ".png")
 
+
+
   /*
   for (i = 0; i < inventory.length(); i++)  {
       option = document.createElement("option");
@@ -102,3 +104,12 @@ function findObject(object) {
   }
 }
 */
+
+function dna() {
+  document.getElementById('display').setAttribute("src", "imgs/lab_imgs/dna.jpg")
+  document.getElementById('runSim').setAttribute("value", "Run DNA")
+  document.getElementById('closeSim').setAttribute("value", "Close DNA")
+  var myDiv = document.getElementById("simulator");
+  myDiv.style.display = "block";
+
+}

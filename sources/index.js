@@ -10,6 +10,14 @@ function description(object) {
 
 }
 
+function disableObject(object){
+  document.getElementById(object).style.display = "none";
+}
+
+function enableObject(object){
+  document.getElementById(object).style.display = "block";
+}
+
 function labroom() {
   var x = document.getElementById("img3");
   var y = document.getElementById("lab");
@@ -17,11 +25,20 @@ function labroom() {
   if (y.style.display === "none") {
     x.style.display = "none";
     y.style.display = "block";
+    disableObject("img_book_div");
+    disableObject("img_plate_div");
+    disableObject("img_pipe_div");
+    disableObject("img_teacup_div");
+
   } else if (z.style.display === "block"){
     z.style.display = "none";
   } else {
     x.style.display = "block";
     y.style.display = "none";
+    enableObject("img_book_div");
+    enableObject("img_plate_div");
+    enableObject("img_pipe_div");
+    enableObject("img_teacup_div");
   }
 }
 

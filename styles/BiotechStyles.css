@@ -1,0 +1,42 @@
+#img_book_div{
+    position:absolute;
+    top:490px;
+    left:110px;
+    z-index:2;
+}
+
+.highlight:hover {
+    transform: scale(1.5);
+}
+
+#img_book_div:hover .img_book{
+    transform:scale(1.5);
+    opacity: 1;
+}
+
+#img_book_div:not(:hover) .img_book{
+    opacity: 0;
+}
+
+#img_book_div .brush {
+    display:none;
+    position:absolute;
+    top:190px;
+    left:30px;
+}
+
+#img_book_div .description {
+    display:none;
+    position:absolute;
+    top:190px;
+    left:100px;
+}
+
+#img_book_div:hover span {
+    display:table-cell;
+}
+
+#img_book_div span .button{
+    width:75px;
+    height:25px;
+}

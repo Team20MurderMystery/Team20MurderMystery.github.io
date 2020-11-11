@@ -1,9 +1,16 @@
-var FPSdata = [["FPS","BioTech Sim"]];
-var FPS = new GameObject("FPS", "imgs/Lab/fps.jpg", 50, 55, FPSdata);
+var tutorial = [ "To use the Fingerprint Scanner, insert evidence with detected fingerprints and press Scan to identify prints.",
+                 "To use the Thin Layer Chromatographer, insert mixture evidence to seperate and identify elements.",
+                 "To use the DNA Fingerprint Scanner, insert DNA Sample to seperate sample into DNA Fragments, and match the fingerprint given with the list of suspects."]
+
+var FPSdata = [["FPS","TextAboutFPS"],["Use Fingerprint Scanner", tutorial[0]] ];
+var FPS = new FingerprintScanner("FPS", "imgs/Lab/fps.jpg", 40, 75, FPSdata);
+
+var TLCdata = [["TCL", "TextAboutTCL"], ["Use Fingerprint Scanner", tutorial[1]]];
+var TLC = new ThinLayerChromatographer("TLC", "imgs/Lab/tlc.jpg", 70, 65, TLCdata);
 
 var photoClues = [["War Buddies", "TextAboutBeinBuddies"]];
 var Photo = new GameObject("Photo", "imgs/1_ProfessorLogan/items/Warbuddies.svg", 50, 50, photoClues);
-                 
+
 var bookClues = [["Flag of Kenya", "TextAboutKenya"],
                  ["Flag of Rhodesia", "TextAboutRhodesia"]];
 var Book = new GameObject("Book", "imgs/1_ProfessorLogan/items/Book.svg", 80, 18, bookClues);
@@ -21,6 +28,7 @@ var roomList = [["Lab.jpg",[]],
 
 document.addEventListener("DOMContentLoaded", () => {
     roomList[0][1].push(FPS);
+    roomList[0][1].push(TLC);
     roomList[1][1].push(Book);
     roomList[2][1].push(Photo);
     roomList[3][1].push(KenyaAjiri);

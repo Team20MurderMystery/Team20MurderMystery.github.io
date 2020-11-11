@@ -1,5 +1,5 @@
 class GameObject {
-    /** 
+    /**
      * name === string
      * imageSource === string
      * distFromTop === int
@@ -30,24 +30,24 @@ class GameObject {
         newObjectElement.classList.add("object");
         newObjectElement.style.top = this.distFromTop + "%";
         newObjectElement.style.left = this.distFromLeft + "%";
-        
+
         // Create the new Game Object's image element
         var newObjectImage = document.createElement("img");
         newObjectImage.src = this.imageSource;
         newObjectImage.classList.add("objectImage");
-        
+
         // Create the new Game Object's inspect button
         var newInspectButton = document.createElement("button");
         newInspectButton.innerText = "Inspect";
         newInspectButton.classList.add("inspectButton");
         newInspectButton.setAttribute("onClick", "javascript: inspect(" + this.name + ");");
-        
+
         var theScreen = document.getElementById("gameScreen");
         newObjectElement.appendChild(newObjectImage); // put the image in the Game Object container
         newObjectElement.appendChild(newInspectButton); // put the button in the Game Object container
         theScreen.appendChild(newObjectElement); // put the Game Object container on the Game Screen
     }
-    
+
     inspect() { // generates a button for each clue associated with the Game Object
         var theScreen = document.getElementById("gameScreen");
         var topOffset = 5; // used to position the clue buttons near the GameObject
@@ -59,7 +59,7 @@ class GameObject {
             clueButton.classList.add("clueButton");
             clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
             clueButton.style.left = this.distFromLeft + leftOffset + "%";
-            
+
             theScreen.appendChild(clueButton); // place the clue button near the GameObject
         }
     }

@@ -93,45 +93,13 @@ class ThinLayerChromatographer extends GameObject {
       var newStartButton = document.createElement("button");
       newStartButton.innerText = "Start Thin Layer Chromatographer";
       newStartButton.classList.add("startButton");
-      newStartButton.setAttribute("onClick", "javascript: start(" + this.name + ");");
+      newStartButton.setAttribute("onClick", "startTLC()");
 
       var theScreen = document.getElementById("gameScreen");
       newObjectElement.appendChild(newObjectImage); // put the image in the Game Object container
       newObjectElement.appendChild(newStartButton); // put the button in the BioTech Object container
       //newObjectElement.appendChild(newInspectButton); // put the button in the Game Object container
       theScreen.appendChild(newObjectElement); // put the Game Object container on the Game Screen
-  }
-
-
-  start() {
-    var newObjectElement = document.createElement("div")
-    newObjectElement.id = this.name;
-    newObjectElement.classList.add("object");
-    newObjectElement.style.top = this.distFromTop + "%";
-    newObjectElement.style.left = this.distFromLeft + "%";
-
-    //var tlcScreen = document.createElement("table");
-
-    var tclelement = row
-
-
-    var theScreen = document.getElementById("gameScreen");
-    theScreen.appendChild(newObjectElement); // put the Game Object container on the Game Screen
-    /*
-    var theScreen = document.getElementById("gameScreen");
-    var topOffset = 5; // used to position the clue buttons near the GameObject
-    var leftOffset = 11;
-
-    for (var i = 0; i < this.clues.length; i++) { // for each clue
-        var clueButton = document.createElement("button"); // create a new clue button
-        clueButton.innerText = "" + this.clues[i][0];
-        clueButton.classList.add("clueButton");
-        clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
-        clueButton.style.left = this.distFromLeft + leftOffset + "%";
-
-        theScreen.appendChild(clueButton); // place the clue button near the GameObject
-    }
-    */
   }
 }
 
@@ -143,4 +111,50 @@ class DNAFingerprintScanner extends GameObject {
 class BLASTer extends GameObject {
 
 }
+*/
+
+
+/*
+<tr>
+  <th>Col 1</th>
+  <th>Col 2</th>
+  <th>Col 3</th>
+  <th>Col 4</th>
+</tr>
+<tr id="space">
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+</tr>
+<tr id="row1">
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+</tr>
+<tr id="row2">
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+</tr>
+<tr id="row3">
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+</tr>
+<tr id="row4">
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+  <th><img src="imgs/Lab/tlcempty.png"></th>
+</tr>
+<tr>
+  <th>Col 1</th>
+  <th>Col 2</th>
+  <th>Col 3</th>
+  <th>Col 4</th>
+</tr>
 */

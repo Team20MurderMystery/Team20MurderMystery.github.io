@@ -18,6 +18,9 @@
         <script type="text/javascript"
                 src="sources/GameLoop.js">
         </script>
+        <script type="text/javascript"
+                src="sources/ThinLayerChromatographor.js">
+        </script>
         <link rel="stylesheet" type="text/css" href="styles/index.css">
         <link rel="stylesheet" type="text/css" href="styles/ObjectStyles.css">
         <link rel="stylesheet" type="text/css" href="styles/ButtonStyles.css">
@@ -43,54 +46,13 @@
             <div id="rightSide" class="pageSection sideSection">
                 <section class="navButtons">
                     <button id="labButton" onclick="traverse(1)">Go To Lab</button>
+                    <button id="labButton" onclick="startTLC()">startTCL</button>
                 </section> <!-- End Right NavButtons-->
             </div> <!-- End Right Side -->
         </div> <!-- End Page -->
 
-        <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
-          <tr>
-            <th>Col 1</th>
-            <th>Col 2</th>
-            <th>Col 3</th>
-            <th>Col 4</th>
-          </tr>
-          <tr id="space">
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-          </tr>
-          <tr id="row1">
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-          </tr>
-          <tr id="row2">
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-          </tr>
-          <tr id="row3">
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-          </tr>
-          <tr id="row4">
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-            <th><img src="imgs/Lab/tlcempty.png"></th>
-          </tr>
-          <tr>
-            <th>Col 1</th>
-            <th>Col 2</th>
-            <th>Col 3</th>
-            <th>Col 4</th>
-          </tr>
-        </table>
+        <div id="pageend" style="display:none">
+        </div>
 
     </body>
 

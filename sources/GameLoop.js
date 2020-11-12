@@ -5,8 +5,11 @@ var tutorial = [ "To use the Fingerprint Scanner, insert evidence with detected 
 var FPSdata = [["FPS","TextAboutFPS"],["Use Fingerprint Scanner", tutorial[0]] ];
 var FPS = new FingerprintScanner("FPS", "imgs/Lab/fps.jpg", 40, 75, FPSdata);
 
-var TLCdata = [["TCL", "TextAboutTCL"], ["Use Fingerprint Scanner", tutorial[1]]];
+var TLCdata = [["TCL", "TextAboutTCL"], ["Use Thin Layer Chromatographor", tutorial[1]]];
 var TLC = new ThinLayerChromatographer("TLC", "imgs/Lab/tlc.jpg", 70, 65, TLCdata);
+
+var DNAdata = [["DNA", "TextAboutDNA"], ["Use DNA Fingerprint Scanner", tutorial[2]]];
+var DNA = new DNAFingerprintScanner("DNA", "imgs/Lab/dna.jpg", 65, 30, TLCdata);
 
 var photoClues = [["War Buddies", "TextAboutBeinBuddies"]];
 var Photo = new GameObject("Photo", "imgs/1_ProfessorLogan/items/Warbuddies.svg", 50, 50, photoClues);
@@ -29,6 +32,7 @@ var roomList = [["Lab.jpg",[]],
 document.addEventListener("DOMContentLoaded", () => {
     roomList[0][1].push(FPS);
     roomList[0][1].push(TLC);
+    roomList[0][1].push(DNA);
     roomList[1][1].push(Book);
     roomList[2][1].push(Photo);
     roomList[3][1].push(KenyaAjiri);

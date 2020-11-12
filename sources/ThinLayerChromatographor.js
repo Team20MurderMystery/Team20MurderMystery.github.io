@@ -21,7 +21,7 @@ function startTLC() {
       for (var j = 0; j < 5; j++) {
         cell = document.createElement("th");
         cellImage = document.createElement("img");
-        //cellImage.id = "" + str(i) + str(j);
+        //cellImage.id = "" + i + j;
         cellImage.src = tcldirect + "tlcempty.png";
         cellImage.classList.add("objectImage");
         cell.appendChild(cellImage);
@@ -37,7 +37,6 @@ function startTLC() {
     simdisplay.style.display = "none";
   }
 }
-
 
 function runTLC() {
   var simdisplay = document.getElementById("pageend");
@@ -59,7 +58,7 @@ function runTLC() {
       } else {
         cellImage.src = tcldirect + "tlcempty.png";
       }
-      cellImage.id = "" + i + j;
+      //cellImage.id = "" + i + j;
       cellImage.classList.add("objectImage");
       cell.appendChild(cellImage);
       row.appendChild(cell);

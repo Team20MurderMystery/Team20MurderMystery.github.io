@@ -7,19 +7,22 @@ var FPSdata = [
     ["FPS", "TextAboutFPS"],
     ["Use Fingerprint Scanner", tutorial[0]]
 ];
-var FPS = new FingerprintScanner("FPS", "imgs/Lab/fps.jpg", 40, 75, FPSdata);
+//var FPS = new FingerprintScanner("FPS", "imgs/Lab/fps.jpg", 40, 75, FPSdata);
+var FPS = new GameObject("FPS", "imgs/Lab/fps.jpg", 40, 75, FPSdata);
 
 var TLCdata = [
     ["TCL", "TextAboutTCL"],
     ["Use Thin Layer Chromatographor", tutorial[1]]
 ];
-var TLC = new ThinLayerChromatographer("TLC", "imgs/Lab/tlc.jpg", 70, 65, TLCdata);
+//var TLC = new ThinLayerChromatographer("TLC", "imgs/Lab/tlc.jpg", 70, 65, TLCdata);
+var TLC = new GameObject("TLC", "imgs/Lab/tlc.jpg", 70, 65, TLCdata);
 
 var DNAdata = [
     ["DNA", "TextAboutDNA"],
     ["Use DNA Fingerprint Scanner", tutorial[2]]
 ];
-var DNA = new DNAFingerprintScanner("DNA", "imgs/Lab/dna.jpg", 65, 30, TLCdata);
+//var DNA = new DNAFingerprintScanner("DNA", "imgs/Lab/dna.jpg", 65, 30, TLCdata);
+var DNA = new GameObject("DNA", "imgs/Lab/dna.jpg", 65, 30, TLCdata);
 
 var photoClues = [
     ["War Buddies", "TextAboutBeinBuddies"]
@@ -41,7 +44,7 @@ var KenyaAjiri = new GameObject("KenyaAjiri", "imgs/1_ProfessorLogan/items/Kenya
 
 var roomList = [
     ["Lab.jpg", []],
-    ["Study_pointing.jpg", []],
+    ["Study.jpg", []],
     ["Fireplace.jpg", []],
     ["Kitchen.jpg", []]
 ];
@@ -54,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
     roomList[1][1].push(Book);
     roomList[2][1].push(Photo);
     roomList[3][1].push(KenyaAjiri);
+
+    console.log(roomList);
 
     traverse(0);
 });

@@ -8,8 +8,10 @@
     height: 100%;
 }
 
+
 /* the specific percentages for the height and width of each section
     need to be fine tined for each choice or border width */
+
 .pageSection {
     display: block;
     float: left;
@@ -24,7 +26,7 @@
 
 #gameScreen {
     width: 81%;
-    background-image: url("imgs/1_ProfessorLogan/rooms/Study.jpg");
+    background-image: url("imgs/1_ProfessorLogan/rooms/Study_pointing.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     z-index: 1;

@@ -1,9 +1,14 @@
 function inspect(theObjectToInspect) {
     var listOfGameObjects = roomList[currentRoomIndex][1];
-    var theObjectElement = document.getElementById(theObjectToInspect.name);
+    if (theObjectToInspect.name != null) {
+        var theObjectElement = document.getElementById(theObjectToInspect.name);
+    } else {
+        var theObjectElement = document.getElementById(theObjectToInspect.id);
+    }
 
+    console.log(theObjectElement);
     for (var i = 0; i < listOfGameObjects.length; i++) {
-        if (theObjectToInspect.name == listOfGameObjects[i].name) {
+        if (theObjectElement.id == listOfGameObjects[i].name) {
             listOfGameObjects[i].inspect(); // generate clue buttons
 
             // "Freeze" the zoomed in image of the object

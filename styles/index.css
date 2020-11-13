@@ -26,10 +26,18 @@
 
 #gameScreen {
     width: 81%;
-    background-image: url("imgs/1_ProfessorLogan/rooms/Study_pointing.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     z-index: 1;
+}
+
+.simulationScreen {
+    width: 85%;
+    height: 85%;
+    z-index: 3;
+    margin: 0 auto;
+    margin-top: 6%;
+    background-color: bisque;
 }
 
 .navButtons {
@@ -75,7 +83,7 @@ button {
     width: 50%;
     height: 20%;
     margin: 0 25%;
-    font-size: xx-small;
+    font-size: xx-small !important;
 }
 
 .clueButton {
@@ -83,6 +91,14 @@ button {
     height: 4%;
     position: absolute;
     z-index: 2;
+}
+
+.simulationExitButton {
+    width: 5%;
+    height: 4%;
+    margin: 0.5% 47.5%;
+    z-index: 3;
+    
 }
 
 .objectImage {

@@ -1,3 +1,89 @@
+function startSimulation() {
+    var theObjects = document.getElementsByClassName("object");
+    // Hide the current objects so they don't hover through the simulationScreen
+    for (var i = 0; i < theObjects.length; i++) {
+      theObjects.item(i).style.visibility = "hidden";
+    }
+
+    var theScreen = document.getElementById("gameScreen");
+    // Create the simulation screen on top of the gameScreen
+    var simulationScreen = document.createElement("div");
+    simulationScreen.id = "simulationScreen";
+    simulationScreen.classList.add("simulationScreen");
+    
+    // Provide a way of leaving the simulation
+    var exitButton = document.createElement("button");
+    exitButton.id = "simulationExitButton";
+    exitButton.classList.add("simulationExitButton");
+    exitButton.innerText = "Exit";
+    exitButton.setAttribute("onClick", "javascript: endSimulation();");
+
+    // Place the simulationScreen and exitButton on the gameScreen
+    theScreen.appendChild(simulationScreen);
+    theScreen.appendChild(exitButton);
+}
+
+function endSimulation() {
+    var theObjects = document.getElementsByClassName("object");
+    // Show the current objects in the room
+    for (var i = 0; i < theObjects.length; i++) {
+      theObjects.item(i).style.visibility = "visible";
+    }
+
+    // Remove the simulationScreen and exitButton
+    var theScreen = document.getElementById("gameScreen");
+    theScreen.removeChild(document.getElementById("simulationScreen"));
+    theScreen.removeChild(document.getElementById("simulationExitButton"));
+}
+
+function runSimulation(nameOfSimulationToRun) {
+    startSimulation();
+
+    if (nameOfSimulationToRun.id == "FPS") {
+        // fps(); // call the js function that does fps
+
+        // in that function, use the following line to get the screen for the simulation
+        var simulationScreen = document.getElementById("simulationScreen");
+
+        // THIS IS AN EXAMPLE --- DELETE THIS WHEN PLACING ACTUAL FPS JS FUNCTION CALL ABOVE
+        var instructions = document.createElement('p1');
+        instructions.innerText = tutorial[0];
+        simulationScreen.appendChild(instructions);
+    } else if (nameOfSimulationToRun.id == "TLC") {
+        // tlc(); // call the js function that does tlc
+
+        // in that function, use the following line to get the screen for the simulation
+        var simulationScreen = document.getElementById("simulationScreen");
+
+        // THIS IS AN EXAMPLE --- DELETE THIS WHEN PLACING ACTUAL TLC JS FUNCTION CALL ABOVE
+        var instructions = document.createElement('p1');
+        instructions.innerText = tutorial[1];
+        simulationScreen.appendChild(instructions);
+    } else if (nameOfSimulationToRun.id == "DNA") {
+        // dna(); // call the js function that does dna
+
+        // in that function, use the following line to get the screen for the simulation
+        var simulationScreen = document.getElementById("simulationScreen");
+
+        // THIS IS AN EXAMPLE --- DELETE THIS WHEN PLACING ACTUAL DNA JS FUNCTION CALL ABOVE
+        var instructions = document.createElement('p1');
+        instructions.innerText = tutorial[2];
+        simulationScreen.appendChild(instructions);
+    } else {
+        // blast(); // call the js function that does blast
+
+        // in that function, use the following line to get the screen for the simulation
+        var simulationScreen = document.getElementById("simulationScreen");
+
+        // THIS IS AN EXAMPLE --- DELETE THIS WHEN PLACING ACTUAL BLAST JS FUNCTION CALL ABOVE
+        var instructions = document.createElement('button');
+        instructions.innerText = "Blast Tutorial";
+        instructions.classList.add("labButton");
+        instructions.setAttribute("onClick", "javascript: window.open('sources/ToturialSlide.html','_blank');");
+        simulationScreen.appendChild(instructions);
+    }
+}
+
 //var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]
 var inventory = ["teacup", "cakesmudge"]
 
@@ -43,6 +129,7 @@ function labroom() {
 }
 
 function fps() {
+  console.log("hit");
   document.getElementById('display').setAttribute("src", "imgs/lab_imgs/fps.jpg")
   document.getElementById('runSim').setAttribute("value", "Run Fingerprint Scanner")
   document.getElementById('closeSim').setAttribute("value", "Close Fingerprint Scanner")

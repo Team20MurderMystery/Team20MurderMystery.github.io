@@ -6,13 +6,15 @@ class GameObject {
      * distFromLeft === int
      * clues === array of arrays
      *      EX: clues === [[clue1name,clue1data], [clue2name,clue2data], ...]
+     * isLabEquipment === bool
      */
-    constructor(name, imageSource, distFromTop, distFromLeft, clues) {
+    constructor(name, imageSource, distFromTop, distFromLeft, clues, isLabEquipment) {
         this.name = name;
         this.imageSource = imageSource;
         this.distFromTop = distFromTop;
         this.distFromLeft = distFromLeft;
         this.clues = clues;
+        this.isLabEquipment = isLabEquipment;
     }
 
     placeOnScreen() {
@@ -36,11 +38,16 @@ class GameObject {
         newObjectImage.src = this.imageSource;
         newObjectImage.classList.add("objectImage");
 
-        // Create the new Game Object's inspect button
         var newInspectButton = document.createElement("button");
-        newInspectButton.innerText = "Inspect";
-        newInspectButton.classList.add("inspectButton");
-        newInspectButton.setAttribute("onClick", "javascript: inspect(" + this.name + ");");
+        if (this.isLabEquipment) { // Create a new Game Object for lab equipment
+            newInspectButton.innerText = "Start " + this.name;
+            newInspectButton.classList.add("inspectButton");
+            newInspectButton.setAttribute("onClick", "javascript: runSimulation(" + this.name + ");");
+        } else { // Create the new Game Object's inspect button
+            newInspectButton.innerText = "Inspect";
+            newInspectButton.classList.add("inspectButton");
+            newInspectButton.setAttribute("onClick", "javascript: inspect(" + this.name + ");");
+        }
 
         var theScreen = document.getElementById("gameScreen");
         newObjectElement.appendChild(newObjectImage); // put the image in the Game Object container

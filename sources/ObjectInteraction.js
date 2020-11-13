@@ -6,7 +6,6 @@ function inspect(theObjectToInspect) {
         var theObjectElement = document.getElementById(theObjectToInspect.id);
     }
 
-    console.log(theObjectElement);
     for (var i = 0; i < listOfGameObjects.length; i++) {
         if (theObjectElement.id == listOfGameObjects[i].name) {
             listOfGameObjects[i].inspect(); // generate clue buttons

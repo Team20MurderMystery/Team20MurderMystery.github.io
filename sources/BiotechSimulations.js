@@ -98,6 +98,49 @@ function runSimulation(nameOfSimulationToRun) {
         }
 
         simulationDisplay.appendChild(table);
+
+        var legend = document.createElement("table");
+        legend.id = "legend";
+        var control = false; // false until Unkown legend is complete.
+        var unknownSample = ["Cake"];
+        var controlSample = ["Ricin", "Dar Frog Poison", "Vanilla", "Chocolate"];
+
+        // Create Legend for unknown evidence and control TLC Samples.
+        for(var i = 0; i < 4;  i++) {
+          if (i % 2 == 0) {
+            row = document.createElement("tr");
+            cell = document.createElement("th");
+            if (!control) {
+              cell.append("Unknown:");
+            } else {
+              cell.append("Control:");
+            }
+            row.appendChild(cell);
+            legend.appendChild(row);
+          } else {
+            if (!control) {
+              for (var j = 0; j < unknownSample.length; j++) {
+                row = document.createElement("tr");
+                cell = document.createElement("td");
+                cell.append( (j + 1) + ". " + unknownSample[j]);
+                row.appendChild(cell);
+                legend.appendChild(row);
+              }
+              control = true; // begin writing Control legend now.
+            } else {
+              for (var j = 0; j < controlSample.length; j++) {
+                row = document.createElement("tr");
+                cell = document.createElement("td");
+                var index = j + unknownSample.length + 1;
+                cell.append( index + ". " + controlSample[j]);
+                row.appendChild(cell);
+                legend.appendChild(row);
+              }
+            }
+          }
+        }
+
+        simulationDisplay.appendChild(legend);
     } else if (nameOfSimulationToRun.id === "DNA") {
         // dna(); // call the js function that does dna
 

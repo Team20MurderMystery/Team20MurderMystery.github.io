@@ -185,45 +185,35 @@ function runSimulation(nameOfSimulationToRun) {
 
 function runTLC() {
   var simdisplay = document.getElementById("simulationDisplay");
-  var table, row, cell, cellImage, text, newStartButton;
+  var table, cellImage;
   var tlcdirect = "imgs/Lab/";
   var rowlen = 6; // set number of rows in table
   var collen = 5; // set number of cells in each row
+  // elements identify unique elements within the unknown Evidence samples and control samples.
+  // int > 0 -> element identified.
+  var elements = [ [0, 1, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1] ];
 
-  simdisplay.removeChild(document.getElementById("table"));
+  table = document.getElementById("table");
 
-  table = document.createElement("table");
-  table.id = "table";
+  // Update Table based on elements packaging data.
+  for (var i = 1; i < rowlen - 1; i++) {
+    for (var j = 0; j < collen; j++) {
+      cellImage = document.getElementById(i + "" + j);
 
-  for (var i = 0; i < 6; i++) {
-    row = document.createElement("tr");
-    for (var j = 0; j < 5; j++) {
-      cell = document.createElement("th");
-      if ( i == 5) {
-        cell.append(j + 1);
-      } else {
-        cellImage = document.createElement("img");
-        cellImage.id = i + "" + j;
-        if ((j == 0 || i - 1 == j-1 ) && (i > 0)) {
-          cellImage.src = tlcdirect + "tlcelement" + i + ".png";
-        } else {
-          cellImage.src = tlcdirect + "tlcempty.png";
-        }
-        cellImage.classList.add("objectImage");
-        cell.appendChild(cellImage);
+      if (elements[j][i] > 0) {
+        // Update tlcwhitespace image to tlcelement + i image when detected.
+        cellImage.src = tlcdirect + "tlcelement" + i + ".png";
       }
-      row.appendChild(cell);
     }
-    table.appendChild(row);
   }
 
-  simdisplay.appendChild(table);
+  // TLC Simulation Complete
 }
 
 function runDNA() {
   var simdisplay = document.getElementById("simulationDisplay");
   // Create and Append DNA Simulation Table with runDNA button within simulationDisplay
-  var table, row, cell, cellImage, text, newStartButton;
+  var table, cellImage;
   var dnadirect = "imgs/Lab/";
   var rowlen = 14; // set number of rows in table
   var collen = 4; // set number of cells in each row
@@ -250,6 +240,7 @@ function runDNA() {
       }
     }
   }
+
   // DNA simulation Complete.
 }
 
@@ -274,48 +265,4 @@ function fps() {
   myDiv.style.display = "block";
 
   var object = "teacup"
-}
-
-function tlc() {
-  document.getElementById('display').setAttribute("src", "imgs/lab_imgs/tlc.jpg")
-  document.getElementById('runSim').setAttribute("value", "Run TLC")
-  document.getElementById('closeSim').setAttribute("value", "Close TLC")
-  var myDiv = document.getElementById("simulator");
-  myDiv.style.display = "block";
-
-  var object = "teacup"
-}
-
-function analyze() {
-  var sim = document.getElementById('runSim').getAttribute("value")
-  var list = document.getElementById('list')
-  list.value = "none";
-  var option = ""
-  var object = "Teacup"
-
-  /*
-  if (list.value === "none") {
-    sim.disabled = true;
-    analyze();
-  } else {
-    sim.disabled = false;
-    analyze();
-  }
-  */
-
-  if (sim === "Run TLC")
-    object = "Plate";
-
-  if (sim === "Run Fingerprint Scanner" || sim === "Run TLC")
-    document.getElementById('display').setAttribute("src", "imgs/1_ProfessorLogan_imgs/" + object + ".png")
-
-
-
-  /*
-  for (i = 0; i < inventory.length(); i++)  {
-      option = document.createElement("option");
-      option.text = inventory[i];
-      list.add(option);
-  }
-  */
 }

@@ -57,16 +57,18 @@ function runSimulation(nameOfSimulationToRun) {
         instructions.innerText = tutorial[1];
         simulationScreen.appendChild(instructions);
 
-        // Create and Apphend DNA Simulation Table with runDNA button within simulationDisplay
+        // Create and Apphend TLC Simulation Table with runTLC button within simulationDisplay
         var table, row, cell, cellImage, text, newStartButton, simulationDisplay;
         var tlcdirect = "imgs/Lab/";
         var rowlen = 6; // set number of rows in table
         var collen = 5; // set number of cells in each row
 
+        // Create Display for Simulation Table to append to.
         simulationDisplay = document.createElement("div");
         simulationDisplay.id = "simulationDisplay";
         simulationScreen.appendChild(simulationDisplay);
 
+        // Create Run Simulation Button.
         newStartButton = document.createElement("button");
         newStartButton.id = "TLC"
         newStartButton.innerText = "Run Simulation";
@@ -83,9 +85,9 @@ function runSimulation(nameOfSimulationToRun) {
           row = document.createElement("tr");
           for (var j = 0; j < collen; j++) {
             cell = document.createElement("th");
-            if ( i === rowlen - 1) {
-              cell.append(j + 1); // Legend for TLC Test and Control Samples.
-            } else {
+            if ( i === rowlen - 1) { // X axis for Samples Legend.
+              cell.append(j + 1); // Legend for TLC Unknown and Control Samples.
+            } else { // Table Cells for TLC backgroundImage and Elements Display
               cellImage = document.createElement("img");
               cellImage.id = i + "" + j;
               cellImage.src = tlcdirect + "tlcempty.png";
@@ -99,15 +101,16 @@ function runSimulation(nameOfSimulationToRun) {
 
         simulationDisplay.appendChild(table);
 
+        // Create Legend for unknown evidence and control TLC Samples.
         var legend = document.createElement("table");
         legend.id = "legend";
-        var control = false; // false until Unkown legend is complete.
+        var control = false; // false until Unknown legend is complete.
         var unknownSample = ["Cake"];
-        var controlSample = ["Ricin", "Dar Frog Poison", "Vanilla", "Chocolate"];
+        var controlSample = ["Ricin", "Dart Frog Poison", "Vanilla", "Chocolate"];
 
-        // Create Legend for unknown evidence and control TLC Samples.
+        // Legend Created as a Static Table for samples legend.
         for(var i = 0; i < 4;  i++) {
-          if (i % 2 == 0) {
+          if (i % 2 == 0) { // Creates Headers for Unknown and Control Samples
             row = document.createElement("tr");
             cell = document.createElement("th");
             if (!control) {
@@ -117,8 +120,8 @@ function runSimulation(nameOfSimulationToRun) {
             }
             row.appendChild(cell);
             legend.appendChild(row);
-          } else {
-            if (!control) {
+          } else { // Creates Keys for Unknown and Control Samples
+            if (!control) { // Unknown Samples Key Branch
               for (var j = 0; j < unknownSample.length; j++) {
                 row = document.createElement("tr");
                 cell = document.createElement("td");
@@ -127,7 +130,7 @@ function runSimulation(nameOfSimulationToRun) {
                 legend.appendChild(row);
               }
               control = true; // begin writing Control legend now.
-            } else {
+            } else { // Control Samples Key Branch
               for (var j = 0; j < controlSample.length; j++) {
                 row = document.createElement("tr");
                 cell = document.createElement("td");
@@ -178,7 +181,7 @@ function runSimulation(nameOfSimulationToRun) {
           row = document.createElement("tr");
           for (var j = 0; j < collen; j++) {
             cell = document.createElement("th");
-            if (i == 0) {
+            if (i == 0) { // Header Rows Created for Unknown and Subject Samples and DNA fragment index axis.
               if (j == 0) {
                 cell.append("Sample X"); // Evidence DNA Sample.
               } else if (j < collen - 1) {
@@ -187,12 +190,12 @@ function runSimulation(nameOfSimulationToRun) {
                 cell.append("100 bp ladder") // morganvalues axis.
               }
             } else {
-              if (j == collen - 1) {
+              if (j == collen - 1) { // Fragments index points along Y-axis.
                 if (i != 1) {
                   cell.append(morganvalues[morganindex]);
                   morganindex++;
                 }
-              } else {
+              } else { // Table Cells for DNA backgroundImage, sampleImage, and DNA fragments Display.
                 cellImage = document.createElement("img");
                 cellImage.id = i + "" + j;
 
@@ -244,7 +247,7 @@ function runTLC() {
       cellImage = document.getElementById(i + "" + j);
 
       if (elements[j][i] > 0) {
-        // Update tlcwhitespace image to tlcelement + i image when detected.
+        // Update tlc backgroundImage to tlcelement + i image when detected.
         cellImage.src = tlcdirect + "tlcelement" + i + ".png";
       }
     }
@@ -260,9 +263,6 @@ function runDNA() {
   var dnadirect = "imgs/Lab/";
   var rowlen = 14; // set number of rows in table
   var collen = 4; // set number of cells in each row
-  // morganvalues indicate the position at which the dna fragments can be placed within the DNA simulation table.
-  var morganvalues = [3000, 1500, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
-  var morganindex = 0;
   // Fragments indicate whether a fragment is detected at the given morganvalues position
   // int > 0 -> fragment detected.
   var fragments = [ [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0],
@@ -274,7 +274,7 @@ function runDNA() {
 
   // Update Table based on fragments packaging data.
   for (var i = 2; i < rowlen; i++) {
-    for (var j = 0; j < collen - 1; j++) {
+    for (var j = 0; j < collen - 1; j++) { //
       cellImage = document.getElementById(i + "" + j);
 
       if (fragments[j][i] > 0) {

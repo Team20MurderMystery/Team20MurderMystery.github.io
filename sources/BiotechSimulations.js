@@ -1,4 +1,4 @@
-function startSimulation() {
+  function startSimulation() {
     var theObjects = document.getElementsByClassName("object");
     // Hide the current objects so they don't hover through the simulationScreen
     for (var i = 0; i < theObjects.length; i++) {
@@ -289,15 +289,48 @@ function runDNA() {
 
 //var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]
 var inventory = ["teacup", "cakesmudge"]
-
-function brush(object) {
-    window.alert("You have collected fingerprints from the " + object)
-
+function fpsCollect(object){
+  name = object.id
+  if (!inventory.includes(name.toLowerCase(name) + "_fps")){
+    inventory.push(name.toLowerCase(name) + "_fps")
+  }
+  else{
+    //already have the item
+  }
 }
-function description(object) {
-    window.alert("Shows info for " + object)
 
+function tlcCollect(object){
+  name = object.id
+  if (!inventory.includes(name.toLowerCase(name) + "_tlc")){
+    inventory.push(name.toLowerCase(name) + "_tlc")
+  }
+  else{
+    //already have the item
+  }
 }
+
+function description(object){
+
+  // name = object.id
+  // if (!inventory.includes(name.toLowerCase(name))){
+  //   inventory.push(name.toLowerCase(name))
+  // }
+  // else{
+  //   //already have the item
+  // }
+}
+
+
+function dnaCollect(object){
+  // name = object.id
+  // if (!inventory.includes(name.toLowerCase(name))){
+  //   inventory.push(name.toLowerCase(name) + "_tlc")
+  // }
+  // else{
+  //   //already have the item
+  // }
+}
+
 
 function fps() {
   console.log("hit");

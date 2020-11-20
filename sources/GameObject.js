@@ -64,6 +64,7 @@ class GameObject {
             var clueButton = document.createElement("button"); // create a new clue button
             clueButton.innerText = "" + this.clues[i][0];
             clueButton.classList.add("clueButton");
+            clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
             clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
             clueButton.style.left = this.distFromLeft + leftOffset + "%";
 

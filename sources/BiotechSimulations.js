@@ -58,7 +58,6 @@ function runSimulation(nameOfSimulationToRun) {
 
         var mansionResidents = ["Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster"];
         var registration = [0, 0, 0, 1, 0];
-        mansionIndex = 0;
 
         // Create Display for Simulation Table to append to.
         simulationDisplay = document.createElement("div");
@@ -73,38 +72,6 @@ function runSimulation(nameOfSimulationToRun) {
         newStartButton.setAttribute("onClick", "runFPS();");
 
         simulationDisplay.appendChild(newStartButton);
-
-        table = document.createElement("table");
-        table.id = "table";
-
-        for (var i = 0; i < rowlen; i++) {
-          row = document.createElement("tr");
-          for (var j = 0; j < collen; j++) {
-            cell = document.createElement("th");
-            if (i % 2 == 0) {
-              if (registration[j] == 1) {
-                cellImage = document.createElement("img");
-                cellImage.id = i + "" + j;
-                cellSrc = fpsdirect + mansionResidents[j];
-                cellSrc += ".png";
-                cellImage.src = cellSrc;
-                cellImage.classList.add("objectImage");
-                cell.appendChild(cellImage);
-              } else {
-                cell.append("Registration needed.");
-              }
-            } else { // Table Cells for TLC backgroundImage and Elements Display
-              cell.append(mansionResidents[j]); // Evidence DNA Sample.
-            }
-            row.appendChild(cell);
-          }
-          table.appendChild(row);
-        }
-
-        row.appendChild(cell);
-        table.appendChild(row);
-
-        simulationDisplay.appendChild(table);
     } else if (nameOfSimulationToRun.id === "TLC") {
         // tlc(); // call the js function that does tlc
 
@@ -283,6 +250,46 @@ function runSimulation(nameOfSimulationToRun) {
         instructions.setAttribute("onClick", "javascript: window.open('sources/ToturialSlide.html','_blank');");
         simulationScreen.appendChild(instructions);
     }
+}
+
+function runFPS() {
+  var simdisplay = document.getElementById("simulationDisplay");
+  var table, row, cell, cellImage, cellSrc;
+  var fpsdirect = "imgs/Lab/fps/";
+  var rowlen = 2; // set number of rows in table
+  var collen = 5; // set number of cells in each row
+
+  var mansionResidents = ["Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster"];
+  var registration = [0, 0, 0, 1, 0];
+
+  table = document.createElement("table");
+  table.id = "table";
+
+  for (var i = 0; i < rowlen; i++) {
+    row = document.createElement("tr");
+    for (var j = 0; j < collen; j++) {
+      cell = document.createElement("th");
+      if (i % 2 == 0) {
+        if (registration[j] == 1) {
+          cellImage = document.createElement("img");
+          cellImage.id = i + "" + j;
+          cellSrc = fpsdirect + mansionResidents[j];
+          cellSrc += ".png";
+          cellImage.src = cellSrc;
+          cellImage.classList.add("objectImage");
+          cell.appendChild(cellImage);
+        } else {
+          cell.append("Registration needed.");
+        }
+      } else { // Table Cells for TLC backgroundImage and Elements Display
+        cell.append(mansionResidents[j]); // Evidence DNA Sample.
+      }
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+
+  simulationDisplay.appendChild(table);
 }
 
 function runTLC() {

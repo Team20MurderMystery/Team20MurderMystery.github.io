@@ -256,11 +256,18 @@ function runFPS() {
   var simdisplay = document.getElementById("simulationDisplay");
   var table, row, cell, cellImage, cellSrc;
   var fpsdirect = "imgs/Lab/fps/";
-  var rowlen = 2; // set number of rows in table
+  var rowlen = 4; // set number of rows in table
   var collen = 5; // set number of cells in each row
 
-  var mansionResidents = ["Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster"];
-  var registration = [0, 0, 0, 1, 0];
+  var mansionResidents = [
+      "Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
+      "Mrs. Peacock", "Mr. Green", "Ms. Scarlett", "Dr. L", "Mr. Wodehouse"
+  ];
+  var registration = [
+      0, 0, 0, 1, 0,
+      0, 0, 0, 0, 0
+  ];
+  var indexshift = 0;
 
   table = document.createElement("table");
   table.id = "table";
@@ -270,10 +277,10 @@ function runFPS() {
     for (var j = 0; j < collen; j++) {
       cell = document.createElement("th");
       if (i % 2 == 0) {
-        if (registration[j] == 1) {
+        if (registration[j + indexshift] == 1) {
           cellImage = document.createElement("img");
           cellImage.id = i + "" + j;
-          cellSrc = fpsdirect + mansionResidents[j];
+          cellSrc = fpsdirect + mansionResidents[j + indexshift];
           cellSrc += ".png";
           cellImage.src = cellSrc;
           cellImage.classList.add("objectImage");
@@ -282,7 +289,10 @@ function runFPS() {
           cell.append("Registration needed.");
         }
       } else { // Table Cells for TLC backgroundImage and Elements Display
-        cell.append(mansionResidents[j]); // Evidence DNA Sample.
+        cell.append(mansionResidents[j + indexshift]); // Evidence DNA Sample.
+        if (j == 4) {
+          indexshift += 5;
+        }
       }
       row.appendChild(cell);
     }
@@ -392,16 +402,4 @@ function dnaCollect(object){
   // else{
   //   //already have the item
   // }
-}
-
-
-function fps() {
-  console.log("hit");
-  document.getElementById('display').setAttribute("src", "imgs/lab_imgs/fps.jpg")
-  document.getElementById('runSim').setAttribute("value", "Run Fingerprint Scanner")
-  document.getElementById('closeSim').setAttribute("value", "Close Fingerprint Scanner")
-  var myDiv = document.getElementById("simulator");
-  myDiv.style.display = "block";
-
-  var object = "teacup"
 }

@@ -50,7 +50,7 @@ function runSimulation(nameOfSimulationToRun) {
         instructions.innerText = tutorial[0];
         simulationScreen.appendChild(instructions);
 
-        // Create and Apphend TLC Simulation Table with runTLC button within simulationDisplay
+        // Create and Apphend FPS Simulation Table with runTLC button within simulationDisplay
         var table, row, cell, cellImage, cellSrc, text, newStartButton, simulationDisplay;
         var fpsdirect = "imgs/Lab/fps/";
         var rowlen = 2; // set number of rows in table
@@ -259,10 +259,13 @@ function runFPS() {
   var rowlen = 4; // set number of rows in table
   var collen = 5; // set number of cells in each row
 
-  var mansionResidents = [
+  // Characters of the Mystery Set.
+  var characters = [
       "Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
       "Mrs. Peacock", "Mr. Green", "Ms. Scarlett", "Dr. L", "Mr. Wodehouse"
   ];
+
+  // Registration of the list of Characters.
   var registration = [
       0, 0, 0, 1, 0,
       0, 0, 0, 0, 0
@@ -272,15 +275,16 @@ function runFPS() {
   table = document.createElement("table");
   table.id = "table";
 
+  // Update Table based on registration data.
   for (var i = 0; i < rowlen; i++) {
     row = document.createElement("tr");
     for (var j = 0; j < collen; j++) {
       cell = document.createElement("th");
-      if (i % 2 == 0) {
-        if (registration[j + indexshift] == 1) {
+      if (i % 2 == 0) { // Image Cells for Characters Fingerprints
+        if (registration[j + indexshift] == 1) { // if Fingerprint is registered, display image.
           cellImage = document.createElement("img");
           cellImage.id = i + "" + j;
-          cellSrc = fpsdirect + mansionResidents[j + indexshift];
+          cellSrc = fpsdirect + characters[j + indexshift];
           cellSrc += ".png";
           cellImage.src = cellSrc;
           cellImage.classList.add("objectImage");
@@ -288,8 +292,8 @@ function runFPS() {
         } else {
           cell.append("Registration needed.");
         }
-      } else { // Table Cells for TLC backgroundImage and Elements Display
-        cell.append(mansionResidents[j + indexshift]); // Evidence DNA Sample.
+      } else { //Header Cells for Residents Names
+        cell.append(characters[j + indexshift]);
         if (j == 4) {
           indexshift += 5;
         }
@@ -300,6 +304,7 @@ function runFPS() {
   }
 
   simulationDisplay.appendChild(table);
+  // FPS Simulation Complete
 }
 
 function runTLC() {

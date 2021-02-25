@@ -53,11 +53,6 @@ function runSimulation(nameOfSimulationToRun) {
         // Create and Apphend FPS Simulation Table with runTLC button within simulationDisplay
         var table, row, cell, cellImage, cellSrc, text, newStartButton, simulationDisplay;
         var fpsdirect = "imgs/Lab/fps/";
-        var rowlen = 2; // set number of rows in table
-        var collen = 5; // set number of cells in each row
-
-        var mansionResidents = ["Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster"];
-        var registration = [0, 0, 0, 1, 0];
 
         // Create Display for Simulation Table to append to.
         simulationDisplay = document.createElement("div");
@@ -71,7 +66,23 @@ function runSimulation(nameOfSimulationToRun) {
         newStartButton.classList.add("runButton");
         newStartButton.setAttribute("onClick", "runFPS();");
 
-        simulationDisplay.appendChild(newStartButton);
+        // Create a drop down menu for the evidence registered in the Lab
+        var EvidenceDropDownMenu = document.createElement("select");
+        var selector = document.createElement("option");
+
+        // Create an option for the drop down menu.
+        selector.vaule = "Select a piece of evidence.";
+        selector.text = "Select a piece of evidence.";
+
+        EvidenceDropDownMenu.appendChild(selector);
+
+        var simPanel = document.createElement("div");
+
+        simPanel.appendChild(newStartButton);
+        simPanel.appendChild(EvidenceDropDownMenu);
+
+        // Place the drop down menu on the gameScreen
+        simulationDisplay.appendChild(simPanel);
     } else if (nameOfSimulationToRun.id === "TLC") {
         // tlc(); // call the js function that does tlc
 
@@ -98,7 +109,23 @@ function runSimulation(nameOfSimulationToRun) {
         newStartButton.classList.add("runButton");
         newStartButton.setAttribute("onClick", "runTLC();");
 
-        simulationDisplay.appendChild(newStartButton);
+        // Create a drop down menu for the evidence registered in the Lab
+        var EvidenceDropDownMenu = document.createElement("select");
+        var selector = document.createElement("option");
+
+        // Create an option for the drop down menu.
+        selector.vaule = "Select a piece of evidence.";
+        selector.text = "Select a piece of evidence.";
+
+        EvidenceDropDownMenu.appendChild(selector);
+
+        var simPanel = document.createElement("div");
+
+        simPanel.appendChild(newStartButton);
+        simPanel.appendChild(EvidenceDropDownMenu);
+
+        // Place the drop down menu on the gameScreen
+        simulationDisplay.appendChild(simPanel);
 
         table = document.createElement("table");
         table.id = "table";
@@ -194,7 +221,23 @@ function runSimulation(nameOfSimulationToRun) {
         newStartButton.classList.add("runButton");
         newStartButton.setAttribute("onClick", "runDNA();");
 
-        simulationDisplay.appendChild(newStartButton);
+        // Create a drop down menu for the evidence registered in the Lab
+        var EvidenceDropDownMenu = document.createElement("select");
+        var selector = document.createElement("option");
+
+        // Create an option for the drop down menu.
+        selector.vaule = "Select a piece of evidence.";
+        selector.text = "Select a piece of evidence.";
+
+        EvidenceDropDownMenu.appendChild(selector);
+
+        var simPanel = document.createElement("div");
+
+        simPanel.appendChild(newStartButton);
+        simPanel.appendChild(EvidenceDropDownMenu);
+
+        // Place the drop down menu on the gameScreen
+        simulationDisplay.appendChild(simPanel);
 
         table = document.createElement("table");
         table.id = "table";

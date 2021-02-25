@@ -37,6 +37,42 @@
       instructions.setAttribute("onClick", "javascript: window.open('sources/ToturialSlide.html','_blank');");
     }
     simulationScreen.appendChild(instructions);
+
+    // Create Standard Simulation Display with startButton and EvidenceDropDownMenu
+    var newStartButton, EvidenceDropDownMenu, simulationDisplay;
+
+    // All Standard Simulation Display Elements Define for every Simulation except BLAST.
+    if (nameOfSimulationToRun.id != "BLAST") {
+      // Create Display for Simulation Table to append to.
+      simulationDisplay = document.createElement("div");
+      simulationDisplay.id = "simulationDisplay";
+      simulationScreen.appendChild(simulationDisplay);
+
+      // Create Run Simulation Button.
+      newStartButton = document.createElement("button");
+      newStartButton.innerText = "Run Simulation";
+      newStartButton.id = "runButton";
+      newStartButton.classList.add("runButton");
+
+      // Create a drop down menu for the evidence registered in the Lab
+      var EvidenceDropDownMenu = document.createElement("select");
+      EvidenceDropDownMenu.id = "dropDownMenu";
+      var selector = document.createElement("option");
+
+      // Create an option for the drop down menu.
+      selector.vaule = "Select a piece of evidence.";
+      selector.text = "Select a piece of evidence.";
+
+      EvidenceDropDownMenu.appendChild(selector);
+
+      var simPanel = document.createElement("div");
+
+      simPanel.appendChild(newStartButton);
+      simPanel.appendChild(EvidenceDropDownMenu);
+
+      // Place the drop down menu on the gameScreen
+      simulationDisplay.appendChild(simPanel);
+    }
 }
 
 function endSimulation() {
@@ -55,39 +91,16 @@ function endSimulation() {
 function runSimulation(nameOfSimulationToRun) {
     startSimulation(nameOfSimulationToRun);
 
-    // in this function, use the following line to get the screen for the simulation
-    var simulationScreen = document.getElementById("simulationScreen");
+    // get Elements Defined by their id.
+    var StartButton, EvidenceDropDownMenu, simulationDisplay, simulationScreen;
 
-    // Create and Apphend Simulation Display with defined Elements for the selected Simulation to run.
-    var table, row, cell, cellImage, cellSrc, text, newStartButton, simulationDisplay;
+    simulationScreen = document.getElementById("simulationScreen");
+    simulationDisplay = document.getElementById("simulationDisplay");
+    StartButton = document.getElementById("runButton");
+    EvidenceDropDownMenu = document.getElementById("dropDownMenu");
 
-    // Create Display for Simulation Table to append to.
-    simulationDisplay = document.createElement("div");
-    simulationDisplay.id = "simulationDisplay";
-    simulationScreen.appendChild(simulationDisplay);
-
-    // Create Run Simulation Button.
-    newStartButton = document.createElement("button");
-    newStartButton.innerText = "Run Simulation";
-    newStartButton.classList.add("runButton");
-
-    // Create a drop down menu for the evidence registered in the Lab
-    var EvidenceDropDownMenu = document.createElement("select");
-    var selector = document.createElement("option");
-
-    // Create an option for the drop down menu.
-    selector.vaule = "Select a piece of evidence.";
-    selector.text = "Select a piece of evidence.";
-
-    EvidenceDropDownMenu.appendChild(selector);
-
-    var simPanel = document.createElement("div");
-
-    simPanel.appendChild(newStartButton);
-    simPanel.appendChild(EvidenceDropDownMenu);
-
-    // Place the drop down menu on the gameScreen
-    simulationDisplay.appendChild(simPanel);
+    // Define Unique Elements for the Selected Simulation.
+    var table, row, cell, cellImage, cellSrc, text;
 
     if (nameOfSimulationToRun.id === "FPS") {
         // fps(); // call the js function that does fps

@@ -71,10 +71,10 @@ var fireplaceObjNames = ["Vial", "Photo", "Mask", "Photo1"];
 var fireplaceObjImgs = ["imgs/1_ProfessorLogan/items/Vial.png", "imgs/1_ProfessorLogan/items/Warbuddies.png", "imgs/1_ProfessorLogan/items/Mask.png", "imgs/1_ProfessorLogan/items/Photograph.png"];
 var fireplaceObjLocs = [[50,5], [50,48], [50,85], [50,20]];
 var fireplaceObjClues = [
-            [["DNA", "DNASeqData"]],
-            [["War Buddies", "PointsToMustard"]],
-            [["Mask", "PointsToPeru"]],
-            [["Son", "PointsToSon"]]
+            [["DNA", "DNASeqData", "dnaCollect"]],
+            [["War Buddies", "PointsToMustard", "description"]],
+            [["Mask", "PointsToPeru", "description"]],
+            [["Son", "PointsToSon", "description"]]
                         ];
 
 var kitchenObjNames = ["Tea"];

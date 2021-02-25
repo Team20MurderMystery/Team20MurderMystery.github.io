@@ -64,7 +64,21 @@ class GameObject {
             var clueButton = document.createElement("button"); // create a new clue button
             clueButton.innerText = "" + this.clues[i][0];
             clueButton.classList.add("clueButton");
-            clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
+            if (this.name == "Book")
+            {
+              switch (this.clues[i][0]) {
+                case "Kenya":
+                  clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ",0);");
+                  break;
+                case "Rhodesia":
+                  clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ",1);");
+                  break;
+              }
+            }
+            else {
+              clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
+            }
+            //clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
             clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
             clueButton.style.left = this.distFromLeft + leftOffset + "%";
 

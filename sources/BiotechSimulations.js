@@ -108,6 +108,14 @@ function runSimulation(nameOfSimulationToRun) {
     if (nameOfSimulationToRun.id === "FPS") {
         // fps(); // call the js function that does fps
 
+        var selector = document.createElement("option");
+
+        // Create an option for the drop down menu.
+        selector.vaule = "Jeeves.";
+        selector.text = "Jeeves.";
+
+        EvidenceDropDownMenu.appendChild(selector);
+
         // Define Run Button for FPS Simulation.
         StartButton.id = "FPS"
         StartButton.setAttribute("onClick", "runFPS();");
@@ -130,10 +138,6 @@ function runSimulation(nameOfSimulationToRun) {
         // Define Run Button for TLC Simulation.
         StartButton.id = "TLC"
         StartButton.setAttribute("onClick", "runTLC();");
-
-        // Define Simulation Table for TLC.
-        table = document.createElement("table");
-        table.id = "table";
     } else if (nameOfSimulationToRun.id === "DNA") {
         // dna(); // call the js function that does dna
 
@@ -198,27 +202,29 @@ function runSimulation(nameOfSimulationToRun) {
 }
 
 function runFPS() {
+  var simdisplay = document.getElementById("simulationDisplay");
+  var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
+  var table, row, cell, cellImage, cellSrc;
+  var fpsdirect = "imgs/Lab/fps/";
+  var rowlen = 4; // set number of rows in table
+  var collen = 5; // set number of cells in each row
+
+
+  // Characters of the Mystery Set.
+  var characters = [
+      "Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
+      "Mrs. Peacock", "Mr. Green", "Ms. Scarlett", "Dr. L", "Mr. Wodehouse"
+  ];
+
+  // Registration of the list of Characters.
+  var registration = [
+      0, 1, 0, 0, 0,
+      0, 0, 0, 0, 0
+  ];
+  var indexshift = 0;
+
+
   if (produced === false) {
-    var simdisplay = document.getElementById("simulationDisplay");
-    var table, row, cell, cellImage, cellSrc;
-    var fpsdirect = "imgs/Lab/fps/";
-    var rowlen = 4; // set number of rows in table
-    var collen = 5; // set number of cells in each row
-
-
-    // Characters of the Mystery Set.
-    var characters = [
-        "Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
-        "Mrs. Peacock", "Mr. Green", "Ms. Scarlett", "Dr. L", "Mr. Wodehouse"
-    ];
-
-    // Registration of the list of Characters.
-    var registration = [
-        0, 0, 0, 1, 0,
-        0, 0, 0, 0, 0
-    ];
-    var indexshift = 0;
-
     table = document.createElement("table");
     table.id = "table";
 
@@ -257,103 +263,108 @@ function runFPS() {
 }
 
 function runTLC() {
-  var simdisplay = document.getElementById("simulationDisplay");
-  var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
-  var table, cellImage, elements;
-  var tlcdirect = "imgs/Lab/";
-  var rowlen = 6; // set number of rows in table
-  var collen = 5; // set number of cells in each row
-  // elements identify unique elements within the unknown Evidence samples and control samples.
-  // int > 0 -> element identified.
+    var simdisplay = document.getElementById("simulationDisplay");
+    var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
+    var table, cellImage, elements;
+    var tlcdirect = "imgs/Lab/";
+    var rowlen = 6; // set number of rows in table
+    var collen = 5; // set number of cells in each row
+    // elements identify unique elements within the unknown Evidence samples and control samples.
+    // int > 0 -> element identified.
 
-  if (EvidenceDropDownMenu.value == "Plate from Study Room.") {
-    elements = [ [0, 1, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1] ];
-  } else {
-    elements = [ [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0] ]
-  }
-
-  // Define Simulation Table for TLC.
-  table = document.createElement("table");
-  table.id = "table";
-
-  // Create Initial Thin Layer Chromatography Display
-  for (var i = 0; i < rowlen; i++) {
-    row = document.createElement("tr");
-    for (var j = 0; j < collen; j++) {
-      cell = document.createElement("th");
-      if ( i === rowlen - 1) { // X axis for Samples Legend.
-        cell.append(j + 1); // Legend for TLC Unknown and Control Samples.
-      } else { // Table Cells for TLC backgroundImage and Elements Display
-        cellImage = document.createElement("img");
-        cellImage.id = i + "" + j;
-        cellImage.src = tlcdirect + "tlcempty.png";
-        cellImage.classList.add("objectImage");
-        cell.appendChild(cellImage);
-      }
-      row.appendChild(cell);
+    if (EvidenceDropDownMenu.value == "Plate from Study Room.") {
+      elements = [ [0, 1, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1] ];
+    } else {
+      elements = [ [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0] ];
     }
-    table.appendChild(row);
-  }
 
-  simulationDisplay.appendChild(table);
+    if (produced === false) {
+      // Define Simulation Table for TLC.
+      table = document.createElement("table");
+      table.id = "table";
 
-  // Create Legend for unknown evidence and control TLC Samples.
-  var legend = document.createElement("table");
-  legend.id = "legend";
-  var control = false; // false until Unknown legend is complete.
-  var unknownSample = ["Cake"];
-  var controlSample = ["Ricin", "Dart Frog Poison", "Vanilla", "Chocolate"];
-
-  // Legend Created as a Static Table for samples legend.
-  for(var i = 0; i < 4;  i++) {
-    if (i % 2 == 0) { // Creates Headers for Unknown and Control Samples
-      row = document.createElement("tr");
-      cell = document.createElement("th");
-      if (!control) {
-        cell.append("Unknown:");
-      } else {
-        cell.append("Control:");
+      // Create Initial Thin Layer Chromatography Display
+      for (var i = 0; i < rowlen; i++) {
+        row = document.createElement("tr");
+        for (var j = 0; j < collen; j++) {
+          cell = document.createElement("th");
+          if ( i === rowlen - 1) { // X axis for Samples Legend.
+            cell.append(j + 1); // Legend for TLC Unknown and Control Samples.
+          } else { // Table Cells for TLC backgroundImage and Elements Display
+            cellImage = document.createElement("img");
+            cellImage.id = i + "" + j;
+            cellImage.src = tlcdirect + "tlcempty.png";
+            cellImage.classList.add("objectImage");
+            cell.appendChild(cellImage);
+          }
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
       }
-      row.appendChild(cell);
-      legend.appendChild(row);
-    } else { // Creates Keys for Unknown and Control Samples
-      if (!control) { // Unknown Samples Key Branch
-        for (var j = 0; j < unknownSample.length; j++) {
+
+      simulationDisplay.appendChild(table);
+
+      // Create Legend for unknown evidence and control TLC Samples.
+      var legend = document.createElement("table");
+      legend.id = "legend";
+      var control = false; // false until Unknown legend is complete.
+      var unknownSample = ["Cake"];
+      var controlSample = ["Ricin", "Dart Frog Poison", "Vanilla", "Chocolate"];
+
+      // Legend Created as a Static Table for samples legend.
+      for(var i = 0; i < 4;  i++) {
+        if (i % 2 == 0) { // Creates Headers for Unknown and Control Samples
           row = document.createElement("tr");
-          cell = document.createElement("td");
-          cell.append( (j + 1) + ". " + unknownSample[j]);
+          cell = document.createElement("th");
+          if (!control) {
+            cell.append("Unknown:");
+          } else {
+            cell.append("Control:");
+          }
           row.appendChild(cell);
           legend.appendChild(row);
+        } else { // Creates Keys for Unknown and Control Samples
+          if (!control) { // Unknown Samples Key Branch
+            for (var j = 0; j < unknownSample.length; j++) {
+              row = document.createElement("tr");
+              cell = document.createElement("td");
+              cell.append( (j + 1) + ". " + unknownSample[j]);
+              row.appendChild(cell);
+              legend.appendChild(row);
+            }
+            control = true; // begin writing Control legend now.
+          } else { // Control Samples Key Branch
+            for (var j = 0; j < controlSample.length; j++) {
+              row = document.createElement("tr");
+              cell = document.createElement("td");
+              var index = j + unknownSample.length + 1;
+              cell.append( index + ". " + controlSample[j]);
+              row.appendChild(cell);
+              legend.appendChild(row);
+            }
+          }
         }
-        control = true; // begin writing Control legend now.
-      } else { // Control Samples Key Branch
-        for (var j = 0; j < controlSample.length; j++) {
-          row = document.createElement("tr");
-          cell = document.createElement("td");
-          var index = j + unknownSample.length + 1;
-          cell.append( index + ". " + controlSample[j]);
-          row.appendChild(cell);
-          legend.appendChild(row);
+      }
+
+      simulationDisplay.appendChild(legend);
+      produced = true;
+    }
+
+    table = document.getElementById("table");
+
+    // Update Table based on elements packaging data.
+    for (var i = 1; i < rowlen - 1; i++) {
+      for (var j = 0; j < collen; j++) {
+        cellImage = document.getElementById(i + "" + j);
+
+        if (elements[j][i] > 0) {
+          // Update tlc backgroundImage to tlcelement + i image when detected.
+          cellImage.src = tlcdirect + "tlcelement" + i + ".png";
         }
       }
     }
-  }
 
-  simulationDisplay.appendChild(legend);
-
-  // Update Table based on elements packaging data.
-  for (var i = 1; i < rowlen - 1; i++) {
-    for (var j = 0; j < collen; j++) {
-      cellImage = document.getElementById(i + "" + j);
-
-      if (elements[j][i] > 0) {
-        // Update tlc backgroundImage to tlcelement + i image when detected.
-        cellImage.src = tlcdirect + "tlcelement" + i + ".png";
-      }
-    }
-  }
-
-  // TLC Simulation Complete
+    // TLC Simulation Complete
 }
 
 function runDNA() {

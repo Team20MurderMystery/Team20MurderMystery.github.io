@@ -21,14 +21,15 @@ button {
     width: 80%;
     height: 100%;
     margin: 0 10%;
-    font-size: x-large;
+    font-size: 1.5vmax;
 }
 
 .inspectButton {
-    width: 50%;
-    height: 20%;
-    margin: 0 25%;
-    font-size: xx-small;
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
 }
 
 .clueButton {
@@ -36,4 +37,5 @@ button {
     height: 4%;
     position: absolute;
     z-index: 2;
+    font-size: 2vmin;
 }

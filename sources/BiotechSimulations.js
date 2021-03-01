@@ -404,7 +404,7 @@ function tlcCollect(object){
 //same comments as fpsCollect
 function dnaCollect(object){
   name = object.id
-  if (!inventory.includes(name.toLowerCase(name))){
+  if (!inventory.includes(name.toLowerCase(name)+ "_dna")){
     inventory.push(name.toLowerCase(name) + "_dna")
     alert("You have collected the dna sample from the " + name.toLowerCase(name))
   }

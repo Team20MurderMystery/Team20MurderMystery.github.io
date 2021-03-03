@@ -1,5 +1,8 @@
 var produced = false;
 
+// Registration of the list of Characters.
+var registration = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ];
+
 function startSimulation(nameOfSimulationToRun) {
     var theObjects = document.getElementsByClassName("object");
     // Hide the current objects so they don't hover through the simulationScreen
@@ -111,8 +114,8 @@ function runSimulation(nameOfSimulationToRun) {
         var selector = document.createElement("option");
 
         // Create an option for the drop down menu.
-        selector.vaule = "Jeeves.";
-        selector.text = "Jeeves.";
+        selector.vaule = "Jeeves";
+        selector.text = "Jeeves";
 
         EvidenceDropDownMenu.appendChild(selector);
 
@@ -154,25 +157,17 @@ function runSimulation(nameOfSimulationToRun) {
 function runFPS() {
   var simdisplay = document.getElementById("simulationDisplay");
   var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
-  var table, row, cell, cellImage, cellSrc;
+  var table, row, cell, cellImage, cellSrc, cellTxt;
   var fpsdirect = "imgs/Lab/fps/";
   var rowlen = 4; // set number of rows in table
   var collen = 5; // set number of cells in each row
-
+  var indexshift = 0;
 
   // Characters of the Mystery Set.
   var characters = [
       "Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
       "Mrs. Peacock", "Mr. Green", "Ms. Scarlett", "Dr. L", "Mr. Wodehouse"
   ];
-
-  // Registration of the list of Characters.
-  var registration = [
-      0, 1, 0, 0, 0,
-      0, 0, 0, 0, 0
-  ];
-  var indexshift = 0;
-
 
   if (produced === false) {
     table = document.createElement("table");
@@ -183,18 +178,18 @@ function runFPS() {
       row = document.createElement("tr");
       for (var j = 0; j < collen; j++) {
         cell = document.createElement("th");
+        cell.id = "" + characters[j + indexshift];
+        cellImage = document.createElement("img");
+        cellImage.id = characters[j + indexshift] + ".png";
         if (i % 2 == 0) { // Image Cells for Characters Fingerprints
           if (registration[j + indexshift] == 1) { // if Fingerprint is registered, display image.
-            cellImage = document.createElement("img");
-            cellImage.id = i + "" + j;
-            cellSrc = fpsdirect + characters[j + indexshift];
-            cellSrc += ".png";
-            cellImage.src = cellSrc;
-            cellImage.classList.add("objectImage");
-            cell.appendChild(cellImage);
+            cellSrc = fpsdirect + characters[j + indexshift] + ".png";
           } else {
-            cell.append("Registration needed.");
+            cellSrc = fpsdirect + "printNotFound.png";
           }
+          cellImage.src = cellSrc;
+          cellImage.classList.add("objectImage");
+          cell.appendChild(cellImage);
         } else { //Header Cells for Residents Names
           cell.append(characters[j + indexshift]);
           if (j == 4) {
@@ -209,6 +204,17 @@ function runFPS() {
     simulationDisplay.appendChild(table);
     // FPS Simulation Complete
     produced = true;
+  }
+
+  if (EvidenceDropDownMenu.value != "Select a piece of evidence.") {
+    for (var i = 0; i < collen * 2; i++) {
+      cell = document.getElementById("" + characters[i]);
+      cellImage = document.getElementById(characters[i] + ".png");
+      if (cell.id == EvidenceDropDownMenu.value) {
+        cellSrc = fpsdirect + characters[i] + ".png";
+        cellImage.src = cellSrc;
+      }
+    }
   }
 }
 
@@ -300,8 +306,6 @@ function runTLC() {
     produced = true;
   }
 
-  table = document.getElementById("table");
-
   // Update Table based on elements packaging data.
   for (var i = 1; i < rowlen - 1; i++) {
     for (var j = 0; j < collen; j++) {
@@ -389,8 +393,6 @@ function runDNA() {
     simulationDisplay.appendChild(table);
     produced = true;
   }
-
-  table = document.getElementById("table");
 
   // Update Table based on fragments packaging data.
   for (var i = 2; i < rowlen; i++) {

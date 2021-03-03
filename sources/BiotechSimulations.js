@@ -115,7 +115,7 @@ function runSimulation(nameOfSimulationToRun) {
 
         // Create an option for the drop down menu.
         selector.vaule = "Jeeves";
-        selector.text = "Jeeves";
+        selector.text = "Jeeves.";
 
         EvidenceDropDownMenu.appendChild(selector);
 
@@ -157,7 +157,7 @@ function runSimulation(nameOfSimulationToRun) {
 function runFPS() {
   var simdisplay = document.getElementById("simulationDisplay");
   var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
-  var table, row, cell, cellImage, cellSrc, cellTxt;
+  var table, row, cell, cellImage, cellSrc;
   var fpsdirect = "imgs/Lab/fps/";
   var rowlen = 4; // set number of rows in table
   var collen = 5; // set number of cells in each row
@@ -249,7 +249,7 @@ function runTLC() {
         } else { // Table Cells for TLC backgroundImage and Elements Display
           cellImage = document.createElement("img");
           cellImage.id = i + "" + j;
-          cellImage.src = tlcdirect + "tlcempty.png";
+          cellImage.src = tlcdirect + "tlcempty.png"; // empty backgroundImage for Table.
           cellImage.classList.add("objectImage");
           cell.appendChild(cellImage);
         }
@@ -314,6 +314,8 @@ function runTLC() {
       if (elements[j][i] > 0) {
         // Update tlc backgroundImage to tlcelement + i image when detected.
         cellImage.src = tlcdirect + "tlcelement" + i + ".png";
+      } else {
+        cellImage.src = tlcdirect + "tlcempty.png"; // empty backgroundImage for Table.
       }
     }
   }
@@ -398,10 +400,11 @@ function runDNA() {
   for (var i = 2; i < rowlen; i++) {
     for (var j = 0; j < collen - 1; j++) { //
       cellImage = document.getElementById(i + "" + j);
-
+      // Update cell images based on fragments packaging data.
       if (fragments[j][i] > 0) {
-        // Update dnawhitespace image to dnafragment image when detected.
         cellImage.src = dnadirect + "dnafragment.png";
+      } else {
+        cellImage.src = dnadirect + "dnawhitespace.png"; // empty backgroundImage for Table.
       }
     }
   }

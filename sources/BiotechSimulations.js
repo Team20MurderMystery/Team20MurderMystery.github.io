@@ -115,7 +115,7 @@ function runSimulation(nameOfSimulationToRun) {
 
         // Create an option for the drop down menu.
         selector.vaule = "Jeeves";
-        selector.text = "Jeeves.";
+        selector.text = "Jeeves";
 
         EvidenceDropDownMenu.appendChild(selector);
 
@@ -213,6 +213,7 @@ function runFPS() {
       if (cell.id == EvidenceDropDownMenu.value) {
         cellSrc = fpsdirect + characters[i] + ".png";
         cellImage.src = cellSrc;
+        registration[i] = 1;
       }
     }
   }

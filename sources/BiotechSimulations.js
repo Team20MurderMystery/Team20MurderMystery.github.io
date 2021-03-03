@@ -136,6 +136,14 @@ function runSimulation(nameOfSimulationToRun) {
     } else if (nameOfSimulationToRun.id === "DNA") {
         // dna(); // call the js function that does dna
 
+        var selector = document.createElement("option");
+
+        // Create an option for the drop down menu.
+        selector.vaule = "Teacup.";
+        selector.text = "Teacup.";
+
+        EvidenceDropDownMenu.appendChild(selector);
+
         // Define Run Button for DNA Simulation.
         StartButton.id = "DNA"
         StartButton.setAttribute("onClick", "runDNA();");
@@ -311,65 +319,76 @@ function runTLC() {
 
 function runDNA() {
   var simdisplay = document.getElementById("simulationDisplay");
+  var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
   // Create and Append DNA Simulation Table with runDNA button within simulationDisplay
-  var table, cellImage;
+  var table, cellImage, fragments;
+  // Fragments indicate whether a fragment is detected at the given morganvalues position
   var dnadirect = "imgs/Lab/";
   var rowlen = 14; // set number of rows in table
   var collen = 4; // set number of cells in each row
   // morganvalues indicate the position at which the dna fragments can be placed within the DNA simulation table.
   var morganvalues = [3000, 1500, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
   var morganindex = 0;
-  // Fragments indicate whether a fragment is detected at the given morganvalues position
-  // int > 0 -> fragment detected.
-  var fragments = [ [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-                    [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
-                  ];s
 
-  // Define Simulation Table for DNA.
-  table = document.createElement("table");
-  table.id = "table";
-
-  // Create Initial DNA Fingerprint Display.
-  for (var i = 0; i < rowlen; i++) {
-    row = document.createElement("tr");
-    for (var j = 0; j < collen; j++) {
-      cell = document.createElement("th");
-      if (i == 0) { // Header Rows Created for Unknown and Subject Samples and DNA fragment index axis.
-        if (j == 0) {
-          cell.append("Sample X"); // Evidence DNA Sample.
-        } else if (j < collen - 1) {
-          cell.append("Suspect " + j) // Suspect DNA Sample.
-        } else {
-          cell.append("100 bp ladder") // morganvalues axis.
-        }
-      } else {
-        if (j == collen - 1) { // Fragments index points along Y-axis.
-          if (i != 1) {
-            cell.append(morganvalues[morganindex]);
-            morganindex++;
-          }
-        } else { // Table Cells for DNA backgroundImage, sampleImage, and DNA fragments Display.
-          cellImage = document.createElement("img");
-          cellImage.id = i + "" + j;
-
-          if (i == 1) {
-            cellImage.src = dnadirect + "dnasample.png";
-          } else {
-            cellImage.src = dnadirect + "dnawhitespace.png"; // empty backgroundImage for Table.
-          }
-          cellImage.classList.add("objectImage");
-          cell.appendChild(cellImage);
-        }
-      }
-
-      row.appendChild(cell);
-    }
-
-    table.appendChild(row);
+  if (EvidenceDropDownMenu.value == "Teacup.") {
+    fragments = [ [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+                  [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
+                ];
+  } else {
+    fragments = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                ];
   }
 
-  simulationDisplay.appendChild(table);
+  if (produced === false) {
+    // Define Simulation Table for DNA.
+    table = document.createElement("table");
+    table.id = "table";
+
+    // Create Initial DNA Fingerprint Display.
+    for (var i = 0; i < rowlen; i++) {
+      row = document.createElement("tr");
+      for (var j = 0; j < collen; j++) {
+        cell = document.createElement("th");
+        if (i == 0) { // Header Rows Created for Unknown and Subject Samples and DNA fragment index axis.
+          if (j == 0) {
+            cell.append("Sample X"); // Evidence DNA Sample.
+          } else if (j < collen - 1) {
+            cell.append("Suspect " + j) // Suspect DNA Sample.
+          } else {
+            cell.append("100 bp ladder") // morganvalues axis.
+          }
+        } else {
+          if (j == collen - 1) { // Fragments index points along Y-axis.
+            if (i != 1) {
+              cell.append(morganvalues[morganindex]);
+              morganindex++;
+            }
+          } else { // Table Cells for DNA backgroundImage, sampleImage, and DNA fragments Display.
+            cellImage = document.createElement("img");
+            cellImage.id = i + "" + j;
+
+            if (i == 1) {
+              cellImage.src = dnadirect + "dnasample.png";
+            } else {
+              cellImage.src = dnadirect + "dnawhitespace.png"; // empty backgroundImage for Table.
+            }
+            cellImage.classList.add("objectImage");
+            cell.appendChild(cellImage);
+          }
+        }
+
+        row.appendChild(cell);
+      }
+
+      table.appendChild(row);
+    }
+
+    simulationDisplay.appendChild(table);
+    produced = true;
+  }
 
   table = document.getElementById("table");
 

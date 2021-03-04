@@ -111,19 +111,11 @@ var fireplaceObjLocs = [
     [50, 20]
 ];
 var fireplaceObjClues = [
-    [
-        ["DNA", "DNASeqData"]
-    ],
-    [
-        ["War Buddies", "PointsToMustard"]
-    ],
-    [
-        ["Mask", "PointsToPeru"]
-    ],
-    [
-        ["Son", "PointsToSon"]
-    ]
-];
+            [["DNA", "DNASeqData", "dnaCollect"]],
+            [["War Buddies", "PointsToMustard", "description"]],
+            [["Mask", "PointsToPeru", "description"]],
+            [["Son", "PointsToSon", "description"]]
+                        ];
 
 var kitchenObjNames = ["Tea"];
 var kitchenObjImgs = ["imgs/1_ProfessorLogan/items/KenyaAjiri.png"];

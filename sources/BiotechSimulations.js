@@ -414,45 +414,86 @@ function runDNA() {
 }
 
 //var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]
-var inventory = ["teacup", "cakesmudge"]
+//var inventory = ["teacup", "cakesmudge"]
+
+//The inventory array that will hold what the player has collected
+var inventory = [];
+
+//calls when the player clicks a fps button
 function fpsCollect(object){
+  //object is the div that the player clicks on
+  //gets the name of the object
   name = object.id
+  //checks if the sample has already been added
   if (!inventory.includes(name.toLowerCase(name) + "_fps")){
+    //adds to the inventory array and alerts the player
     inventory.push(name.toLowerCase(name) + "_fps")
+    alert("You have collected the fingerprint sample from the " + name.toLowerCase(name))
   }
   else{
     //already have the item
+    alert("You have already collected the fingerprint samples from the " + name.toLowerCase(name))
   }
 }
 
+//same comments as fpsCollect
 function tlcCollect(object){
   name = object.id
   if (!inventory.includes(name.toLowerCase(name) + "_tlc")){
     inventory.push(name.toLowerCase(name) + "_tlc")
+    alert("You have collected the Thin Layer Chromatography sample from the " + name.toLowerCase(name))
   }
   else{
     //already have the item
+    alert("You have already collected the Thin Layer Chromatography samples from the " + name.toLowerCase(name))
   }
 }
 
-function description(object){
-
-  // name = object.id
-  // if (!inventory.includes(name.toLowerCase(name))){
-  //   inventory.push(name.toLowerCase(name))
-  // }
-  // else{
-  //   //already have the item
-  // }
+//same comments as fpsCollect
+function dnaCollect(object){
+  name = object.id
+  if (!inventory.includes(name.toLowerCase(name)+ "_dna")){
+    inventory.push(name.toLowerCase(name) + "_dna")
+    alert("You have collected the dna sample from the " + name.toLowerCase(name))
+  }
+  else{
+    //already have the item
+    alert("You have already collected the dna sample from the " + name.toLowerCase(name))
+  }
 }
 
-
-function dnaCollect(object){
-  // name = object.id
-  // if (!inventory.includes(name.toLowerCase(name))){
-  //   inventory.push(name.toLowerCase(name) + "_tlc")
-  // }
-  // else{
-  //   //already have the item
-  // }
+//calls when the player clicks onto a description button
+function description(object){
+  name = object.id
+  switch (name) {
+    case "Photo1":
+      //console.log("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
+      alert("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
+      break;
+    case "Photo":
+      //console.log("test")
+      alert("Professor Logan and Col. Mustard during the war.")
+      break;
+    case "Mask":
+      //console.log("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375")
+      alert("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375")
+      break;
+    case "Vial":
+      //console.log("There is a liquid substance in this vial")
+      alert("There is a liquid substance in this vial")
+      break;
+  }
+}
+//calls when the player clicks on the books description
+function description(object,n){
+  switch (n){
+    case 0:
+      //console.log("test")
+      alert("Rhodesia was an unrecognised state in southern Africa from 1965 to 1979, equivalent in territory to modern Zimbabwe. Rhodesia was the de facto successor state to the British colony of Southern Rhodesia, which had been self-governing since achieving responsible government in 1923. A landlocked nation, Rhodesia was bordered by South Africa to the south, Bechuanaland (later Botswana) to the southwest, Zambia to the northwest, and Mozambique (a Portuguese province until 1975) to the east. ")
+      break;
+    case 1:
+      //console.log("test")
+      alert("The Republic of Kenya is a country in Africa with 47 semiautonomous counties governed by elected governors. Kenya stretches 580,367 square kilometres and has a population of more than 52.2 million people. Kenya's capital and largest city is Nairobi while its oldest city and first capital is the coastal city of Mombasa. Kisumu City is the third largest city and also an inland port on Lake Victoria. Kenya is the source of Ajiri tea, which the Professor enjoys. Kenya is also known for its production of castor oil from the castor bean plant.")
+      break;
+  }
 }

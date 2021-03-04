@@ -437,7 +437,7 @@ function description(object){
   }
 }
 //calls when the player clicks on the books description
-function description(object,n){
+function descriptionBook(object,n){
   switch (n){
     case 0:
       //console.log("test")

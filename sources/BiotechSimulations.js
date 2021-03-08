@@ -420,7 +420,7 @@ function description(object){
   switch (name) {
     case "Photo1":
       //console.log("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
-      alert("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
+      alert("The professor teaching his son about anthropology. \"Just read this book from cover to cover - and then we can talk. Until then, I'd appreciate silence in my study.\"")
       break;
     case "Photo":
       //console.log("test")

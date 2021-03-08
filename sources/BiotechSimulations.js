@@ -468,7 +468,7 @@ function description(object){
   switch (name) {
     case "Photo1":
       //console.log("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
-      alert("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
+      alert("The professor teaching his son about anthropology. \"Just read this book from cover to cover - and then we can talk. Until then, I'd appreciate silence in my study.\"")
       break;
     case "Photo":
       //console.log("test")
@@ -485,7 +485,7 @@ function description(object){
   }
 }
 //calls when the player clicks on the books description
-function description(object,n){
+function descriptionBook(object,n){
   switch (n){
     case 0:
       //console.log("test")

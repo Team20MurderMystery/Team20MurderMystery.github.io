@@ -84,11 +84,23 @@ var studyObjLocs = [
     [80, 55]
 ];
 var studyObjClues = [
-            [["Kenya", "TextAboutKenya", "descriptionBook"], ["Rhodesia", "TextAboutRhodesia", "descriptionBook"]],
-            [["TLC", "PointsToCake", "tlcCollect"], ["FP", "PointsToJeeves","fpsCollect" ]],
-            [["DNA", "DNASeqData", "dnaCollect"], ["FP", "PointsToPlum", "fpsCollect"]],
-            [["DNA", "PointsToLogan", "dnaCollect"], ["FP", "PointsToLogan", "fpsCollect"]]
-                    ];
+            [
+              ["Kenya", "TextAboutKenya", "descriptionBook"],
+              ["Rhodesia", "TextAboutRhodesia", "descriptionBook"]
+            ],
+            [
+              ["TLC", "PointsToCake", "tlcCollect"],
+              ["FP", "PointsToJeeves","fpsCollect" ]
+            ],
+            [
+              ["DNA", "DNASeqData", "dnaCollect"],
+              ["FP", "PointsToPlum", "fpsCollect"]
+            ],
+            [
+              ["DNA", "PointsToLogan", "dnaCollect"],
+              ["FP", "PointsToLogan", "fpsCollect"]
+            ]
+];
 
 var fireplaceObjNames = ["Vial", "Photo", "Mask", "Photo1"];
 var fireplaceObjImgs = ["imgs/1_ProfessorLogan/items/Vial.png", "imgs/1_ProfessorLogan/items/Warbuddies.png", "imgs/1_ProfessorLogan/items/Mask.png", "imgs/1_ProfessorLogan/items/Photograph.png"];
@@ -99,11 +111,19 @@ var fireplaceObjLocs = [
     [50, 20]
 ];
 var fireplaceObjClues = [
-            [["DNA", "DNASeqData", "dnaCollect"]],
-            [["War Buddies", "PointsToMustard", "description"]],
-            [["Mask", "PointsToPeru", "description"]],
-            [["Son", "PointsToSon", "description"]]
-                        ];
+            [
+              ["DNA", "DNASeqData", "dnaCollect"]
+            ],
+            [
+              ["War Buddies", "PointsToMustard", "description"]
+            ],
+            [
+              ["Mask", "PointsToPeru", "description"]
+            ],
+            [
+              ["Son", "PointsToSon", "description"]
+            ]
+];
 
 var kitchenObjNames = ["Tea"];
 var kitchenObjImgs = ["imgs/1_ProfessorLogan/items/KenyaAjiri.png"];
@@ -111,5 +131,8 @@ var kitchenObjLocs = [
     [30, 80]
 ];
 var kitchenObjClues = [
-            [["TLC", "PointsToRicin", "tlcCollect"], ["DNA", "DNASeqData", "dnaCollect"]]
-                      ];
+            [
+              ["TLC", "PointsToRicin", "tlcCollect"],
+              ["DNA", "DNASeqData", "dnaCollect"]
+            ]
+];

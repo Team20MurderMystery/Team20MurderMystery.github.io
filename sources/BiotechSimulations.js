@@ -8,6 +8,7 @@ var inventory = [];
 var fpsInventory = [];
 var tlcInventory = [];
 var dnaInventory = [];
+var blastInventory = [];
 
 function startSimulation(nameOfSimulationToRun) {
     var theObjects = document.getElementsByClassName("object");
@@ -107,7 +108,7 @@ function runSimulation(nameOfSimulationToRun) {
     startSimulation(nameOfSimulationToRun);
 
     // get Elements Defined by their id.
-    var StartButton, EvidenceDropDownMenu, simulationDisplay, simulationScreen;
+    var StartButton, EvidenceDropDownMenu, simulationDisplay, simulationScreen, selector;;
 
     simulationScreen = document.getElementById("simulationScreen");
     simulationDisplay = document.getElementById("simulationDisplay");
@@ -118,12 +119,9 @@ function runSimulation(nameOfSimulationToRun) {
     var table, row, cell, cellImage, cellSrc, text;
 
     if (nameOfSimulationToRun.id === "FPS") {
-        // fps(); // call the js function that does fps
-
-        var selector = document.createElement("option");
-
         // Create an option for the drop down menu.
         for (var i = 0; i < fpsInventory.length; i++) {
+          selector = document.createElement("option");
           selector.vaule = fpsInventory[i];
           selector.text = fpsInventory[i];
 
@@ -134,12 +132,9 @@ function runSimulation(nameOfSimulationToRun) {
         StartButton.id = "FPS"
         StartButton.setAttribute("onClick", "runFPS();");
     } else if (nameOfSimulationToRun.id === "TLC") {
-        // tlc(); // call the js function that does tlc
-
-        var selector = document.createElement("option");
-
         // Create an option for the drop down menu for each Inventory item colllected.
         for (var i = 0; i < tlcInventory.length; i++) {
+          selector = document.createElement("option");
           selector.vaule = tlcInventory[i];
           selector.text = tlcInventory[i];
 
@@ -150,12 +145,9 @@ function runSimulation(nameOfSimulationToRun) {
         StartButton.id = "TLC"
         StartButton.setAttribute("onClick", "runTLC();");
     } else if (nameOfSimulationToRun.id === "DNA") {
-        // dna(); // call the js function that does dna
-
-        var selector = document.createElement("option");
-
         // Create an option for the drop down menu for each Inventory item colllected.
         for (var i = 0; i < dnaInventory.length; i++) {
+          selector = document.createElement("option");
           selector.vaule = dnaInventory[i];
           selector.text = dnaInventory[i];
 
@@ -165,8 +157,10 @@ function runSimulation(nameOfSimulationToRun) {
         // Define Run Button for DNA Simulation.
         StartButton.id = "DNA"
         StartButton.setAttribute("onClick", "runDNA();");
+    } else {
+      // blast(); // call the js function that does blast
+
     }
-    //else {// blast(); // call the js function that does blast}
 }
 
 function runFPS() {
@@ -488,6 +482,7 @@ function dnaCollect(object){
   if (!inventory.includes(name.toLowerCase(name)+ "_dna")){
     inventory.push(name.toLowerCase(name) + "_dna");
     dnaInventory.push(name);
+    blastInventory.push(name);
     alert("You have collected the dna sample from the " + name.toLowerCase(name));
   }
   else{

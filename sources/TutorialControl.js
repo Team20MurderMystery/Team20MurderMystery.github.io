@@ -20,3 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#image").src = image[current]
     })
 })
+
+var tutorial = ["To use the Fingerprint Scanner, insert evidence with detected fingerprints and press Scan to identify prints.",
+    "To use the Thin Layer Chromatographer, insert mixture evidence to seperate and identify elements.",
+    "To use the DNA Fingerprint Scanner, insert DNA Sample to seperate sample into DNA Fragments, and match the fingerprint given with the list of suspects."
+]

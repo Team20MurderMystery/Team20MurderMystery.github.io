@@ -40,7 +40,12 @@ button {
     margin-right: 10%;
 }
 
-
+.dialogButton {
+    width: 10%;
+    height: 10%;
+    float: right;
+    border: 1px solid black;
+}
 
 
 

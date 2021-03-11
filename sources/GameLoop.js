@@ -1,8 +1,13 @@
 var roomList;
+var testDialog = ["The Republic of Kenya is a country in Africa with 47 semiautonomous counties governed by elected governors. Kenya stretches 580,367 square kilometres and has a population of more than 52.2 million people.",
+                  "Kenya's capital and largest city is Nairobi while its oldest city and first capital is the coastal city of Mombasa. Kisumu City is the third largest city and also an inland port on Lake Victoria.",
+                  "Kenya is the source of Ajiri tea, which the Professor enjoys. Kenya is also known for its production of castor oil from the castor bean plant."];
 
 document.addEventListener("DOMContentLoaded", () => {
     roomList = loadMysterySet();
     traverse(0);
+    startDialog();
+    loadDialog(testDialog);
 });
 
 function loadMysterySet() {

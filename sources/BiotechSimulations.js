@@ -1,7 +1,13 @@
 var produced = false;
 
 // Registration of the list of Characters.
-var registration = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ];
+var registration = [ 0, 0, 1, 0, 1, 1, 1, 1, 1, 1 ];
+
+//The inventory array that will hold what the player has collected
+var inventory = [];
+var fpsInventory = [];
+var tlcInventory = [];
+var dnaInventory = [];
 
 function startSimulation(nameOfSimulationToRun) {
     var theObjects = document.getElementsByClassName("object");
@@ -114,10 +120,12 @@ function runSimulation(nameOfSimulationToRun) {
         var selector = document.createElement("option");
 
         // Create an option for the drop down menu.
-        selector.vaule = "Jeeves";
-        selector.text = "Jeeves";
+        for (var i = 0; i < fpsInventory.length; i++) {
+          selector.vaule = fpsInventory[i];
+          selector.text = fpsInventory[i];
 
-        EvidenceDropDownMenu.appendChild(selector);
+          EvidenceDropDownMenu.appendChild(selector);
+        }
 
         // Define Run Button for FPS Simulation.
         StartButton.id = "FPS"
@@ -127,11 +135,13 @@ function runSimulation(nameOfSimulationToRun) {
 
         var selector = document.createElement("option");
 
-        // Create an option for the drop down menu.
-        selector.vaule = "Plate from Study Room.";
-        selector.text = "Plate from Study Room.";
+        // Create an option for the drop down menu for each Inventory item colllected.
+        for (var i = 0; i < tlcInventory.length; i++) {
+          selector.vaule = tlcInventory[i];
+          selector.text = tlcInventory[i];
 
-        EvidenceDropDownMenu.appendChild(selector);
+          EvidenceDropDownMenu.appendChild(selector);
+        }
 
         // Define Run Button for TLC Simulation.
         StartButton.id = "TLC"
@@ -141,11 +151,13 @@ function runSimulation(nameOfSimulationToRun) {
 
         var selector = document.createElement("option");
 
-        // Create an option for the drop down menu.
-        selector.vaule = "Teacup.";
-        selector.text = "Teacup.";
+        // Create an option for the drop down menu for each Inventory item colllected.
+        for (var i = 0; i < dnaInventory.length; i++) {
+          selector.vaule = dnaInventory[i];
+          selector.text = dnaInventory[i];
 
-        EvidenceDropDownMenu.appendChild(selector);
+          EvidenceDropDownMenu.appendChild(selector);
+        }
 
         // Define Run Button for DNA Simulation.
         StartButton.id = "DNA"
@@ -165,7 +177,7 @@ function runFPS() {
 
   // Characters of the Mystery Set.
   var characters = [
-      "Colonel Mustard", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
+      "Prof. Logan", "Prof. Plum", "Mrs. White", "Jeeves", "Mr. Wooster",
       "Mrs. Peacock", "Mr. Green", "Ms. Scarlett", "Dr. L", "Mr. Wodehouse"
   ];
 
@@ -207,15 +219,34 @@ function runFPS() {
   }
 
   if (EvidenceDropDownMenu.value != "Select a piece of evidence.") {
-    for (var i = 0; i < collen * 2; i++) {
-      cell = document.getElementById("" + characters[i]);
-      cellImage = document.getElementById(characters[i] + ".png");
-      if (cell.id == EvidenceDropDownMenu.value) {
-        cellSrc = fpsdirect + characters[i] + ".png";
-        cellImage.src = cellSrc;
-        registration[i] = 1;
+    //Beginning of Update Database.
+    if (EvidenceDropDownMenu.value == "Teacup" && registration[0] != 1) {
+      cellImage = document.getElementById("Prof. Logan.png");
+      cellSrc = fpsdirect + "Prof. Logan.png";
+      cellImage.src = cellSrc;
+      registration[0] = 1;
+    } else if (EvidenceDropDownMenu.value == "Pipe" && registration[1] != 1) {
+      cellImage = document.getElementById("Prof. Plum.png");
+      cellSrc = fpsdirect + "Prof. Plum.png";
+      cellImage.src = cellSrc;
+      registration[1] = 1;
+    } else if (EvidenceDropDownMenu.value == "Plate" && registration[3] != 1) {
+      cellImage = document.getElementById("Jeeves.png");
+      cellSrc = fpsdirect + "Jeeves.png";
+      cellImage.src = cellSrc;
+      registration[3] = 1;
+    } else {
+      for (var i = 0; i < collen * 2; i++) {
+        cell = document.getElementById("" + characters[i]);
+        cellImage = document.getElementById(characters[i] + ".png");
+        if (cell.id == EvidenceDropDownMenu.value) {
+          cellSrc = fpsdirect + characters[i] + ".png";
+          cellImage.src = cellSrc;
+          registration[i] = 1;
+        }
       }
     }
+    //End of Update Database.
   }
 }
 
@@ -229,7 +260,7 @@ function runTLC() {
   // elements identify unique elements within the unknown Evidence samples and control samples.
   // int > 0 -> element identified.
 
-  if (EvidenceDropDownMenu.value == "Plate from Study Room.") {
+  if (EvidenceDropDownMenu.value == "Plate") {
     elements = [ [0, 1, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1] ];
   } else {
     elements = [ [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0] ];
@@ -337,7 +368,7 @@ function runDNA() {
   var morganvalues = [3000, 1500, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
   var morganindex = 0;
 
-  if (EvidenceDropDownMenu.value == "Teacup.") {
+  if (EvidenceDropDownMenu.value == "Teacup") {
     fragments = [ [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0],
                   [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0],
                   [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
@@ -416,71 +447,71 @@ function runDNA() {
 //var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]
 //var inventory = ["teacup", "cakesmudge"]
 
-//The inventory array that will hold what the player has collected
-var inventory = [];
-
 //calls when the player clicks a fps button
 function fpsCollect(object){
   //object is the div that the player clicks on
   //gets the name of the object
-  name = object.id
+  name = object.id;
   //checks if the sample has already been added
   if (!inventory.includes(name.toLowerCase(name) + "_fps")){
     //adds to the inventory array and alerts the player
-    inventory.push(name.toLowerCase(name) + "_fps")
-    alert("You have collected the fingerprint sample from the " + name.toLowerCase(name))
+    inventory.push(name.toLowerCase(name) + "_fps");
+    fpsInventory.push(name);
+    alert("You have collected the fingerprint sample from the " + name.toLowerCase(name));
   }
   else{
     //already have the item
-    alert("You have already collected the fingerprint samples from the " + name.toLowerCase(name))
+    alert("You have already collected the fingerprint samples from the " + name.toLowerCase(name));
   }
 }
 
 //same comments as fpsCollect
 function tlcCollect(object){
-  name = object.id
+  name = object.id;
   if (!inventory.includes(name.toLowerCase(name) + "_tlc")){
-    inventory.push(name.toLowerCase(name) + "_tlc")
-    alert("You have collected the Thin Layer Chromatography sample from the " + name.toLowerCase(name))
+    inventory.push(name.toLowerCase(name) + "_tlc");
+    tlcInventory.push(name);
+    alert("You have collected the Thin Layer Chromatography sample from the " + name.toLowerCase(name));
   }
   else{
     //already have the item
-    alert("You have already collected the Thin Layer Chromatography samples from the " + name.toLowerCase(name))
+    alert("You have already collected the Thin Layer Chromatography samples from the " + name.toLowerCase(name));
   }
 }
 
 //same comments as fpsCollect
 function dnaCollect(object){
-  name = object.id
+  name = object.id;
   if (!inventory.includes(name.toLowerCase(name)+ "_dna")){
-    inventory.push(name.toLowerCase(name) + "_dna")
-    alert("You have collected the dna sample from the " + name.toLowerCase(name))
+    inventory.push(name.toLowerCase(name) + "_dna");
+    dnaInventory.push(name);
+    alert("You have collected the dna sample from the " + name.toLowerCase(name));
   }
   else{
     //already have the item
-    alert("You have already collected the dna sample from the " + name.toLowerCase(name))
+    alert("You have already collected the dna sample from the " + name.toLowerCase(name));
   }
 }
 
 //calls when the player clicks onto a description button
 function description(object){
-  name = object.id
+  name = object.id;
   switch (name) {
     case "Photo1":
       //console.log("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
-      alert("The professor teaching his son about anthropology. \"Just read this book from cover to cover - and then we can talk. Until then, I'd appreciate silence in my study.\"")
+      alert("The professor teaching his son about anthropology. \"Just read this book from cover to cover - and then we can talk. Until then, I'd appreciate silence in my study.\"");
       break;
     case "Photo":
       //console.log("test")
-      alert("Professor Logan and Col. Mustard during the war.")
+      alert("Professor Logan and Col. Mustard during the war.");
       break;
     case "Mask":
       //console.log("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375")
-      alert("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375")
+      alert("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375");
       break;
     case "Vial":
       //console.log("There is a liquid substance in this vial")
-      alert("There is a liquid substance in this vial")
+      alert("There is a liquid substance in this vial");
       break;
   }
 }
@@ -489,11 +520,11 @@ function descriptionBook(object,n){
   switch (n){
     case 0:
       //console.log("test")
-      alert("Rhodesia was an unrecognised state in southern Africa from 1965 to 1979, equivalent in territory to modern Zimbabwe. Rhodesia was the de facto successor state to the British colony of Southern Rhodesia, which had been self-governing since achieving responsible government in 1923. A landlocked nation, Rhodesia was bordered by South Africa to the south, Bechuanaland (later Botswana) to the southwest, Zambia to the northwest, and Mozambique (a Portuguese province until 1975) to the east. ")
+      alert("Rhodesia was an unrecognised state in southern Africa from 1965 to 1979, equivalent in territory to modern Zimbabwe. Rhodesia was the de facto successor state to the British colony of Southern Rhodesia, which had been self-governing since achieving responsible government in 1923. A landlocked nation, Rhodesia was bordered by South Africa to the south, Bechuanaland (later Botswana) to the southwest, Zambia to the northwest, and Mozambique (a Portuguese province until 1975) to the east. ");
       break;
     case 1:
       //console.log("test")
-      alert("The Republic of Kenya is a country in Africa with 47 semiautonomous counties governed by elected governors. Kenya stretches 580,367 square kilometres and has a population of more than 52.2 million people. Kenya's capital and largest city is Nairobi while its oldest city and first capital is the coastal city of Mombasa. Kisumu City is the third largest city and also an inland port on Lake Victoria. Kenya is the source of Ajiri tea, which the Professor enjoys. Kenya is also known for its production of castor oil from the castor bean plant.")
+      alert("The Republic of Kenya is a country in Africa with 47 semiautonomous counties governed by elected governors. Kenya stretches 580,367 square kilometres and has a population of more than 52.2 million people. Kenya's capital and largest city is Nairobi while its oldest city and first capital is the coastal city of Mombasa. Kisumu City is the third largest city and also an inland port on Lake Victoria. Kenya is the source of Ajiri tea, which the Professor enjoys. Kenya is also known for its production of castor oil from the castor bean plant.");
       break;
   }
 }

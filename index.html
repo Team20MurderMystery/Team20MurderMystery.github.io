@@ -27,32 +27,22 @@
     <body>
 
         <div id="page">
-            <div id="leftSide" class="pageSection sideSection">
-                <section class="navButtons">
-                    <button id="leftButton" class="arrowButton" onclick="traverse(2)">
-                        <img src="imgs/leftArrow.jpg" height="85%" width="85%">
-                    </button>
-                    <button id="rightButton" class="arrowButton" onclick="traverse(3)">
-                        <img src="imgs/rightArrow.jpg" height="85%" width="85%">
-                    </button>
-                </section><!-- End Left NavButtons -->
-            </div> <!-- End Left Side -->
+
+            <aside id="userMenu">
+
+                <section id="navButtons">
+                    <button id="labButton" onclick="traverse(1)">Go To Lab</button>
+
+                    <button id="leftButton" class="arrowButton" onclick="traverse(2)"></button>
+
+                    <button id="rightButton" class="arrowButton" onclick="traverse(3)"></button>
+                </section> <!-- End navButtons -->
+
+            </aside> <!-- End userMenu -->
 
             <div id="gameScreen" class="pageSection"></div>
 
-            <div id="rightSide" class="pageSection sideSection">
-                <section class="navButtons">
-                    <button id="labButton" onclick="traverse(1)">Go To Lab</button>
-<!--                     <button id="labButton" onclick="startFPS()">startFPS</button>
-                    <button id="labButton" onclick="startTLC()">startTLC</button>
-                    <button id="labButton" onclick="startDNA()">startDNA</button>
-                    <button id="labButton" onclick="window.location.href='sources/ToturialSlide.html'">startBLAST</button> -->
-                </section> <!-- End Right NavButtons-->
-            </div> <!-- End Right Side -->
         </div> <!-- End Page -->
-
-<!--         <div id="pageend" style="display:none">
-        </div> -->
 
     </body>
 

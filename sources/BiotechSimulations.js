@@ -41,49 +41,52 @@ function startSimulation(nameOfSimulationToRun) {
       instructions.innerText = tutorial[1];
     } else if (nameOfSimulationToRun.id === "DNA") {
       instructions.innerText = tutorial[2];
-    } else {
-      instructions = document.createElement('button');
-      instructions.innerText = "Blast Tutorial";
-      instructions.classList.add("labButton");
-      instructions.setAttribute("onClick", "javascript: window.open('sources/ToturialSlide.html','_blank');");
+    } else if (nameOfSimulationToRun.id === "BLAST") {
+      instructions.innerText = tutorial[3];
     }
     simulationScreen.appendChild(instructions);
+
+    // Create a run BLAST Tutorial Button to open up the BLAST Tutorial.
+    if (nameOfSimulationToRun.id === "BLAST") {
+      var BLASTButton = document.createElement('button');
+      BLASTButton.innerText = "Blast Tutorial";
+      BLASTButton.classList.add("labButton");
+      BLASTButton.setAttribute("onClick", "javascript: window.open('sources/ToturialSlide.html','_blank');");
+      simulationScreen.appendChild(BLASTButton);
+    }
 
     // Create Standard Simulation Display with startButton and EvidenceDropDownMenu
     var StartButton, EvidenceDropDownMenu, simulationDisplay;
 
-    // All Standard Simulation Display Elements Define for every Simulation except BLAST.
-    if (nameOfSimulationToRun.id != "BLAST") {
-      // Create Display for Simulation Table to append to.
-      simulationDisplay = document.createElement("div");
-      simulationDisplay.id = "simulationDisplay";
-      simulationScreen.appendChild(simulationDisplay);
+    // Create Display for Simulation Table to append to.
+    simulationDisplay = document.createElement("div");
+    simulationDisplay.id = "simulationDisplay";
+    simulationScreen.appendChild(simulationDisplay);
 
-      // Create Run Simulation Button.
-      StartButton = document.createElement("button");
-      StartButton.innerText = "Run Simulation";
-      StartButton.id = "runButton";
-      StartButton.classList.add("runButton");
+    // Create Run Simulation Button.
+    StartButton = document.createElement("button");
+    StartButton.innerText = "Run Simulation";
+    StartButton.id = "runButton";
+    StartButton.classList.add("runButton");
 
-      // Create a drop down menu for the evidence registered in the Lab
-      var EvidenceDropDownMenu = document.createElement("select");
-      EvidenceDropDownMenu.id = "dropDownMenu";
-      var selector = document.createElement("option");
+    // Create a drop down menu for the evidence registered in the Lab
+    var EvidenceDropDownMenu = document.createElement("select");
+    EvidenceDropDownMenu.id = "dropDownMenu";
+    var selector = document.createElement("option");
 
-      // Create an option for the drop down menu.
-      selector.vaule = "Select a piece of evidence.";
-      selector.text = "Select a piece of evidence.";
+    // Create an option for the drop down menu.
+    selector.vaule = "Select a piece of evidence.";
+    selector.text = "Select a piece of evidence.";
 
-      EvidenceDropDownMenu.appendChild(selector);
+    EvidenceDropDownMenu.appendChild(selector);
 
-      var simPanel = document.createElement("div");
+    var simPanel = document.createElement("div");
 
-      simPanel.appendChild(StartButton);
-      simPanel.appendChild(EvidenceDropDownMenu);
+    simPanel.appendChild(StartButton);
+    simPanel.appendChild(EvidenceDropDownMenu);
 
-      // Place the drop down menu on the gameScreen
-      simulationDisplay.appendChild(simPanel);
-    }
+    // Place the drop down menu on the gameScreen
+    simulationDisplay.appendChild(simPanel);
 }
 
 function endSimulation() {

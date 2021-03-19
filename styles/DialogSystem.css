@@ -1,0 +1,19 @@
+#dialogScreen {
+    width: 80%;
+    height: 20%;
+    position: relative;
+    left: 0%;
+    top: 75%;
+    margin: 0 auto 5% auto;
+    border: 2px solid black;
+    border-radius: 10%;
+    background-color: tan;
+}
+
+#dialogText {
+    width: 75%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 4%;
+    font-size: 2.5vmin;
+}

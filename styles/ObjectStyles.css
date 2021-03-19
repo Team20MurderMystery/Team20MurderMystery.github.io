@@ -11,7 +11,8 @@
     opacity: 0;
 }
 
-.objectImage {
-    width: 100%;
-    height: 80%;
+.objectImage { 
+    object-fit: cover;
+    max-height: 80%;
+    min-height: 50%;
 }

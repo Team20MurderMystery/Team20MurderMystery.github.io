@@ -56,10 +56,10 @@ var roomsObj = [
 var labObjNames = ["FPS", "TLC", "DNA", "BLAST"];
 var labObjImgs = ["imgs/Lab/fps.jpg", "imgs/Lab/tlc.jpg", "imgs/Lab/dna.jpg", "imgs/Lab/blast.jpg"];
 var labObjLocs = [
-    [47, 4],
-    [69, 58],
-    [49, 55],
-    [41, 77]
+    [47, 14],
+    [69, 63],
+    [49, 60],
+    [41, 82]
 ];
 var labObjClues = [
     [
@@ -79,10 +79,10 @@ var labObjClues = [
 var studyObjNames = ["Book", "Plate", "Pipe", "Teacup"];
 var studyObjImgs = ["imgs/1_ProfessorLogan/items/Book.png", "imgs/1_ProfessorLogan/items/Plate.png", "imgs/1_ProfessorLogan/items/Pipe.png", "imgs/1_ProfessorLogan/items/Teacup.png"];
 var studyObjLocs = [
-    [80, 18],
-    [58, 70],
-    [80, 10],
-    [80, 55]
+    [80, 27],
+    [58, 75],
+    [80, 15],
+    [80, 60]
 ];
 var studyObjClues = [
             [
@@ -106,10 +106,10 @@ var studyObjClues = [
 var fireplaceObjNames = ["Vial", "Photo", "Mask", "Photo1"];
 var fireplaceObjImgs = ["imgs/1_ProfessorLogan/items/Vial.png", "imgs/1_ProfessorLogan/items/Warbuddies.png", "imgs/1_ProfessorLogan/items/Mask.png", "imgs/1_ProfessorLogan/items/Photograph.png"];
 var fireplaceObjLocs = [
-    [50, 5],
-    [50, 48],
-    [50, 85],
-    [50, 20]
+    [50, 15],
+    [50, 53],
+    [50, 87],
+    [50, 32]
 ];
 var fireplaceObjClues = [
             [
@@ -129,7 +129,7 @@ var fireplaceObjClues = [
 var kitchenObjNames = ["Tea"];
 var kitchenObjImgs = ["imgs/1_ProfessorLogan/items/KenyaAjiri.png"];
 var kitchenObjLocs = [
-    [30, 80]
+    [30, 85]
 ];
 var kitchenObjClues = [
             [

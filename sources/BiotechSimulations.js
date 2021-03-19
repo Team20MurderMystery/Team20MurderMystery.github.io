@@ -159,7 +159,17 @@ function runSimulation(nameOfSimulationToRun) {
         StartButton.setAttribute("onClick", "runDNA();");
     } else {
       // blast(); // call the js function that does blast
+      for (var i = 0; i < dnaInventory.length; i++) {
+        selector = document.createElement("option");
+        selector.vaule = dnaInventory[i];
+        selector.text = dnaInventory[i];
 
+        EvidenceDropDownMenu.appendChild(selector);
+      }
+
+      // Define Run Button for BLAST Simulation.
+      StartButton.id = "BLAST"
+      StartButton.setAttribute("onClick", "runBLAST();");
     }
 }
 
@@ -439,6 +449,83 @@ function runDNA() {
   }
 
   // DNA simulation Complete.
+}
+
+var code = [];
+
+function runBLAST(){
+  var simdisplay = document.getElementById("simulationDisplay");
+  var EvidenceDropDownMenu = document.getElementById("dropDownMenu");
+  var row, cell, table, cellImage, elements;
+  //var rowlen = 10; // set number of rows in table
+  var collen = 1; // set number of cells in each row
+
+  if (EvidenceDropDownMenu.value == "Teacup") {
+    code = [];
+    code.push("TCGAATGGCAACTCGACGCTCACTGCATCGGACTCGATGACAGTTGGCTCCGTCACGGGTCAGACGCTGGCACTCCAT");
+    code.push("GCCTTGTCGGGCGATCTAACCGTCAATTCCGCGCTCAGTGCGCCGGGCACTATCTCGGCTGTCGCCGGGCGCGACCTG");
+    code.push("ACAATCAATGGTGCGGCACAGGGCGGTAGCACGGTGACATTGACGGCCGCACACAACGCGACGGTCAACGGTTCTGTC");
+    code.push("GCTGCTGTCGGCGACGTGTCGTGAAAATTTACTTGGAAAACGAGTCGATTATTCAGGTCGTTCTGTTATTGTGGTAGG");
+    code.push("TCCCCTTCTCTCATTGTATCAATGTGGATTACCCCGAGAAATCGCAATAGAACTTTTTCAAGCATTTTTACTTCGTGA");
+    code.push("TATAGTTGAACGACAGATTGCTCCCACTCTAAGAGCTGCTAAAAGTCTAATTCAAGATAGGAGACCCATTATATGGAA");
+    code.push("CGTACTTAAACAAATTATGCAAAGACATCCCATTTTGTTAAATAGAGCGCCTACCTTACACAGATTAGGAATACAAGC");
+    code.push("ATTTATACCTATTTTAATAGAAGAACGTGCCATTCGTTTACATCCATTGGTTTGTACAGGGTTTAATGCGGACTTTGA");
+    code.push("TGGAAGGGCTTAGCTTAATTAAAGTGGCTGATTTGCGTTCAGTTGATGCAGAGTGGGGTTTTGCAGTCCTTA");
+  } else if (EvidenceDropDownMenu.value == "Pipe") {
+    code = [];
+    code.push("ACAATGGTATCTCCAATTATAGCCCCTCTGGGATGTAAAATATATCTCTTCTCACCATCCCCATAGTGTATGAGACAAAT");
+    code.push("GTATGCATTTCGATTAGGGTCGTATTCTATGGTTACGATTCTACCATATATGTCTTTTTCATTCCGTCGAAAATCGATTT");
+    code.push("TACGGTATAGACGCTTATGACCTCCCCCTCTATGCCTTGCGGTAATGATTCCTCTGGCATTACGACCTTTACCACAATGA");
+    code.push("TGCTGTCCATAGATCAAATTATTTCGTGGATTGGATTTCACTTGACTGTCTACGGTTCCATTGCGTGTGCTCGGGGTAGA");
+    code.push("AGTTTTGTATAAATGTATCGCCATGCTATTAAGTATTTTTTTTTAAGTTCTTTTCTTTCTAAGAGGTGGAATAGAATAAC");
+    code.push("CCGGTTGAAGCGTAATGATCATACGTCTGTAATGCATTGTATGTCCCATAATAGGTCCCATTCTTCTACTCTTTCCCGGA");
+    code.push("AGTCGATGACTATTCATAGCTATTACCTTGACACCAAAGAAGAGTTCGACCCAATGCTTTATTTCTGTCCTAGTTGATTC");
+    code.push("TGATTCGACATTAGAAGTATATTGATTTTTCCCCAATAACCGAATACTTTTGTCTGTAAATACTGCATATTTGATTCCAT");
+    code.push("CTATAAATCGATTTTCTTCCCTATGAGTTAAAGTCTCAATAAGAATGCTAGTTCTTACTGTTCATTATGATATGAATATA");
+    code.push("CCACATCAATTCGTTATGTATGGATGATGAGATTCCATTGATACAGAGCCAATTCCAATAGACTTATTGGAGGGTCCC");
+  } else if () {
+    code = [];
+    code.push("TCGAATGGCAACTCGACGCTCACTGCATCGGACTCGATGACAGTTGGCTCCGTCACGGGTCAGACGCTGGCACTCCATGC");
+    code.push("CTTGTCGGGCGATCTAACCGTCAATTCCGCGCTCAGTGCGCCGGGCACTATCTCGGCTGTCGCCGGGCGCGACCTGACAA");
+    code.push("TCAATGGTGCGGCACAGGGCGGTAGCACGGTGACATTGACGGCCGCACACAACGCGACGGTCAACGGTTCTGTCGCTGCT");
+    code.push("GTCGGCGACGTGTCGTGAAAATTTACTTGGAAAACGAGTCGATTATTCAGGTCGTTCTGTTATTGTGGTAGGTCCCCTTC");
+    code.push("TCTCATTGTATCAATGTGGATTACCCCGAGAAATCGCAATAGAACTTTTTCAAGCATTTTTACTTCGTGATATAGTTGAA");
+    code.push("CGACAGATTGCTCCCACTCTAAGAGCTGCTAAAAGTCTAATTCAAGATAGGAGACCCATTATATGGAACGTACTTAAACA");
+    code.push("AATTATGCAAAGACATCCCATTTTGTTAAATAGAGCGCCTACCTTACACAGATTAGGAATACAAGCATTTATACCTATTT");
+    code.push("TAATAGAAGAACGTGCCATTCGTTTACATCCATTGGTTTGTACAGGGTTTAATGCGGACTTTGATGG");
+  } else {
+    code = [];
+  }
+
+  if (produced === false) {
+    producetable();
+  } else {
+    produced === false;
+    table = document.getElementById("table");
+    table.remove();
+    producetable();
+  }
+
+  // BLAST simulation Complete.
+}
+
+function producetable(){
+  var simdisplay = document.getElementById("simulationDisplay");
+  table = document.createElement("table");
+  table.id = "table";
+  for (var i = 0; i < code.length; i++) {
+    row = document.createElement("tr");
+    row.id = "" + i;
+    for (var j = 0; j < 1; j++) {
+      cell = document.createElement("th");
+      cell.id = i + ""  + j;
+      cell.append(code[i]);
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+  simdisplay.appendChild(table);
+  produced = true;
 }
 
 //var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]

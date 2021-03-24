@@ -59,7 +59,7 @@ var labObjImgs = ["imgs/Lab/fps.jpg", "imgs/Lab/tlc.jpg", "imgs/Lab/dna.jpg", "i
 var labObjLocs = [
     [11, 28],
     [60, 40],
-    [69, 86],
+    [69, 82],
     [13, 69]
 ];
 var labObjClues = [

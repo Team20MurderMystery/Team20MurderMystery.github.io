@@ -42,11 +42,20 @@ button {
 
 .dialogButton {
     width: 10%;
-    height: 10%;
-    float: right;
+    height: 15%;
+    position: absolute;
     border: 1px solid black;
 }
 
+#dialogExitButton {
+    top: 5%;
+    right: 0.5%;  
+}
+
+#dialogNextButton {
+    bottom: 5%;
+    right: 0.5%;
+}
 
 
 

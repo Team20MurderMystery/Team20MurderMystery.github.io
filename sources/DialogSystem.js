@@ -16,11 +16,13 @@ function startDialog() {
     exitButton.id = "dialogExitButton";
     exitButton.classList.add("dialogButton");
     exitButton.setAttribute("onClick", "javascript: endDialog();");
+    exitButton.innerText = "Exit";
 
     nextButton = document.createElement("button");
-    nextButton.id = "nextDialogButton";
+    nextButton.id = "dialogNextButton";
     nextButton.classList.add("dialogButton");
     nextButton.setAttribute("onClick", "javascript: nextDialog();");
+    nextButton.innerText = "Next";
 
     dialogScreen.appendChild(exitButton);
     dialogScreen.appendChild(dialogText);

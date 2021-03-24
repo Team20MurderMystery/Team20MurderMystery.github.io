@@ -39,7 +39,7 @@ function getNextRoomIndex(direction) {
         labButton.innerText = "Go To Lab";
         return currentRoomIndex;
     } else if (direction == 1) { // Go To Lab button -> Return To Room button
-        labButton.setAttribute("onClick", "javascript: endSimulation(); traverse(0);");
+        labButton.setAttribute("onClick", "javascript: traverse(0); endSimulation();");
         labButton.innerText = "Return To " + roomList[currentRoomIndex][0].substr(0,roomList[currentRoomIndex][0].length - 4);
         return 0;
     } else { // Regular Traversal

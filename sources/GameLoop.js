@@ -54,13 +54,13 @@ var roomsObj = [
 ];
 
 var labObjNames = ["FPS", "TLC", "DNA", "BLAST"];
-// Red - DNA, Yellow - FPS, Green - BLAST, Blue - TLC
+// Yellow FPS, Blue - TLC, Red - DNA, Green - BLAST, 
 var labObjImgs = ["imgs/Lab/fps.jpg", "imgs/Lab/tlc.jpg", "imgs/Lab/dna.jpg", "imgs/Lab/blast.jpg"];
 var labObjLocs = [
-    [16, 34],
-    [62, 46],
-    [71, 89],
-    [15, 75]
+    [11, 28],
+    [60, 40],
+    [69, 86],
+    [13, 69]
 ];
 var labObjClues = [
     [

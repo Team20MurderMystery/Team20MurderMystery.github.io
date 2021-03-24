@@ -81,9 +81,9 @@ var studyObjNames = ["Book", "Plate", "Pipe", "Teacup"];
 var studyObjImgs = ["imgs/1_ProfessorLogan/items/Book.png", "imgs/1_ProfessorLogan/items/Plate.png", "imgs/1_ProfessorLogan/items/Pipe.png", "imgs/1_ProfessorLogan/items/Teacup.png"];
 var studyObjLocs = [
     [80, 27],
-    [58, 75],
-    [80, 15],
-    [80, 60]
+    [58, 74],
+    [83, 16],
+    [77, 60]
 ];
 var studyObjClues = [
     [

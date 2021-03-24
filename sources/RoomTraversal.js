@@ -1,30 +1,31 @@
-var IMAGE_DIRECTORY = "imgs/";
-var currentMysterySet = "1_ProfessorLogan/";
-var currentRoomIndex = 1;
+var currentRoomIndex = 0;
 
+// Change from one room to another based on user selected direction
 function traverse(direction) {
     var nextRoomIndex = getNextRoomIndex(direction);
     loadRoom(roomList[nextRoomIndex][0], roomList[nextRoomIndex][1]);
 }
 
+// Populate new room background image and item objects
 function loadRoom(roomImageName, listOfObjects) {
-    // Remove all current room items
     var allCurrentObjects = document.getElementsByClassName("object");
     var allPossibleClueButtons = document.getElementsByClassName("clueButton");
-    while (allCurrentObjects.length > 0 || allPossibleClueButtons.length > 0) {
-        if (allCurrentObjects.length > 0) {
-            allCurrentObjects.item(0).remove();
-        } else {
-            allPossibleClueButtons.item(0).remove();
-        }
+
+    // Remove all current room item and clue objects
+    while (allPossibleClueButtons.length > 0) {
+        allPossibleClueButtons.item(0).remove();
+    }
+    while (allCurrentObjects.length > 0) {
+        allCurrentObjects.item(0).remove();
     }
 
     // Update the gameScreen to the new room
     var roomName = roomImageName.substr(0, roomImageName.length - 4);
+
     if (roomName == "Lab") {
-        document.getElementById("gameScreen").style.backgroundImage = "url(" + IMAGE_DIRECTORY + "Lab/Lab.jpg)";
+        document.getElementById("gameScreen").style.backgroundImage = "url(imgs/Lab/Lab.jpg)";
     } else {
-        document.getElementById("gameScreen").style.backgroundImage = "url(" + IMAGE_DIRECTORY + currentMysterySet + "rooms/" + roomImageName + ")";
+        document.getElementById("gameScreen").style.backgroundImage = "url(imgs/1_ProfessorLogan/rooms/" + roomImageName + ")";
     }
 
     // Place all of the new room's objects
@@ -32,36 +33,52 @@ function loadRoom(roomImageName, listOfObjects) {
 
 }
 
+// Determine which room to load and update the lab button accordingly
 function getNextRoomIndex(direction) {
     var labButton = document.getElementById("labButton");
-    if (direction == 0) { // Return To Room button -> Go To Lab button
-        labButton.setAttribute("onClick", "javascript: traverse(1);");
-        labButton.innerText = "Go To Lab";
-        return currentRoomIndex;
-    } else if (direction == 1) { // Go To Lab button -> Return To Room button
-        labButton.setAttribute("onClick", "javascript: endSimulation(); traverse(0);");
-        labButton.innerText = "Return To " + roomList[currentRoomIndex][0].substr(0,roomList[currentRoomIndex][0].length - 4);
-        return 0;
-    } else { // Regular Traversal
-        if (labButton.innerText != "Go To Lab") { // Leaving lab with arrow buttons
-            labButton.setAttribute("onClick", "javascript: traverse(1);");
+
+    // Traverse Left
+    if (direction == "left") {
+        if (--currentRoomIndex < 1) {
+            currentRoomIndex = roomList.length - 1;
+        }
+        // Check for arrow traversal from lab
+        if (labButton.innerText != "Go To Lab") {
+            labButton.setAttribute("onClick", "javascript: traverse('lab');");
             labButton.innerText = "Go To Lab";
         }
-        if (direction == 2) { // Traverse Left
-            currentRoomIndex -= 1;
-            if (currentRoomIndex < 1) {
-                currentRoomIndex = roomList.length - 1;
-            }
-        } else { // Traverse Right
-            currentRoomIndex += 1;
-            if (currentRoomIndex >= roomList.length) {
-                currentRoomIndex = 1;
-            }
+    }
+
+    // Traverse Right
+    else if (direction == "right") {
+        if (++currentRoomIndex >= roomList.length) {
+            currentRoomIndex = 1;
+        }
+        // Check for arrow traversal from lab
+        if (labButton.innerText != "Go To Lab") {
+            labButton.setAttribute("onClick", "javascript: traverse('lab');");
+            labButton.innerText = "Go To Lab";
         }
     }
+
+    // Go to lab button pressed
+    else if (direction == "lab") {
+        var prevRoomName = roomList[currentRoomIndex][0].substr(0,roomList[currentRoomIndex][0].length - 4);
+        labButton.innerText = "Return To " + prevRoomName;
+        labButton.setAttribute("onClick", "javascript: traverse('return');");
+        return 0;
+    }
+
+    // Return from lab button pressed
+    else if (direction == "return") {
+        labButton.setAttribute("onClick", "javascript: traverse('lab');");
+        labButton.innerText = "Go To Lab";
+    }
+
     return currentRoomIndex;
 }
 
+// Populate all item objects into the room
 function placeAllObjects(listOfGameObjects) {
     for (var i = 0; i < listOfGameObjects.length; i++) {
         listOfGameObjects[i].placeOnScreen();

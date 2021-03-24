@@ -8,37 +8,37 @@ var roomList;
 
 document.addEventListener("DOMContentLoaded", () => {
     roomList = loadMysterySet();
-    traverse(0);
+    traverse("right");
 });
 
 function loadMysterySet() {
-    var labObj = [];
-    var studyObj = [];
-    var fireplaceObj = [];
-    var kitchenObj = [];
+    var labObjs = [];
+    var studyObjs = [];
+    var fireplaceObjs = [];
+    var kitchenObjs = [];
 
     for (var i = 0; i < labObjNames.length; i++) {
         var newObject = new GameObject(labObjNames[i], labObjImgs[i], labObjLocs[i][0], labObjLocs[i][1], labObjClues[i], true);
-        labObj.push(newObject);
+        labObjs.push(newObject);
     }
     for (var i = 0; i < studyObjNames.length; i++) {
         var newObject = new GameObject(studyObjNames[i], studyObjImgs[i], studyObjLocs[i][0], studyObjLocs[i][1], studyObjClues[i], false);
-        studyObj.push(newObject);
+        studyObjs.push(newObject);
     }
     for (var i = 0; i < fireplaceObjNames.length; i++) {
         var newObject = new GameObject(fireplaceObjNames[i], fireplaceObjImgs[i], fireplaceObjLocs[i][0], fireplaceObjLocs[i][1], fireplaceObjClues[i], false);
-        fireplaceObj.push(newObject);
+        fireplaceObjs.push(newObject);
     }
     for (var i = 0; i < kitchenObjNames.length; i++) {
         var newObject = new GameObject(kitchenObjNames[i], kitchenObjImgs[i], kitchenObjLocs[i][0], kitchenObjLocs[i][1], kitchenObjClues[i], false);
-        kitchenObj.push(newObject);
+        kitchenObjs.push(newObject);
     }
 
     var theRoomList = [
-        ["Lab.jpg", labObj],
-        ["Study.jpg", studyObj],
-        ["Fireplace.jpg", fireplaceObj],
-        ["Kitchen.jpg", kitchenObj]
+        ["Lab.jpg", labObjs],
+        ["Study.jpg", studyObjs],
+        ["Fireplace.jpg", fireplaceObjs],
+        ["Kitchen.jpg", kitchenObjs]
     ];
 
     return theRoomList;

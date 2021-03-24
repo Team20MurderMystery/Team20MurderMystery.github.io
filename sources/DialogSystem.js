@@ -1,5 +1,6 @@
 var currentDialogIndex = 0;
 
+// Populate dialog objects
 function startDialog() {
     gameScreen = document.getElementById("gameScreen");
     dialogScreen = document.createElement("div");
@@ -24,7 +25,6 @@ function startDialog() {
     gameScreen.appendChild(dialogScreen);
 }
 
-
 // listOfDialog should be replaced with the item or room object name. Dialog can be pulled from those
 function loadDialog(listOfDialog) {
     currentDialogIndex = 0;
@@ -46,4 +46,5 @@ function endDialog() {
     gameScreen = document.getElementById("gameScreen");
     dialogScreen = document.getElementById("gameScreen");
     gameScreen.removeChild(gameScreen.childNodes[gameScreen.childNodes.length - 1]);
+    currentDialogIndex = 0;
 }

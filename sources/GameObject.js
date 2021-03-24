@@ -19,7 +19,7 @@ class GameObject {
 
     placeOnScreen() {
         /**
-         * Create a new Game Object container
+         * Create a new Game Object container and place it on the gameScreen
          * Note: while a Game Object is a single class here,
          *       it is composed of two elements in the html
          *             EX: <div id="GameObjectContainer>"
@@ -39,20 +39,26 @@ class GameObject {
         newObjectImage.classList.add("objectImage");
 
         var newInspectButton = document.createElement("button");
-        if (this.isLabEquipment) { // Create a new Game Object for lab equipment
+        // Create a new Game Object for lab equipment
+        if (this.isLabEquipment) {
             newInspectButton.innerText = "Start " + this.name;
             newInspectButton.classList.add("inspectButton");
             newInspectButton.setAttribute("onClick", "javascript: runSimulation(" + this.name + ");");
-        } else { // Create the new Game Object's inspect button
+        // Create the new Game Object's inspect button
+        } else {
             newInspectButton.innerText = "Inspect";
             newInspectButton.classList.add("inspectButton");
             newInspectButton.setAttribute("onClick", "javascript: inspect(" + this.name + ");");
         }
 
         var theScreen = document.getElementById("gameScreen");
-        newObjectElement.appendChild(newObjectImage); // put the image in the Game Object container
-        newObjectElement.appendChild(newInspectButton); // put the button in the Game Object container
-        theScreen.appendChild(newObjectElement); // put the Game Object container on the Game Screen
+
+        // put the image in the Game Object container
+        newObjectElement.appendChild(newObjectImage);
+        // put the button in the Game Object container
+        newObjectElement.appendChild(newInspectButton);
+        // put the Game Object container on the Game Screen
+        theScreen.appendChild(newObjectElement);
     }
 
     inspect() { // generates a button for each clue associated with the Game Object
@@ -78,7 +84,6 @@ class GameObject {
             else {
               clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
             }
-            //clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
             clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
             clueButton.style.left = this.distFromLeft + leftOffset + "%";
 

@@ -118,7 +118,7 @@ function runSimulation(nameOfSimulationToRun) {
     // Define Unique Elements for the Selected Simulation.
     var table, row, cell, cellImage, cellSrc, text;
 
-    if (nameOfSimulationToRun.id === "FPS") {
+    if (nameOfSimulationToRun.id == "FPS") {
         // Create an option for the drop down menu.
         for (var i = 0; i < fpsInventory.length; i++) {
           selector = document.createElement("option");
@@ -131,7 +131,7 @@ function runSimulation(nameOfSimulationToRun) {
         // Define Run Button for FPS Simulation.
         StartButton.id = "FPS"
         StartButton.setAttribute("onClick", "runFPS();");
-    } else if (nameOfSimulationToRun.id === "TLC") {
+    } else if (nameOfSimulationToRun.id == "TLC") {
         // Create an option for the drop down menu for each Inventory item colllected.
         for (var i = 0; i < tlcInventory.length; i++) {
           selector = document.createElement("option");
@@ -144,7 +144,7 @@ function runSimulation(nameOfSimulationToRun) {
         // Define Run Button for TLC Simulation.
         StartButton.id = "TLC"
         StartButton.setAttribute("onClick", "runTLC();");
-    } else if (nameOfSimulationToRun.id === "DNA") {
+    } else if (nameOfSimulationToRun.id == "DNA") {
         // Create an option for the drop down menu for each Inventory item colllected.
         for (var i = 0; i < dnaInventory.length; i++) {
           selector = document.createElement("option");
@@ -483,17 +483,18 @@ function runBLAST(){
     code.push("TGATTCGACATTAGAAGTATATTGATTTTTCCCCAATAACCGAATACTTTTGTCTGTAAATACTGCATATTTGATTCCAT");
     code.push("CTATAAATCGATTTTCTTCCCTATGAGTTAAAGTCTCAATAAGAATGCTAGTTCTTACTGTTCATTATGATATGAATATA");
     code.push("CCACATCAATTCGTTATGTATGGATGATGAGATTCCATTGATACAGAGCCAATTCCAATAGACTTATTGGAGGGTCCC");
-  } else if () {
-    code = [];
-    code.push("TCGAATGGCAACTCGACGCTCACTGCATCGGACTCGATGACAGTTGGCTCCGTCACGGGTCAGACGCTGGCACTCCATGC");
-    code.push("CTTGTCGGGCGATCTAACCGTCAATTCCGCGCTCAGTGCGCCGGGCACTATCTCGGCTGTCGCCGGGCGCGACCTGACAA");
-    code.push("TCAATGGTGCGGCACAGGGCGGTAGCACGGTGACATTGACGGCCGCACACAACGCGACGGTCAACGGTTCTGTCGCTGCT");
-    code.push("GTCGGCGACGTGTCGTGAAAATTTACTTGGAAAACGAGTCGATTATTCAGGTCGTTCTGTTATTGTGGTAGGTCCCCTTC");
-    code.push("TCTCATTGTATCAATGTGGATTACCCCGAGAAATCGCAATAGAACTTTTTCAAGCATTTTTACTTCGTGATATAGTTGAA");
-    code.push("CGACAGATTGCTCCCACTCTAAGAGCTGCTAAAAGTCTAATTCAAGATAGGAGACCCATTATATGGAACGTACTTAAACA");
-    code.push("AATTATGCAAAGACATCCCATTTTGTTAAATAGAGCGCCTACCTTACACAGATTAGGAATACAAGCATTTATACCTATTT");
-    code.push("TAATAGAAGAACGTGCCATTCGTTTACATCCATTGGTTTGTACAGGGTTTAATGCGGACTTTGATGG");
-  } else {
+  } //else if () {
+    //code = [];
+   // code.push("TCGAATGGCAACTCGACGCTCACTGCATCGGACTCGATGACAGTTGGCTCCGTCACGGGTCAGACGCTGGCACTCCATGC");
+    //code.push("CTTGTCGGGCGATCTAACCGTCAATTCCGCGCTCAGTGCGCCGGGCACTATCTCGGCTGTCGCCGGGCGCGACCTGACAA");
+    //code.push("TCAATGGTGCGGCACAGGGCGGTAGCACGGTGACATTGACGGCCGCACACAACGCGACGGTCAACGGTTCTGTCGCTGCT");
+   // code.push("GTCGGCGACGTGTCGTGAAAATTTACTTGGAAAACGAGTCGATTATTCAGGTCGTTCTGTTATTGTGGTAGGTCCCCTTC");
+    //code.push("TCTCATTGTATCAATGTGGATTACCCCGAGAAATCGCAATAGAACTTTTTCAAGCATTTTTACTTCGTGATATAGTTGAA");
+   // code.push("CGACAGATTGCTCCCACTCTAAGAGCTGCTAAAAGTCTAATTCAAGATAGGAGACCCATTATATGGAACGTACTTAAACA");
+   // code.push("AATTATGCAAAGACATCCCATTTTGTTAAATAGAGCGCCTACCTTACACAGATTAGGAATACAAGCATTTATACCTATTT");
+   // code.push("TAATAGAAGAACGTGCCATTCGTTTACATCCATTGGTTTGTACAGGGTTTAATGCGGACTTTGATGG");
+  //}
+  else {
     code = [];
   }
 
@@ -575,41 +576,5 @@ function dnaCollect(object){
   else{
     //already have the item
     alert("You have already collected the dna sample from the " + name.toLowerCase(name));
-  }
-}
-
-//calls when the player clicks onto a description button
-function description(object){
-  name = object.id;
-  switch (name) {
-    case "Photo1":
-      //console.log("The professor teaching his son about anthropology. “Just read this book from cover to cover – and then we can talk. Until then, I’d appreciate silence in my study.”")
-      alert("The professor teaching his son about anthropology. \"Just read this book from cover to cover - and then we can talk. Until then, I'd appreciate silence in my study.\"");
-      break;
-    case "Photo":
-      //console.log("test")
-      alert("Professor Logan and Col. Mustard during the war.");
-      break;
-    case "Mask":
-      //console.log("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375")
-      alert("Gold Ceremonial Mask, La Leche Valley, A.D. 900-1100 of the Sican culture that inhabited what is now the north coast of Peru between about 750 and 1375");
-      break;
-    case "Vial":
-      //console.log("There is a liquid substance in this vial")
-      alert("There is a liquid substance in this vial");
-      break;
-  }
-}
-//calls when the player clicks on the books description
-function descriptionBook(object,n){
-  switch (n){
-    case 0:
-      //console.log("test")
-      alert("Rhodesia was an unrecognised state in southern Africa from 1965 to 1979, equivalent in territory to modern Zimbabwe. Rhodesia was the de facto successor state to the British colony of Southern Rhodesia, which had been self-governing since achieving responsible government in 1923. A landlocked nation, Rhodesia was bordered by South Africa to the south, Bechuanaland (later Botswana) to the southwest, Zambia to the northwest, and Mozambique (a Portuguese province until 1975) to the east. ");
-      break;
-    case 1:
-      //console.log("test")
-      alert("The Republic of Kenya is a country in Africa with 47 semiautonomous counties governed by elected governors. Kenya stretches 580,367 square kilometres and has a population of more than 52.2 million people. Kenya's capital and largest city is Nairobi while its oldest city and first capital is the coastal city of Mombasa. Kisumu City is the third largest city and also an inland port on Lake Victoria. Kenya is the source of Ajiri tea, which the Professor enjoys. Kenya is also known for its production of castor oil from the castor bean plant.");
-      break;
   }
 }

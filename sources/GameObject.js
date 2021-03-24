@@ -61,32 +61,28 @@ class GameObject {
         theScreen.appendChild(newObjectElement);
     }
 
-    inspect() { // generates a button for each clue associated with the Game Object
+    // generates a button for each clue associated with the Game Object
+    inspect() {
         var theScreen = document.getElementById("gameScreen");
-        var topOffset = 5; // used to position the clue buttons near the GameObject
+
+        // offsets used to position the clue buttons near the GameObject
+        var topOffset = 5;
         var leftOffset = 11;
 
-        for (var i = 0; i < this.clues.length; i++) { // for each clue
-            var clueButton = document.createElement("button"); // create a new clue button
-            clueButton.innerText = "" + this.clues[i][0];
+        // for each clue
+        for (var i = 0; i < this.clues.length; i++) {
+            // create a new clue button
+            var clueButton = document.createElement("button");
+            clueButton.innerText = "" + this.clues[i];
             clueButton.classList.add("clueButton");
-            if (this.name == "Book")
-            {
-              switch (this.clues[i][0]) {
-                case "Kenya":
-                  clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ",0);");
-                  break;
-                case "Rhodesia":
-                  clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ",1);");
-                  break;
-              }
-            }
-            else {
-              clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
-            }
-            clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
+          
+            clueButton.setAttribute("onClick", "javascript: loadDialog('" + this.clues[i] + "');");
+
+            // specify the clue button position
+            clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%";
             clueButton.style.left = this.distFromLeft + leftOffset + "%";
 
+            // place the clue button on the gameScreen
             theScreen.appendChild(clueButton); // place the clue button near the GameObject
         }
     }

@@ -8,16 +8,8 @@ function traverse(direction) {
 
 // Populate new room background image and item objects
 function loadRoom(roomImageName, listOfObjects) {
-    var allCurrentObjects = document.getElementsByClassName("object");
-    var allPossibleClueButtons = document.getElementsByClassName("clueButton");
-
-    // Remove all current room item and clue objects
-    while (allPossibleClueButtons.length > 0) {
-        allPossibleClueButtons.item(0).remove();
-    }
-    while (allCurrentObjects.length > 0) {
-        allCurrentObjects.item(0).remove();
-    }
+    // Remove all objects associated with the old room
+    removeAllObjects();
 
     // Update the gameScreen to the new room
     var roomName = roomImageName.substr(0, roomImageName.length - 4);
@@ -44,6 +36,10 @@ function getNextRoomIndex(direction) {
         }
         // Check for arrow traversal from lab
         if (labButton.innerText != "Go To Lab") {
+            // Check if a simulation was started: end it if so
+            if (document.getElementById("simulationScreen") != null) {
+                endSimulation();
+            }
             labButton.setAttribute("onClick", "javascript: traverse('lab');");
             labButton.innerText = "Go To Lab";
         }
@@ -56,6 +52,10 @@ function getNextRoomIndex(direction) {
         }
         // Check for arrow traversal from lab
         if (labButton.innerText != "Go To Lab") {
+            // Check if a simulation was started: end it if so
+            if (document.getElementById("simulationScreen") != null) {
+                endSimulation();
+            }
             labButton.setAttribute("onClick", "javascript: traverse('lab');");
             labButton.innerText = "Go To Lab";
         }
@@ -71,6 +71,10 @@ function getNextRoomIndex(direction) {
 
     // Return from lab button pressed
     else if (direction == "return") {
+        // Check if a simulation was started: end it if so
+        if (document.getElementById("simulationScreen") != null) {
+            endSimulation();
+        }
         labButton.setAttribute("onClick", "javascript: traverse('lab');");
         labButton.innerText = "Go To Lab";
     }
@@ -78,9 +82,22 @@ function getNextRoomIndex(direction) {
     return currentRoomIndex;
 }
 
-// Populate all item objects into the room
+// Populate all item objects onto the gameScreen
 function placeAllObjects(listOfGameObjects) {
     for (var i = 0; i < listOfGameObjects.length; i++) {
         listOfGameObjects[i].placeOnScreen();
+    }
+}
+
+function removeAllObjects() {
+    var allCurrentObjects = document.getElementsByClassName("object");
+    var allPossibleClueButtons = document.getElementsByClassName("clueButton");
+
+    // Remove all current room item and clue objects
+    while (allPossibleClueButtons.length > 0) {
+        allPossibleClueButtons.item(0).remove();
+    }
+    while (allCurrentObjects.length > 0) {
+        allCurrentObjects.item(0).remove();
     }
 }

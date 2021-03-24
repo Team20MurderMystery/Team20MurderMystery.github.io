@@ -63,18 +63,10 @@ var labObjLocs = [
     [13, 69]
 ];
 var labObjClues = [
-    [
-        ["FPS"]
-    ],
-    [
-        ["TLC"]
-    ],
-    [
-        ["DNA"]
-    ],
-    [
-        ["BLAST"]
-    ]
+        ["FPS"],
+        ["TLC"],
+        ["DNA"],
+        ["BLAST"],
 ];
 
 var studyObjNames = ["Book", "Plate", "Pipe", "Teacup"];
@@ -86,22 +78,10 @@ var studyObjLocs = [
     [80, 60]
 ];
 var studyObjClues = [
-    [
-        ["Kenya", "TextAboutKenya", "descriptionBook"],
-        ["Rhodesia", "TextAboutRhodesia", "descriptionBook"]
-    ],
-    [
-        ["TLC", "PointsToCake", "tlcCollect"],
-        ["FP", "PointsToJeeves", "fpsCollect"]
-    ],
-    [
-        ["DNA", "DNASeqData", "dnaCollect"],
-        ["FP", "PointsToPlum", "fpsCollect"]
-    ],
-    [
-        ["DNA", "PointsToLogan", "dnaCollect"],
-        ["FP", "PointsToLogan", "fpsCollect"]
-    ]
+    ["Kenya", "Rhodesia"],
+    ["TLC", "FPS"],
+    ["DNA", "FPS"],
+    ["DNA", "FPS"],
 ];
 
 var fireplaceObjNames = ["Vial", "Photo", "Mask", "Photo1"];
@@ -113,18 +93,10 @@ var fireplaceObjLocs = [
     [50, 32]
 ];
 var fireplaceObjClues = [
-    [
-        ["DNA", "DNASeqData", "dnaCollect"]
-    ],
-    [
-        ["War Buddies", "PointsToMustard", "description"]
-    ],
-    [
-        ["Mask", "PointsToPeru", "description"]
-    ],
-    [
-        ["Son", "PointsToSon", "description"]
-    ]
+        ["Vial Contents", "DNA"],
+        ["War Buddies"],
+        ["Mask"],
+        ["Son"],
 ];
 
 var kitchenObjNames = ["Tea"];
@@ -133,8 +105,6 @@ var kitchenObjLocs = [
     [30, 85]
 ];
 var kitchenObjClues = [
-    [
-        ["TLC", "PointsToRicin", "tlcCollect"],
-        ["DNA", "DNASeqData", "dnaCollect"]
-    ]
+        ["TLC"],
+        ["DNA"]
 ];

@@ -25,7 +25,7 @@ function inspect(theObjectToInspect) {
              */
             theObjectElement.children[1].onclick = () => {
                 // remove the generated clue buttons
-                var theClueButtons = document.getElementsByClassName("clueButton");
+                var theClueButtons = theObjectElement.getElementsByClassName("clueButton");
                 while (theClueButtons.length > 0) {
                     theClueButtons.item(0).remove();
                 }

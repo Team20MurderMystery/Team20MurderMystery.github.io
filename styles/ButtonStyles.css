@@ -49,6 +49,78 @@ button {
     border: 1px solid black;
 }
 
+.inspectButton {
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
+}
+
+#Pipe .inspectButton {
+    position: absolute;
+    top: 71%;
+    left: 0%;
+}
+
+#Book .inspectButton {
+    position: absolute;
+    top: 81%;
+    left: 8%;
+}
+
+#Teacup .inspectButton {
+    position: absolute;
+    top: 89%;
+    left: 6%;
+}
+
+#Plate .inspectButton {
+    position: absolute;
+    top: 64%;
+    left: -2%;
+}
+
+.inspectButton {
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
+}
+
+#Vial .inspectButton {
+    position: absolute;
+    top: 68%;
+    left: 3%;
+}
+
+#Photo1 .inspectButton {
+    position: absolute;
+    top: 72%;
+    left: 1%;
+}
+
+#Photo .inspectButton {
+    position: absolute;
+    top: 63%;
+    left: 2%;
+}
+
+#Mask .inspectButton {
+    position: absolute;
+    top: 70%;
+    left: 15%;
+}
+
+#Tea .inspectButton {
+    position: absolute;
+    top: 88%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
 .clueButton {
     width: 140%;
     height: 60%;
@@ -105,34 +177,42 @@ button {
     left: -2%;
 }
 
-.inspectButton {
-    width: 140%;
-    height: 60%;
-    margin: -10px -20%;
-    transform: scale(0.28);
-    font-size: 3vmin;
+#dnaCollectVial {
+    position: absolute;
+    top: -20%;
+    left: 3%;
 }
 
-#Pipe .inspectButton {
+#descriptionPhoto1 {
     position: absolute;
-    top: 71%;
-    left: 0%;
+    top: -20%;
+    left: 1%;
 }
 
-#Book .inspectButton {
+#descriptionPhoto {
     position: absolute;
-    top: 81%;
-    left: 8%;
+    top: -24%;
+    left: 2%;
 }
 
-#Teacup .inspectButton {
+#descriptionMask {
     position: absolute;
-    top: 89%;
-    left: 6%;
+    top: -25%;
+    left: 14%;
 }
 
-#Plate .inspectButton {
+#tlcCollectTea {
     position: absolute;
-    top: 64%;
-    left: -2%;
+    top: -60%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
+#dnaCollectTea {
+    position: absolute;
+    top: -30%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
 }

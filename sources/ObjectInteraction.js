@@ -11,7 +11,7 @@ function inspect(theObjectToInspect) {
             listOfGameObjects[i].inspect(); // generate clue buttons
 
             // "Freeze" the zoomed in image of the object
-            theObjectElement.style.transform = "scale(3.5)";
+            theObjectElement.style.transform = "scale(3.0)";
             theObjectElement.style.opacity = "1";
             theObjectElement.children[1].innerText = "Exit"; // inspect button -> exit button
 
@@ -22,7 +22,7 @@ function inspect(theObjectToInspect) {
              * and we need a way to know when to "unfreeze"
              * 
              * This callback function handles the "unfreezing"
-            */
+             */
             theObjectElement.children[1].onclick = () => {
                 // remove the generated clue buttons
                 var theClueButtons = document.getElementsByClassName("clueButton");

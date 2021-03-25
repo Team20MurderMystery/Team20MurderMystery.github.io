@@ -1,5 +1,5 @@
 .object:hover {
-    transform: scale(3.5);
+    transform: scale(3.0);
     opacity: 1;
 }
 
@@ -11,8 +11,32 @@
     opacity: 0;
 }
 
-.objectImage { 
+.objectImage {
     object-fit: cover;
     max-height: 80%;
     min-height: 50%;
+}
+
+#Pipe .objectImage {
+    position: absolute;
+    top: 21%;
+    left: 21%;
+}
+
+#Book .objectImage {
+    position: absolute;
+    top: 5%;
+    left: 26%;
+}
+
+#Teacup .objectImage {
+    position: absolute;
+    top: 13%;
+    left: 16%;
+}
+
+#Plate .objectImage {
+    position: absolute;
+    top: 17%;
+    left: 17%;
 }

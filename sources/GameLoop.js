@@ -130,7 +130,7 @@ var fireplaceObjClues = [
 var kitchenObjNames = ["Tea"];
 var kitchenObjImgs = ["imgs/1_ProfessorLogan/items/KenyaAjiri.png"];
 var kitchenObjLocs = [
-    [30, 85]
+    [30, 84.5]
 ];
 var kitchenObjClues = [
     [

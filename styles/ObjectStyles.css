@@ -3,6 +3,21 @@
     opacity: 1;
 }
 
+#Tea.object {
+    width: 2%;
+    height: 6%;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+}
+
+#Tea.object:hover {
+    /* width: 8%; */
+    /* height: 8%; */
+    transform: scale(3.0);
+    opacity: 1;
+}
+
 .object {
     width: 8%;
     height: 8%;
@@ -63,4 +78,10 @@
     position: absolute;
     top: 24%;
     left: 40%;
+}
+
+#Tea .objectImage {
+    position: absolute;
+    top: 10%;
+    left: 10%;
 }

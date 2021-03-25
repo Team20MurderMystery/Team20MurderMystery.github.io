@@ -113,6 +113,14 @@ button {
     left: 15%;
 }
 
+#Tea .inspectButton {
+    position: absolute;
+    top: 88%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
 .clueButton {
     width: 140%;
     height: 60%;
@@ -191,4 +199,20 @@ button {
     position: absolute;
     top: -25%;
     left: 14%;
+}
+
+#tlcCollectTea {
+    position: absolute;
+    top: -60%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
+#dnaCollectTea {
+    position: absolute;
+    top: -30%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
 }

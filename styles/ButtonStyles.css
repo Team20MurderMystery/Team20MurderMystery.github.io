@@ -50,59 +50,59 @@ button {
 }
 
 .clueButton {
-    width: 10%;
-    height: 4%;
-    position: absolute;
-    z-index: 2;
-    font-size: 2vmin;
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
 }
 
 #dnaCollectPipe {
     position: absolute;
-    top: 70%;
-    left: 15%;
+    top: -30%;
+    left: 0%;
 }
 
 #fpsCollectPipe {
     position: absolute;
-    top: 76%;
-    left: 15%;
+    top: -10%;
+    left: 0%;
 }
 
 #descriptionBookBook0 {
     position: absolute;
-    top: 62%;
-    left: 28%;
+    top: -40%;
+    left: 8%;
 }
 
 #descriptionBookBook1 {
     position: absolute;
-    top: 68%;
-    left: 28%;
+    top: -20%;
+    left: 8%;
 }
 
 #dnaCollectTeacup {
     position: absolute;
-    top: 61%;
-    left: 60%;
+    top: -30%;
+    left: 6%;
 }
 
 #fpsCollectTeacup {
     position: absolute;
-    top: 67%;
-    left: 60%;
+    top: -10%;
+    left: 6%;
 }
 
 #tlcCollectPlate {
     position: absolute;
-    top: 43%;
-    left: 73%;
+    top: -30%;
+    left: -2%;
 }
 
 #fpsCollectPlate {
     position: absolute;
-    top: 49%;
-    left: 73%;
+    top: -10%;
+    left: -2%;
 }
 
 .inspectButton {

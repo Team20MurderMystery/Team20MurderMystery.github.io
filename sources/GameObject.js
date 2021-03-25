@@ -63,6 +63,7 @@ class GameObject {
         for (var i = 0; i < this.clues.length; i++) { // for each clue
             var clueButton = document.createElement("button"); // create a new clue button
             clueButton.innerText = "" + this.clues[i][0];
+            // document.getElementsByClassName('object').appendChild(element);
             clueButton.classList.add("clueButton");
             if (this.name == "Book") {
                 switch (this.clues[i][0]) {
@@ -83,7 +84,7 @@ class GameObject {
             // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
             // clueButton.style.left = this.distFromLeft + leftOffset + "%";
 
-            theScreen.appendChild(clueButton); // place the clue button near the GameObject
+            document.getElementById(this.name).appendChild(clueButton); // place the clue button near the GameObject
         }
     }
 }

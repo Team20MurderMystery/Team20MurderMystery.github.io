@@ -40,3 +40,27 @@
     top: 17%;
     left: 17%;
 }
+
+#Vial .objectImage {
+    position: absolute;
+    top: 16%;
+    left: 44%;
+}
+
+#Photo .objectImage {
+    position: absolute;
+    top: 14%;
+    left: 35%;
+}
+
+#Mask .objectImage {
+    position: absolute;
+    top: 4%;
+    left: 52%;
+}
+
+#Photo1 .objectImage {
+    position: absolute;
+    top: 24%;
+    left: 40%;
+}

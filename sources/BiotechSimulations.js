@@ -269,9 +269,14 @@ function runTLC() {
 
   if (EvidenceDropDownMenu.value == "Plate") {
     elements = [ [0, 1, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1] ];
+  } else if (EvidenceDropDownMenu.value == "Tea") {
+    elements = [ [0, 1, 1, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 1], [0, 0, 0, 0, 0] ];
   } else {
     elements = [ [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0] ];
   }
+
+  collen = elements[0].length;
+  rowlen = elements.length + 1;
 
   if (produced === false) {
     // Define Simulation Table for TLC.
@@ -299,47 +304,8 @@ function runTLC() {
 
     simulationDisplay.appendChild(table);
 
-    // Create Legend for unknown evidence and control TLC Samples.
-    var legend = document.createElement("table");
+    legend = document.createElement("table");
     legend.id = "legend";
-    var control = false; // false until Unknown legend is complete.
-    var unknownSample = ["Cake"];
-    var controlSample = ["Ricin", "Dart Frog Poison", "Vanilla", "Chocolate"];
-
-    // Legend Created as a Static Table for samples legend.
-    for(var i = 0; i < 4;  i++) {
-      if (i % 2 == 0) { // Creates Headers for Unknown and Control Samples
-        row = document.createElement("tr");
-        cell = document.createElement("th");
-        if (!control) {
-          cell.append("Unknown:");
-        } else {
-          cell.append("Control:");
-        }
-        row.appendChild(cell);
-        legend.appendChild(row);
-      } else { // Creates Keys for Unknown and Control Samples
-        if (!control) { // Unknown Samples Key Branch
-          for (var j = 0; j < unknownSample.length; j++) {
-            row = document.createElement("tr");
-            cell = document.createElement("td");
-            cell.append( (j + 1) + ". " + unknownSample[j]);
-            row.appendChild(cell);
-            legend.appendChild(row);
-          }
-          control = true; // begin writing Control legend now.
-        } else { // Control Samples Key Branch
-          for (var j = 0; j < controlSample.length; j++) {
-            row = document.createElement("tr");
-            cell = document.createElement("td");
-            var index = j + unknownSample.length + 1;
-            cell.append( index + ". " + controlSample[j]);
-            row.appendChild(cell);
-            legend.appendChild(row);
-          }
-        }
-      }
-    }
 
     simulationDisplay.appendChild(legend);
     produced = true;
@@ -359,6 +325,59 @@ function runTLC() {
     }
   }
 
+  var legend = document.getElementById("legend");
+  legend.remove();
+
+  // Create Legend for unknown evidence and control TLC Samples.
+  legend = document.createElement("table");
+  legend.id = "legend";
+  var control = false; // false until Unknown legend is complete.
+  var unknownSample = [];
+  var controlSample = [];
+  if (EvidenceDropDownMenu.value == "Plate") {
+    unknownSample = ["Cake"];
+    controlSample = ["Ricin Toxin", "Dart Frog Poison", "Vanilla", "Chocolate"];
+  } else if (EvidenceDropDownMenu.value == "Tea") {
+    unknownSample = ["Kenyan Ajiri from Kitchen"];
+    controlSample = ["Ricin Toxin", "Dart Frog Poison", "Kenyan Ajiri from Kitchen"];
+  }
+
+  // Legend Created as a Static Table for samples legend.
+  for(var i = 0; i < 4;  i++) {
+    if (i % 2 == 0) { // Creates Headers for Unknown and Control Samples
+      row = document.createElement("tr");
+      cell = document.createElement("th");
+      if (!control) {
+        cell.append("Unknown:");
+      } else {
+        cell.append("Control:");
+      }
+      row.appendChild(cell);
+      legend.appendChild(row);
+    } else { // Creates Keys for Unknown and Control Samples
+      if (!control) { // Unknown Samples Key Branch
+        for (var j = 0; j < unknownSample.length; j++) {
+          row = document.createElement("tr");
+          cell = document.createElement("td");
+          cell.append( (j + 1) + ". " + unknownSample[j]);
+          row.appendChild(cell);
+          legend.appendChild(row);
+        }
+        control = true; // begin writing Control legend now.
+      } else { // Control Samples Key Branch
+        for (var j = 0; j < controlSample.length; j++) {
+          row = document.createElement("tr");
+          cell = document.createElement("td");
+          var index = j + unknownSample.length + 1;
+          cell.append( index + ". " + controlSample[j]);
+          row.appendChild(cell);
+          legend.appendChild(row);
+        }
+      }
+    }
+  }
+
+  simulationDisplay.appendChild(legend);
   // TLC Simulation Complete
 }
 
@@ -483,7 +502,7 @@ function runBLAST(){
     code.push("TGATTCGACATTAGAAGTATATTGATTTTTCCCCAATAACCGAATACTTTTGTCTGTAAATACTGCATATTTGATTCCAT");
     code.push("CTATAAATCGATTTTCTTCCCTATGAGTTAAAGTCTCAATAAGAATGCTAGTTCTTACTGTTCATTATGATATGAATATA");
     code.push("CCACATCAATTCGTTATGTATGGATGATGAGATTCCATTGATACAGAGCCAATTCCAATAGACTTATTGGAGGGTCCC");
-  } else if () {
+  } else if (EvidenceDropDownMenu.value == "Tea") {
     code = [];
     code.push("TCGAATGGCAACTCGACGCTCACTGCATCGGACTCGATGACAGTTGGCTCCGTCACGGGTCAGACGCTGGCACTCCATGC");
     code.push("CTTGTCGGGCGATCTAACCGTCAATTCCGCGCTCAGTGCGCCGGGCACTATCTCGGCTGTCGCCGGGCGCGACCTGACAA");

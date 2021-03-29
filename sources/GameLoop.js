@@ -1,3 +1,9 @@
+var tutorial = ["To use the Fingerprint Scanner, insert evidence with detected fingerprints and press Scan to identify prints.",
+    "To use the Thin Layer Chromatographer, insert mixture evidence to seperate and identify elements.",
+    "To use the DNA Fingerprint Scanner, insert DNA Sample to seperate sample into DNA Fragments, and match the fingerprint given with the list of suspects.",
+    "To use the DNA Sequencer, insert DNA Sample to identify the DNA sequence code. Then insert the DNA Code to the BLAST Processor following the tutorial provided.\t"
+]
+
 var roomList;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,12 +54,13 @@ var roomsObj = [
 ];
 
 var labObjNames = ["FPS", "TLC", "DNA", "BLAST"];
+// Yellow FPS, Blue - TLC, Red - DNA, Green - BLAST, 
 var labObjImgs = ["imgs/Lab/fps.jpg", "imgs/Lab/tlc.jpg", "imgs/Lab/dna.jpg", "imgs/Lab/blast.jpg"];
 var labObjLocs = [
-    [47, 14],
-    [69, 63],
-    [49, 60],
-    [41, 82]
+    [11, 28],
+    [60, 40],
+    [69, 82],
+    [13, 69]
 ];
 var labObjClues = [
     [
@@ -74,60 +81,60 @@ var studyObjNames = ["Book", "Plate", "Pipe", "Teacup"];
 var studyObjImgs = ["imgs/1_ProfessorLogan/items/Book.png", "imgs/1_ProfessorLogan/items/Plate.png", "imgs/1_ProfessorLogan/items/Pipe.png", "imgs/1_ProfessorLogan/items/Teacup.png"];
 var studyObjLocs = [
     [80, 27],
-    [58, 75],
-    [80, 15],
-    [80, 60]
+    [58, 74],
+    [83, 16],
+    [77, 60]
 ];
 var studyObjClues = [
-            [
-              ["Kenya", "TextAboutKenya", "descriptionBook"],
-              ["Rhodesia", "TextAboutRhodesia", "descriptionBook"]
-            ],
-            [
-              ["TLC", "PointsToCake", "tlcCollect"],
-              ["FP", "PointsToJeeves","fpsCollect" ]
-            ],
-            [
-              ["DNA", "DNASeqData", "dnaCollect"],
-              ["FP", "PointsToPlum", "fpsCollect"]
-            ],
-            [
-              ["DNA", "PointsToLogan", "dnaCollect"],
-              ["FP", "PointsToLogan", "fpsCollect"]
-            ]
+    [
+        ["Kenya", "TextAboutKenya", "descriptionBook"],
+        ["Rhodesia", "TextAboutRhodesia", "descriptionBook"]
+    ],
+    [
+        ["TLC", "PointsToCake", "tlcCollect"],
+        ["FP", "PointsToJeeves", "fpsCollect"]
+    ],
+    [
+        ["DNA", "DNASeqData", "dnaCollect"],
+        ["FP", "PointsToPlum", "fpsCollect"]
+    ],
+    [
+        ["DNA", "PointsToLogan", "dnaCollect"],
+        ["FP", "PointsToLogan", "fpsCollect"]
+    ]
 ];
 
 var fireplaceObjNames = ["Vial", "Photo", "Mask", "Photo1"];
 var fireplaceObjImgs = ["imgs/1_ProfessorLogan/items/Vial.png", "imgs/1_ProfessorLogan/items/Warbuddies.png", "imgs/1_ProfessorLogan/items/Mask.png", "imgs/1_ProfessorLogan/items/Photograph.png"];
 var fireplaceObjLocs = [
-    [50, 15],
-    [50, 53],
-    [50, 87],
-    [50, 32]
+    [48, 14],
+    [49, 53],
+    [46, 84],
+    [48, 32]
 ];
 var fireplaceObjClues = [
-            [
-              ["DNA", "DNASeqData", "dnaCollect"]
-            ],
-            [
-              ["War Buddies", "PointsToMustard", "description"]
-            ],
-            [
-              ["Mask", "PointsToPeru", "description"]
-            ],
-            [
-              ["Son", "PointsToSon", "description"]
-            ]
+    [
+        ["DNA", "DNASeqData", "dnaCollect"]
+    ],
+    [
+        ["War Buddies", "PointsToMustard", "description"]
+    ],
+    [
+        ["Mask", "PointsToPeru", "description"]
+    ],
+    [
+        ["Son", "PointsToSon", "description"]
+    ]
 ];
 
 var kitchenObjNames = ["Tea"];
 var kitchenObjImgs = ["imgs/1_ProfessorLogan/items/KenyaAjiri.png"];
 var kitchenObjLocs = [
-    [30, 85]
+    [30, 84.5]
 ];
 var kitchenObjClues = [
-            [
-              ["TLC", "PointsToRicin", "tlcCollect"],
-              ["DNA", "DNASeqData", "dnaCollect"]
-            ]
+    [
+        ["TLC", "PointsToRicin", "tlcCollect"],
+        ["DNA", "DNASeqData", "dnaCollect"]
+    ]
 ];

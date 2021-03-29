@@ -26,7 +26,7 @@ class GameObject {
          *                      <img id=ObjectImage>
          *                      <button id=ObjectInspectButton></button>
          *                 </div>
-        */
+         */
         var newObjectElement = document.createElement("div");
         newObjectElement.id = this.name;
         newObjectElement.classList.add("object");
@@ -58,31 +58,33 @@ class GameObject {
     inspect() { // generates a button for each clue associated with the Game Object
         var theScreen = document.getElementById("gameScreen");
         var topOffset = 5; // used to position the clue buttons near the GameObject
-        var leftOffset = 11;
+        var leftOffset = 0;
 
         for (var i = 0; i < this.clues.length; i++) { // for each clue
             var clueButton = document.createElement("button"); // create a new clue button
             clueButton.innerText = "" + this.clues[i][0];
+            // document.getElementsByClassName('object').appendChild(element);
             clueButton.classList.add("clueButton");
-            if (this.name == "Book")
-            {
-              switch (this.clues[i][0]) {
-                case "Kenya":
-                  clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ",0);");
-                  break;
-                case "Rhodesia":
-                  clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ",1);");
-                  break;
-              }
-            }
-            else {
-              clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
+            if (this.name == "Book") {
+                switch (this.clues[i][0]) {
+                    case "Kenya":
+                        clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] + "(" + this.name + ",0);");
+                        clueButton.setAttribute("id", this.clues[i][2] + this.name + "0");
+                        break;
+                    case "Rhodesia":
+                        clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] + "(" + this.name + ",1);");
+                        clueButton.setAttribute("id", this.clues[i][2] + this.name + "1");
+                        break;
+                }
+            } else {
+                clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] + "(" + this.name + ");");
+                clueButton.setAttribute("id", this.clues[i][2] + "" + this.name + "");
             }
             //clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
-            clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
-            clueButton.style.left = this.distFromLeft + leftOffset + "%";
+            // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
+            // clueButton.style.left = this.distFromLeft + leftOffset + "%";
 
-            theScreen.appendChild(clueButton); // place the clue button near the GameObject
+            document.getElementById(this.name).appendChild(clueButton); // place the clue button near the GameObject
         }
     }
 }

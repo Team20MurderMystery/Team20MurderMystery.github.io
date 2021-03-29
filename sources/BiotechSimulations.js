@@ -457,6 +457,12 @@ function fpsCollect(object){
     //adds to the inventory array and alerts the player
     inventory.push(name.toLowerCase(name) + "_fps");
     fpsInventory.push(name);
+    var newImage = document.createElement("img");
+    newImage.src = "imgs/1_ProfessorLogan/inventory/" + name.toLowerCase(name) + "_yellow.png";
+    console.log("imgs/1_ProfessorLogan/inventory/" + name.toLowerCase(name) + "_blue.png")
+    newImage.width = "80";
+    newImage.height = "70";
+    document.getElementById("invScreen").appendChild(newImage);
     alert("You have collected the fingerprint sample from the " + name.toLowerCase(name));
   }
   else{
@@ -471,6 +477,12 @@ function tlcCollect(object){
   if (!inventory.includes(name.toLowerCase(name) + "_tlc")){
     inventory.push(name.toLowerCase(name) + "_tlc");
     tlcInventory.push(name);
+    var newImage = document.createElement("img");
+    newImage.src = "imgs/1_ProfessorLogan/inventory/" + name.toLowerCase(name) + "_blue.png";
+    console.log("imgs/1_ProfessorLogan/inventory/" + name.toLowerCase(name) + "_blue.png")
+    newImage.width = "80";
+    newImage.height = "70";
+    document.getElementById("invScreen").appendChild(newImage);
     alert("You have collected the Thin Layer Chromatography sample from the " + name.toLowerCase(name));
   }
   else{
@@ -485,6 +497,12 @@ function dnaCollect(object){
   if (!inventory.includes(name.toLowerCase(name)+ "_dna")){
     inventory.push(name.toLowerCase(name) + "_dna");
     dnaInventory.push(name);
+    var newImage = document.createElement("img");
+    newImage.src = "imgs/1_ProfessorLogan/inventory/" + name.toLowerCase(name) + "_red.png";
+    console.log("imgs/1_ProfessorLogan/inventory/" + name.toLowerCase(name) + "_blue.png")
+    newImage.width = "80";
+    newImage.height = "70";
+    document.getElementById("invScreen").appendChild(newImage);
     alert("You have collected the dna sample from the " + name.toLowerCase(name));
   }
   else{
@@ -527,4 +545,9 @@ function descriptionBook(object,n){
       alert("The Republic of Kenya is a country in Africa with 47 semiautonomous counties governed by elected governors. Kenya stretches 580,367 square kilometres and has a population of more than 52.2 million people. Kenya's capital and largest city is Nairobi while its oldest city and first capital is the coastal city of Mombasa. Kisumu City is the third largest city and also an inland port on Lake Victoria. Kenya is the source of Ajiri tea, which the Professor enjoys. Kenya is also known for its production of castor oil from the castor bean plant.");
       break;
   }
+}
+
+function updateInv(){
+  theScreen = document.getElementById("invScreen");
+
 }

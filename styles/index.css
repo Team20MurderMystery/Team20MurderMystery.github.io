@@ -34,16 +34,13 @@
     background-size: 100% 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
+#invScreen{
+  width: 100%;
+  height: 60%;
+  position: relative;
+  left: 0%;
+  top: 0%;
+}
 
 
 .simulationScreen {

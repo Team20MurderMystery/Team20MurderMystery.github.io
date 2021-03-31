@@ -14,7 +14,6 @@ button {
     top: 24%;
 }
 
-
 #labButton {
     width: 80%;
     height: 41%;
@@ -120,6 +119,30 @@ button {
     left: -210%;
     height: 80%;
     width: 560%;
+}
+
+#FPS .inspectButton {
+    position: absolute;
+    top: 78%;
+    left: 1%;
+}
+
+#TLC .inspectButton {
+    position: absolute;
+    top: 89%;
+    left: -1%;
+}
+
+#DNA .inspectButton {
+    position: absolute;
+    top: 72%;
+    left: 14%;
+}
+
+#BLAST .inspectButton {
+    position: absolute;
+    top: 71%;
+    left: 0%;
 }
 
 .clueButton {

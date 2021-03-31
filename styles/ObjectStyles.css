@@ -85,3 +85,27 @@
     top: 10%;
     left: 10%;
 }
+
+#FPS .objectImage {
+    position: absolute;
+    top: 0%;
+    left: 25%;
+}
+
+#TLC .objectImage {
+    position: absolute;
+    top: 8%;
+    left: 19%;
+}
+
+#DNA .objectImage {
+    position: absolute;
+    top: -9%;
+    left: 28%;
+}
+
+#BLAST .objectImage {
+    position: absolute;
+    top: -11%;
+    left: 19%;
+}

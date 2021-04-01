@@ -19,7 +19,7 @@ class GameObject {
 
     placeOnScreen() {
         /**
-         * Create a new Game Object container
+         * Create a new Game Object container and place it on the gameScreen
          * Note: while a Game Object is a single class here,
          *       it is composed of two elements in the html
          *             EX: <div id="GameObjectContainer>"
@@ -39,52 +39,51 @@ class GameObject {
         newObjectImage.classList.add("objectImage");
 
         var newInspectButton = document.createElement("button");
-        if (this.isLabEquipment) { // Create a new Game Object for lab equipment
+        // Create a new Game Object for lab equipment
+        if (this.isLabEquipment) {
             newInspectButton.innerText = "Start " + this.name;
             newInspectButton.classList.add("inspectButton");
             newInspectButton.setAttribute("onClick", "javascript: runSimulation(" + this.name + ");");
-        } else { // Create the new Game Object's inspect button
+        // Create the new Game Object's inspect button
+        } else {
             newInspectButton.innerText = "Inspect";
             newInspectButton.classList.add("inspectButton");
             newInspectButton.setAttribute("onClick", "javascript: inspect(" + this.name + ");");
         }
 
         var theScreen = document.getElementById("gameScreen");
-        newObjectElement.appendChild(newObjectImage); // put the image in the Game Object container
-        newObjectElement.appendChild(newInspectButton); // put the button in the Game Object container
-        theScreen.appendChild(newObjectElement); // put the Game Object container on the Game Screen
+
+        // put the image in the Game Object container
+        newObjectElement.appendChild(newObjectImage);
+        // put the button in the Game Object container
+        newObjectElement.appendChild(newInspectButton);
+        // put the Game Object container on the Game Screen
+        theScreen.appendChild(newObjectElement);
     }
 
-    inspect() { // generates a button for each clue associated with the Game Object
+    // generates a button for each clue associated with the Game Object
+    inspect() {
         var theScreen = document.getElementById("gameScreen");
-        var topOffset = 5; // used to position the clue buttons near the GameObject
-        var leftOffset = 0;
 
-        for (var i = 0; i < this.clues.length; i++) { // for each clue
-            var clueButton = document.createElement("button"); // create a new clue button
-            clueButton.innerText = "" + this.clues[i][0];
-            // document.getElementsByClassName('object').appendChild(element);
+        // offsets used to position the clue buttons near the GameObject
+        var topOffset = 5;
+        var leftOffset = 11;
+
+        // for each clue
+        for (var i = 0; i < this.clues.length; i++) {
+            // create a new clue button
+            var clueButton = document.createElement("button");
+            clueButton.innerText = "" + this.clues[i];
             clueButton.classList.add("clueButton");
-            if (this.name == "Book") {
-                switch (this.clues[i][0]) {
-                    case "Kenya":
-                        clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] + "(" + this.name + ",0);");
-                        clueButton.setAttribute("id", this.clues[i][2] + this.name + "0");
-                        break;
-                    case "Rhodesia":
-                        clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] + "(" + this.name + ",1);");
-                        clueButton.setAttribute("id", this.clues[i][2] + this.name + "1");
-                        break;
-                }
-            } else {
-                clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] + "(" + this.name + ");");
-                clueButton.setAttribute("id", this.clues[i][2] + "" + this.name + "");
-            }
-            //clueButton.setAttribute("onClick", "javascript: " + this.clues[i][2] +"(" + this.name + ");");
-            // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%"; // specify its position
+          
+            clueButton.setAttribute("onClick", "javascript: loadDialog('" + this.clues[i] + "');");
+
+            // specify the clue button position
+            // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%";
             // clueButton.style.left = this.distFromLeft + leftOffset + "%";
 
-            document.getElementById(this.name).appendChild(clueButton); // place the clue button near the GameObject
+            // place the clue button on the gameScreen
+            theScreen.appendChild(clueButton); // place the clue button near the GameObject
         }
     }
 }

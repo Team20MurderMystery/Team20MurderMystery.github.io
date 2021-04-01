@@ -44,10 +44,19 @@ button {
 
 .dialogButton {
     width: 10%;
-    height: 10%;
-    float: right;
+    height: 15%;
+    position: absolute;
     border: 1px solid black;
 }
+
+#dialogExitButton {
+    top: 5%;
+    right: 0.5%;  
+}
+
+#dialogNextButton {
+    bottom: 5%;
+    right: 0.5%;
 
 .inspectButton {
     width: 140%;
@@ -93,6 +102,7 @@ button {
     position: absolute;
     top: 68%;
     left: 3%;
+
 }
 
 #Photo1 .inspectButton {

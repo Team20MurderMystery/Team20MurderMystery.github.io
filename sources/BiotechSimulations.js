@@ -119,7 +119,7 @@ function runSimulation(nameOfSimulationToRun) {
     // Define Unique Elements for the Selected Simulation.
     var table, row, cell, cellImage, cellSrc, text;
 
-    if (nameOfSimulationToRun.id === "FPS") {
+    if (nameOfSimulationToRun.id == "FPS") {
         // Create an option for the drop down menu.
         for (var i = 0; i < fpsInventory.length; i++) {
             selector = document.createElement("option");
@@ -132,7 +132,7 @@ function runSimulation(nameOfSimulationToRun) {
         // Define Run Button for FPS Simulation.
         StartButton.id = "FPS"
         StartButton.setAttribute("onClick", "runFPS();");
-    } else if (nameOfSimulationToRun.id === "TLC") {
+    } else if (nameOfSimulationToRun.id == "TLC") {
         // Create an option for the drop down menu for each Inventory item colllected.
         for (var i = 0; i < tlcInventory.length; i++) {
             selector = document.createElement("option");
@@ -145,7 +145,7 @@ function runSimulation(nameOfSimulationToRun) {
         // Define Run Button for TLC Simulation.
         StartButton.id = "TLC"
         StartButton.setAttribute("onClick", "runTLC();");
-    } else if (nameOfSimulationToRun.id === "DNA") {
+    } else if (nameOfSimulationToRun.id == "DNA") {
         // Create an option for the drop down menu for each Inventory item colllected.
         for (var i = 0; i < dnaInventory.length; i++) {
             selector = document.createElement("option");
@@ -671,5 +671,4 @@ function descriptionBook(object, n) {
 
 function updateInv() {
     theScreen = document.getElementById("invScreen");
-
 }

@@ -71,12 +71,4 @@ function placeAllObjects(listOfGameObjects) {
     for (var i = 0; i < listOfGameObjects.length; i++) {
         listOfGameObjects[i].placeOnScreen();
     }
-<<<<<<< HEAD
 }
-=======
-}
-
-window.onbeforeunload = function() {// Ask if player wants to leave
-    return true;
-};
->>>>>>> 6ca132d01428f415c4aeabc37068a02713ed107d

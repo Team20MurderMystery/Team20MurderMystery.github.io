@@ -79,8 +79,8 @@ class GameObject {
             clueButton.setAttribute("onClick", "javascript: loadDialog('" + this.clues[i] + "');");
 
             // specify the clue button position
-            // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%";
-            // clueButton.style.left = this.distFromLeft + leftOffset + "%";
+            clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%";
+            clueButton.style.left = this.distFromLeft + leftOffset + "%";
 
             // place the clue button on the gameScreen
             theScreen.appendChild(clueButton); // place the clue button near the GameObject

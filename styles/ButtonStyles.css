@@ -3,20 +3,22 @@ button {
     border-radius: 20%;
 }
 
+
 /* A container for the room navigation buttons */
+
 #navButtons {
     width: 100%;
     height: 15%;
     position: relative;
     left: 0%;
-    top: 84%;
+    top: 19%;
 }
 
 #labButton {
     width: 80%;
-    height: 41%;
+    height: 48%;
     margin: 2% 10%;
-    font-size: 1.5vmax;
+    font-size: 1.3vmax;
 }
 
 .arrowButton {
@@ -55,14 +57,6 @@ button {
 #dialogNextButton {
     bottom: 5%;
     right: 0.5%;
-}
-
-
-
-
-
-
-
 
 .inspectButton {
     width: 140%;
@@ -72,10 +66,187 @@ button {
     font-size: 3vmin;
 }
 
-.clueButton {
-    width: 10%;
-    height: 4%;
+#Pipe .inspectButton {
     position: absolute;
-    z-index: 2;
-    font-size: 2vmin;
+    top: 71%;
+    left: 0%;
+}
+
+#Book .inspectButton {
+    position: absolute;
+    top: 81%;
+    left: 8%;
+}
+
+#Teacup .inspectButton {
+    position: absolute;
+    top: 89%;
+    left: 6%;
+}
+
+#Plate .inspectButton {
+    position: absolute;
+    top: 64%;
+    left: -2%;
+}
+
+.inspectButton {
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
+}
+
+#Vial .inspectButton {
+    position: absolute;
+    top: 68%;
+    left: 3%;
+
+}
+
+#Photo1 .inspectButton {
+    position: absolute;
+    top: 72%;
+    left: 1%;
+}
+
+#Photo .inspectButton {
+    position: absolute;
+    top: 63%;
+    left: 2%;
+}
+
+#Mask .inspectButton {
+    position: absolute;
+    top: 70%;
+    left: 15%;
+}
+
+#Tea .inspectButton {
+    position: absolute;
+    top: 88%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
+#FPS .inspectButton {
+    position: absolute;
+    top: 78%;
+    left: 1%;
+}
+
+#TLC .inspectButton {
+    position: absolute;
+    top: 89%;
+    left: -1%;
+}
+
+#DNA .inspectButton {
+    position: absolute;
+    top: 72%;
+    left: 14%;
+}
+
+#BLAST .inspectButton {
+    position: absolute;
+    top: 71%;
+    left: 0%;
+}
+
+.clueButton {
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
+}
+
+#dnaCollectPipe {
+    position: absolute;
+    top: -30%;
+    left: 0%;
+}
+
+#fpsCollectPipe {
+    position: absolute;
+    top: -10%;
+    left: 0%;
+}
+
+#descriptionBookBook0 {
+    position: absolute;
+    top: -40%;
+    left: 8%;
+}
+
+#descriptionBookBook1 {
+    position: absolute;
+    top: -20%;
+    left: 8%;
+}
+
+#dnaCollectTeacup {
+    position: absolute;
+    top: -30%;
+    left: 6%;
+}
+
+#fpsCollectTeacup {
+    position: absolute;
+    top: -10%;
+    left: 6%;
+}
+
+#tlcCollectPlate {
+    position: absolute;
+    top: -30%;
+    left: -2%;
+}
+
+#fpsCollectPlate {
+    position: absolute;
+    top: -10%;
+    left: -2%;
+}
+
+#dnaCollectVial {
+    position: absolute;
+    top: -20%;
+    left: 3%;
+}
+
+#descriptionPhoto1 {
+    position: absolute;
+    top: -20%;
+    left: 1%;
+}
+
+#descriptionPhoto {
+    position: absolute;
+    top: -24%;
+    left: 2%;
+}
+
+#descriptionMask {
+    position: absolute;
+    top: -25%;
+    left: 14%;
+}
+
+#tlcCollectTea {
+    position: absolute;
+    top: -60%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
+#dnaCollectTea {
+    position: absolute;
+    top: -30%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
 }

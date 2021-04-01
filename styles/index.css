@@ -1,21 +1,26 @@
 /* Redefine default settings so CSS defaults
     don't interfere with our design choices.
     * = universal selector = all elements */
+
 * {
     margin: 0px;
     padding: 0px;
 }
 
+
 /* A container for all of our elements to go within.
     Defines a percentage size scale based on the size
     of the DOM Body Object */
+
 #page {
     width: 100%;
     height: 100%;
 }
 
+
 /* A container for the user inventory system
     and room navigation buttons */
+
 #userMenu {
     width: 13%;
     height: 100%;
@@ -24,8 +29,10 @@
     background-color: tan;
 }
 
+
 /* A container for the area which displays the
     room images and interactable objects */
+
 #gameScreen {
     width: 87%;
     height: 100%;
@@ -34,31 +41,61 @@
     background-size: 100% 100%;
 }
 
+#invScreen {
+    width: auto;
+    height: 60%;
+    position: relative;
+    left: 0%;
+    top: 0%;
+    /* padding: 0%; */
+    margin: 3%;
+    font-size: 1.5vmin;
+}
 
-
-
-
-
-
-
-
-
-
-
+#inventoryTitle {
+    text-align: center;
+    display: inherit;
+    font-size: 3vmin;
+    width: auto;
+}
 
 .simulationScreen {
-    width: 85%;
-    height: 85%;
+    width: 84%;
+    height: 77%;
     z-index: 3;
-    margin: 0 auto;
-    margin-top: 6%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
     background-color: bisque;
+    top: 1%;
+    position: relative
 }
 
 .simulationExitButton {
     width: 5%;
     height: 4%;
-    margin: 0.5% 47.5%;
+    margin: 2% 47.5%;
     z-index: 3;
     font-size: 2.5vmin;
+}
+
+.instruction {
+    display: inline-block;
+    margin: 0.5%;
+    font-size: large;
+    font-weight: bold;
+}
+
+.labButton {
+    font-size: large;
+    font-weight: bold;
+    padding: 0.3%;
+    margin: 0.2%;
+}
+
+.runButton {
+    font-size: large;
+    font-weight: bold;
+    padding: 0.3%;
+    margin: 0.2%;
 }

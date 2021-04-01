@@ -53,7 +53,7 @@ function startSimulation(nameOfSimulationToRun) {
         var BLASTButton = document.createElement('button');
         BLASTButton.innerText = "Blast Tutorial";
         BLASTButton.classList.add("labButton");
-        BLASTButton.setAttribute("onClick", "javascript: window.open('sources/ToturialSlide.html','_blank');");
+        BLASTButton.setAttribute("onClick", "javascript: window.open('sources/TutorialSlide.html','_blank');");
         simulationScreen.appendChild(BLASTButton);
     }
 

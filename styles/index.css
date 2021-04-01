@@ -69,4 +69,23 @@
     font-size: 2.5vmin;
 }
 
-.instruction {}
+.instruction {
+    display: inline-block;
+    margin: 0.5%;
+    font-size: large;
+    font-weight: bold;
+}
+
+.labButton {
+    font-size: large;
+    font-weight: bold;
+    padding: 0.3%;
+    margin: 0.2%;
+}
+
+.runButton {
+    font-size: large;
+    font-weight: bold;
+    padding: 0.3%;
+    margin: 0.2%;
+}

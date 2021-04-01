@@ -5,6 +5,11 @@ var currentRoomIndex = 1;
 function traverse(direction) {
     var nextRoomIndex = getNextRoomIndex(direction);
     loadRoom(roomList[nextRoomIndex][0], roomList[nextRoomIndex][1]);
+    // Remove the simulationScreen and exitButton
+    var theScreen = document.getElementById("gameScreen");
+    theScreen.removeChild(document.getElementById("simulationScreen"));
+    theScreen.removeChild(document.getElementById("simulationExitButton"));
+    produced = false;
 }
 
 function loadRoom(roomImageName, listOfObjects) {
@@ -40,7 +45,7 @@ function getNextRoomIndex(direction) {
         return currentRoomIndex;
     } else if (direction == 1) { // Go To Lab button -> Return To Room button
         labButton.setAttribute("onClick", "javascript: traverse(0); endSimulation();");
-        labButton.innerText = "Return To " + roomList[currentRoomIndex][0].substr(0,roomList[currentRoomIndex][0].length - 4);
+        labButton.innerText = "Return To " + roomList[currentRoomIndex][0].substr(0, roomList[currentRoomIndex][0].length - 4);
         return 0;
     } else { // Regular Traversal
         if (labButton.innerText != "Go To Lab") { // Leaving lab with arrow buttons

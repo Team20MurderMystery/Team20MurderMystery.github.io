@@ -42,11 +42,20 @@
 }
 
 #invScreen {
-    width: 100%;
+    width: auto;
     height: 60%;
     position: relative;
     left: 0%;
     top: 0%;
+    /* padding: 0%; */
+    margin: 3%;
+}
+
+#inventoryTitle {
+    text-align: center;
+    display: inherit;
+    font-size: 3vmin;
+    width: auto;
 }
 
 .simulationScreen {

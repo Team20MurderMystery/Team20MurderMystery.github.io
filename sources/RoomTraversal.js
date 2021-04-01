@@ -67,3 +67,7 @@ function placeAllObjects(listOfGameObjects) {
         listOfGameObjects[i].placeOnScreen();
     }
 }
+
+window.onbeforeunload = function() {// Ask if player wants to leave
+    return true;
+};

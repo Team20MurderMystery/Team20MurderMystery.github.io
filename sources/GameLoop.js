@@ -97,7 +97,7 @@ var fireplaceObjClues = [
         ["Vial Contents", "DNA"],
         ["War Buddies"],
         ["Mask"],
-        ["Son"],
+        ["Professor Plum"],
 ];
 
 var kitchenObjNames = ["Tea"];

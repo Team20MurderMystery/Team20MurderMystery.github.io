@@ -75,8 +75,19 @@ class GameObject {
             var clueButton = document.createElement("button");
             clueButton.innerText = "" + this.clues[i];
             clueButton.classList.add("clueButton");
-          
-            clueButton.setAttribute("onClick", "javascript: loadDialog('" + this.clues[i] + "');");
+            if (this.clues[i] == "FPS") {
+                console.log(this);
+                clueButton.setAttribute("onClick", "javascript: fpsCollect('" + this.name + "');");
+            }
+            else if (this.clues[i] == "TLC") {
+                clueButton.setAttribute("onClick", "javascript: tlcCollect('" + this.name + "');");
+            }
+            else if (this.clues[i] == "DNA") {
+                clueButton.setAttribute("onClick", "javascript: dnaCollect('" + this.name + "');");
+            }
+            else {
+                clueButton.setAttribute("onClick", "javascript: loadDialog('" + this.clues[i] + "');");
+            }
 
             // specify the clue button position
             // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%";

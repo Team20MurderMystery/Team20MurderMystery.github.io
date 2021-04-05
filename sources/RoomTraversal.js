@@ -41,10 +41,13 @@ function loadRoom(roomImageName, listOfObjects) {
 
 }
 
+// this bool is a hot fix for a bug that would not load the lab objects on the first trip to the lab
+var labBool = false;
+
 // Determine which room to load and update the lab button accordingly
 function getNextRoomIndex(direction) {
     var labButton = document.getElementById("labButton");
-  
+
     // Traverse Left
     if (direction == "left") {
         if (--currentRoomIndex < 2) {
@@ -83,6 +86,7 @@ function getNextRoomIndex(direction) {
         var prevRoomName = roomList[currentRoomIndex][0].substr(0,roomList[currentRoomIndex][0].length - 4);
         labButton.innerText = "Return To " + prevRoomName;
         labButton.setAttribute("onClick", "javascript: traverse('return');");
+        labBool = true;
         return 0;
     }
 
@@ -94,6 +98,7 @@ function getNextRoomIndex(direction) {
         }
         labButton.setAttribute("onClick", "javascript: traverse('lab');");
         labButton.innerText = "Go To Lab";
+        labBool = false;
     }
 
     return currentRoomIndex;

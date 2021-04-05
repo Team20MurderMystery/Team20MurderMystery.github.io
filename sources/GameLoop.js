@@ -36,6 +36,7 @@ function loadMysterySet() {
 
     var theRoomList = [
         ["Lab.jpg", labObjs],
+        ["Intro.jpg", []],
         ["Study.jpg", studyObjs],
         ["Fireplace.jpg", fireplaceObjs],
         ["Kitchen.jpg", kitchenObjs]

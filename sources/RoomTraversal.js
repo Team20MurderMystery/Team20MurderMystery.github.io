@@ -1,14 +1,25 @@
 var currentRoomIndex = 0;
+var roomDialogActivated = [false, false, false, false, false];
 
 // Change from one room to another based on user selected direction
 function traverse(direction) {
     var nextRoomIndex = getNextRoomIndex(direction);
     loadRoom(roomList[nextRoomIndex][0], roomList[nextRoomIndex][1]);
-    // Remove the simulationScreen and exitButton
-    var theScreen = document.getElementById("gameScreen");
-    theScreen.removeChild(document.getElementById("simulationScreen"));
-    theScreen.removeChild(document.getElementById("simulationExitButton"));
+
+    // Remove the simulationScreen and exitButton if traversing after opening simulation
+    if (document.getElementById("simulationScreen") != null) {
+        var theScreen = document.getElementById("gameScreen");
+        theScreen.removeChild(document.getElementById("simulationScreen"));
+        theScreen.removeChild(document.getElementById("simulationExitButton"));
+    }
     produced = false;
+
+    // Generate room introduction dialog if it hasn't been seen before
+    if (roomDialogActivated[nextRoomIndex] == false) {
+        roomDialogActivated[nextRoomIndex] = true;
+        var roomName = roomList[nextRoomIndex][0].substr(0, roomList[nextRoomIndex][0].length - 4);
+        loadDialog(roomName);
+    }
 }
 
 // Populate new room background image and item objects
@@ -36,7 +47,7 @@ function getNextRoomIndex(direction) {
   
     // Traverse Left
     if (direction == "left") {
-        if (--currentRoomIndex < 1) {
+        if (--currentRoomIndex < 2) {
             currentRoomIndex = roomList.length - 1;
 
         }
@@ -54,7 +65,7 @@ function getNextRoomIndex(direction) {
     // Traverse Right
     else if (direction == "right") {
         if (++currentRoomIndex >= roomList.length) {
-            currentRoomIndex = 1;
+            currentRoomIndex = 2;
         }
         // Check for arrow traversal from lab
         if (labButton.innerText != "Go To Lab") {

@@ -51,12 +51,128 @@ button {
 
 #dialogExitButton {
     top: 5%;
-    right: 0.5%;  
+    right: 0.5%;
 }
 
 #dialogNextButton {
     bottom: 5%;
     right: 0.5%;
+}
+
+
+/* clue buttons */
+
+
+/* dafault */
+
+.clueButton {
+    width: 140%;
+    height: 60%;
+    margin: -10px -20%;
+    transform: scale(0.28);
+    font-size: 3vmin;
+}
+
+
+/* Study Room */
+
+#DNAPipe {
+    position: absolute;
+    top: -30%;
+    left: 0%;
+}
+
+#FPSPipe {
+    position: absolute;
+    top: -10%;
+    left: 0%;
+}
+
+#KBook {
+    position: absolute;
+    top: -40%;
+    left: 8%;
+}
+
+#RBook {
+    position: absolute;
+    top: -20%;
+    left: 8%;
+}
+
+#DNATeacup {
+    position: absolute;
+    top: -30%;
+    left: 6%;
+}
+
+#FPSTeacup {
+    position: absolute;
+    top: -10%;
+    left: 6%;
+}
+
+#TLCPlate {
+    position: absolute;
+    top: -30%;
+    left: -2%;
+}
+
+#FPSPlate {
+    position: absolute;
+    top: -10%;
+    left: -2%;
+}
+
+
+/* Fireplace */
+
+#DNAVial {
+    position: absolute;
+    top: -40%;
+    left: 3%;
+}
+
+#VVial {
+    position: absolute;
+    top: -20%;
+    left: 3%;
+}
+
+#PPhoto1 {
+    position: absolute;
+    top: -20%;
+    left: 1%;
+}
+
+#WPhoto {
+    position: absolute;
+    top: -24%;
+    left: 2%;
+}
+
+#MMask {
+    position: absolute;
+    top: -25%;
+    left: 14%;
+}
+
+
+/* Kitchen */
+
+#TLCTea {
+    position: absolute;
+    top: -30%;
+    left: -210%;
+    height: 80%;
+    width: 560%;
+}
+
+
+/* Inspect buttons */
+
+
+/* dafault */
 
 .inspectButton {
     width: 140%;
@@ -65,6 +181,9 @@ button {
     transform: scale(0.28);
     font-size: 3vmin;
 }
+
+
+/* Study Room */
 
 #Pipe .inspectButton {
     position: absolute;
@@ -90,19 +209,13 @@ button {
     left: -2%;
 }
 
-.inspectButton {
-    width: 140%;
-    height: 60%;
-    margin: -10px -20%;
-    transform: scale(0.28);
-    font-size: 3vmin;
-}
+
+/* Fireplace */
 
 #Vial .inspectButton {
     position: absolute;
     top: 68%;
     left: 3%;
-
 }
 
 #Photo1 .inspectButton {
@@ -123,6 +236,9 @@ button {
     left: 15%;
 }
 
+
+/* Kitchen */
+
 #Tea .inspectButton {
     position: absolute;
     top: 88%;
@@ -130,6 +246,9 @@ button {
     height: 80%;
     width: 560%;
 }
+
+
+/* Lab  */
 
 #FPS .inspectButton {
     position: absolute;
@@ -153,100 +272,4 @@ button {
     position: absolute;
     top: 71%;
     left: 0%;
-}
-
-.clueButton {
-    width: 140%;
-    height: 60%;
-    margin: -10px -20%;
-    transform: scale(0.28);
-    font-size: 3vmin;
-}
-
-#dnaCollectPipe {
-    position: absolute;
-    top: -30%;
-    left: 0%;
-}
-
-#fpsCollectPipe {
-    position: absolute;
-    top: -10%;
-    left: 0%;
-}
-
-#descriptionBookBook0 {
-    position: absolute;
-    top: -40%;
-    left: 8%;
-}
-
-#descriptionBookBook1 {
-    position: absolute;
-    top: -20%;
-    left: 8%;
-}
-
-#dnaCollectTeacup {
-    position: absolute;
-    top: -30%;
-    left: 6%;
-}
-
-#fpsCollectTeacup {
-    position: absolute;
-    top: -10%;
-    left: 6%;
-}
-
-#tlcCollectPlate {
-    position: absolute;
-    top: -30%;
-    left: -2%;
-}
-
-#fpsCollectPlate {
-    position: absolute;
-    top: -10%;
-    left: -2%;
-}
-
-#dnaCollectVial {
-    position: absolute;
-    top: -20%;
-    left: 3%;
-}
-
-#descriptionPhoto1 {
-    position: absolute;
-    top: -20%;
-    left: 1%;
-}
-
-#descriptionPhoto {
-    position: absolute;
-    top: -24%;
-    left: 2%;
-}
-
-#descriptionMask {
-    position: absolute;
-    top: -25%;
-    left: 14%;
-}
-
-#tlcCollectTea {
-    position: absolute;
-    top: -60%;
-    left: -210%;
-    height: 80%;
-    width: 560%;
-}
-
-#dnaCollectTea {
-    position: absolute;
-    top: -30%;
-    left: -210%;
-    height: 80%;
-    width: 560%;
 }

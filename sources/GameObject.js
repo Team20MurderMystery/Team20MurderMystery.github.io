@@ -44,7 +44,7 @@ class GameObject {
             newInspectButton.innerText = "Start " + this.name;
             newInspectButton.classList.add("inspectButton");
             newInspectButton.setAttribute("onClick", "javascript: runSimulation(" + this.name + ");");
-        // Create the new Game Object's inspect button
+            // Create the new Game Object's inspect button
         } else {
             newInspectButton.innerText = "Inspect";
             newInspectButton.classList.add("inspectButton");
@@ -78,23 +78,25 @@ class GameObject {
             if (this.clues[i] == "FPS") {
                 console.log(this);
                 clueButton.setAttribute("onClick", "javascript: fpsCollect('" + this.name + "');");
-            }
-            else if (this.clues[i] == "TLC") {
+                clueButton.setAttribute("id", this.clues[i] + "" + this.name + "");
+            } else if (this.clues[i] == "TLC") {
                 clueButton.setAttribute("onClick", "javascript: tlcCollect('" + this.name + "');");
-            }
-            else if (this.clues[i] == "DNA") {
+                clueButton.setAttribute("id", this.clues[i] + "" + this.name + "");
+            } else if (this.clues[i] == "DNA") {
                 clueButton.setAttribute("onClick", "javascript: dnaCollect('" + this.name + "');");
-            }
-            else {
+                clueButton.setAttribute("id", this.clues[i] + "" + this.name + "");
+            } else {
                 clueButton.setAttribute("onClick", "javascript: loadDialog('" + this.clues[i] + "');");
-            }
 
+                // thie.clues[i] = "Vial Contents" this.name = "Vial"
+                clueButton.setAttribute("id", this.clues[i][0] + "" + this.name + "");
+            }
             // specify the clue button position
             // clueButton.style.top = (this.distFromTop - (topOffset * i)) + "%";
             // clueButton.style.left = this.distFromLeft + leftOffset + "%";
 
             // place the clue button on the gameScreen
-            theScreen.appendChild(clueButton); // place the clue button near the GameObject
+            document.getElementById(this.name).appendChild(clueButton); // place the clue button near the GameObject
         }
     }
 }

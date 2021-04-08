@@ -4,7 +4,7 @@ var roomDialogActivated = [false, false, false, false, false];
 // Change from one room to another based on user selected direction
 function traverse(direction) {
     if (roomDialogActivated[1] == false && roomDialogActivated[2] == false) {
-        console.log("NO");
+        // Disable traverse buttons during opening dialog
         labButton.style.opacity = '0';
         leftButton.style.opacity = '0';
         rightButton.style.opacity = '0';
@@ -15,7 +15,7 @@ function traverse(direction) {
         document.getElementById("leftButton").disabled = true;
         document.getElementById("rightButton").disabled = true;
     } else if (roomDialogActivated[1] == true && roomDialogActivated[2] == false) {
-        console.log("NO");
+        // Enable traverse buttons after opening dialog
         labButton.style.opacity = '1';
         leftButton.style.opacity = '1';
         rightButton.style.opacity = '1';
@@ -23,16 +23,13 @@ function traverse(direction) {
         document.getElementById("leftButton").disabled = false;
         document.getElementById("rightButton").disabled = false;
     } else {
-        console.log("CLOSE");
+        // Exit the unclosed dialog when traverse button is clicked
         if (document.getElementById("dialogExitButton")) {
             document.getElementById("dialogExitButton").click();
-            // document.getElementById("dialogExitButton").click();
         }
-        // endDialog();
     }
     var nextRoomIndex = getNextRoomIndex(direction);
     loadRoom(roomList[nextRoomIndex][0], roomList[nextRoomIndex][1]);
-
 
     // Remove the simulationScreen and exitButton if traversing after opening simulation
     if (document.getElementById("simulationScreen") != null) {
@@ -41,16 +38,6 @@ function traverse(direction) {
         theScreen.removeChild(document.getElementById("simulationExitButton"));
     }
     produced = false;
-
-    // console.log("0 : " + roomDialogActivated[0]);
-    // console.log("1 : " + roomDialogActivated[1]);
-    // console.log("2 : " + roomDialogActivated[2]);
-    // console.log("3 : " + roomDialogActivated[3]);
-    // console.log("4 : " + roomDialogActivated[4]);
-    //     var dialogExitButton = document.getElementById("dialogExitButton");
-    //     dialogExitButton.click();
-    //     //     endDialog();
-    // }
 
     // Generate room introduction dialog if it hasn't been seen before
     if (roomDialogActivated[nextRoomIndex] == false) {

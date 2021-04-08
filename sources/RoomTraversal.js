@@ -5,14 +5,23 @@ var roomDialogActivated = [false, false, false, false, false];
 function traverse(direction) {
     if (roomDialogActivated[1] == false && roomDialogActivated[2] == false) {
         console.log("NO");
-        labButton.style.display = 'none';
-        leftButton.style.display = 'none';
-        rightButton.style.display = 'none';
+        labButton.style.opacity = '0';
+        leftButton.style.opacity = '0';
+        rightButton.style.opacity = '0';
+        labButton.style.transition = '2s';
+        leftButton.style.transition = '2s';
+        rightButton.style.transition = '2s';
+        document.getElementById("labButton").disabled = true;
+        document.getElementById("leftButton").disabled = true;
+        document.getElementById("rightButton").disabled = true;
     } else if (roomDialogActivated[1] == true && roomDialogActivated[2] == false) {
         console.log("NO");
-        labButton.style.display = 'inline-block';
-        leftButton.style.display = 'inline-block';
-        rightButton.style.display = 'inline-block';
+        labButton.style.opacity = '1';
+        leftButton.style.opacity = '1';
+        rightButton.style.opacity = '1';
+        document.getElementById("labButton").disabled = false;
+        document.getElementById("leftButton").disabled = false;
+        document.getElementById("rightButton").disabled = false;
     } else {
         console.log("CLOSE");
         if (document.getElementById("dialogExitButton")) {

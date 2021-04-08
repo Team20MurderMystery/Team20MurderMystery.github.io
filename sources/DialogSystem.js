@@ -24,9 +24,16 @@ function startDialog() {
     nextButton.setAttribute("onClick", "javascript: nextDialog();");
     nextButton.innerText = "Next";
 
+    preButton = document.createElement("button");
+    preButton.id = "dialogPreButton";
+    preButton.classList.add("dialogButton");
+    preButton.setAttribute("onClick", "javascript: preDialog();");
+    preButton.innerText = "Previous";
+
     dialogScreen.appendChild(exitButton);
     dialogScreen.appendChild(dialogText);
     dialogScreen.appendChild(nextButton);
+    dialogScreen.appendChild(preButton);
     gameScreen.appendChild(dialogScreen);
 }
 
@@ -53,6 +60,15 @@ function nextDialog() {
     } else {
         dialogText = document.getElementById("dialogText");
         dialogText.textContent = currentDialog[currentDialogIndex];
+    }
+}
+
+function preDialog() {
+    if (currentDialogIndex <= 1) {
+        // endDialog();
+    } else {
+        dialogText = document.getElementById("dialogText");
+        dialogText.textContent = currentDialog[--currentDialogIndex];
     }
 }
 

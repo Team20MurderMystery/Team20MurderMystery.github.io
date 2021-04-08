@@ -576,9 +576,6 @@ function producetable() {
     produced = true;
 }
 
-//var inventory = [{"teacup", "fps"}, {"cakesmudge", "tlc"}]
-//var inventory = ["teacup", "cakesmudge"]
-
 //calls when the player clicks a fps button
 function fpsCollect(objectName) {
     //checks if the sample has already been added
@@ -588,16 +585,13 @@ function fpsCollect(objectName) {
         fpsInventory.push(objectName);
         var newImage = document.createElement("img");
         newImage.src = "imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_yellow.png";
-        console.log("imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_blue.png")
         newImage.width = "80";
         newImage.height = "70";
         document.getElementById("invScreen").appendChild(newImage);
         collectDialog("fingerprint sample", objectName);
-        //alert("You have collected the fingerprint sample from the " + objectName.toLowerCase(objectName));
     } else {
         //already have the item
         loadDialog("AlreadyCollected");
-        //alert("You have already collected the fingerprint samples from the " + objectName.toLowerCase(objectName));
     }
 }
 
@@ -608,16 +602,13 @@ function tlcCollect(objectName) {
         tlcInventory.push(objectName);
         var newImage = document.createElement("img");
         newImage.src = "imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_blue.png";
-        console.log("imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_blue.png")
         newImage.width = "80";
         newImage.height = "70";
         document.getElementById("invScreen").appendChild(newImage);
         collectDialog("Thin Layer Chromatography sample", objectName);
-        //alert("You have collected the Thin Layer Chromatography sample from the " + objectName.toLowerCase(objectName));
     } else {
         //already have the item
         loadDialog("AlreadyCollected");
-        //alert("You have already collected the Thin Layer Chromatography samples from the " + objectName.toLowerCase(objectName));
     }
 }
 
@@ -625,23 +616,20 @@ function tlcCollect(objectName) {
 function dnaCollect(objectName) {
     if (!inventory.includes(objectName.toLowerCase(objectName) + "_dna")) {
         inventory.push(objectName.toLowerCase(objectName) + "_dna");
-        dnaInventory.push(objectName);
         blastInventory.push(objectName);
+        dnaInventory.push(objectName);
         var newImage = document.createElement("img");
-        newImage.src = "imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_red.png";
-        console.log("imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_blue.png")
+        if (objectName.toLowerCase(objectName) == "teacup"){
+          newImage.src = "imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_red_green.png";
+        } else {
+          newImage.src = "imgs/1_ProfessorLogan/inventory/" + objectName.toLowerCase(objectName) + "_green.png";
+        }
         newImage.width = "80";
         newImage.height = "70";
         document.getElementById("invScreen").appendChild(newImage);
         collectDialog("DNA sample", objectName);
-        //alert("You have collected the dna sample from the " + objectName.toLowerCase(objectName));
     } else {
         //already have the item
         loadDialog("AlreadyCollected");
-        //alert("You have already collected the dna sample from the " + objectName.toLowerCase(objectName));
     }
-}
-
-function updateInv() {
-    theScreen = document.getElementById("invScreen");
 }

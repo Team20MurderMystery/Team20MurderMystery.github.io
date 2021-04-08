@@ -46,6 +46,8 @@ function loadDialog(nameOfObject) {
         }
     }
     nextDialog();
+    dialogPreButton.style.opacity = '0';
+    document.getElementById("dialogPreButton").disabled = true;
 }
 
 function collectDialog(evidenceType, nameOfObject) {
@@ -55,20 +57,32 @@ function collectDialog(evidenceType, nameOfObject) {
 }
 
 function nextDialog() {
+    dialogPreButton.style.opacity = '1';
+    document.getElementById("dialogPreButton").disabled = false;
     if (++currentDialogIndex >= currentDialog.length) {
-        endDialog();
+        // endDialog();
     } else {
         dialogText = document.getElementById("dialogText");
         dialogText.textContent = currentDialog[currentDialogIndex];
+        if (currentDialogIndex + 1 == currentDialog.length) {
+            dialogNextButton.style.opacity = '0';
+            document.getElementById("dialogNextButton").disabled = true;
+        }
     }
 }
 
 function preDialog() {
+    dialogNextButton.style.opacity = '1';
+    document.getElementById("dialogNextButton").disabled = false;
     if (currentDialogIndex <= 1) {
-        // endDialog();
+
     } else {
         dialogText = document.getElementById("dialogText");
         dialogText.textContent = currentDialog[--currentDialogIndex];
+        if (currentDialogIndex <= 1) {
+            dialogPreButton.style.opacity = '0';
+            document.getElementById("dialogPreButton").disabled = true;
+        }
     }
 }
 
